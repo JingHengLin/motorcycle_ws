@@ -294,7 +294,7 @@ roscpp_generate_messages_py: cmake_check_build_system
 
 # fast build rule for target.
 roscpp_generate_messages_py/fast:
-	$(MAKE) -f motorcycle_gz/CMakeFiles/roscpp_generate_messages_py.dir/build.make motorcycle_gz/CMakeFiles/roscpp_generate_messages_py.dir/build
+	$(MAKE) -f motorcycle_control/CMakeFiles/roscpp_generate_messages_py.dir/build.make motorcycle_control/CMakeFiles/roscpp_generate_messages_py.dir/build
 .PHONY : roscpp_generate_messages_py/fast
 
 #=============================================================================
@@ -307,7 +307,7 @@ roscpp_generate_messages_eus: cmake_check_build_system
 
 # fast build rule for target.
 roscpp_generate_messages_eus/fast:
-	$(MAKE) -f motorcycle_gz/CMakeFiles/roscpp_generate_messages_eus.dir/build.make motorcycle_gz/CMakeFiles/roscpp_generate_messages_eus.dir/build
+	$(MAKE) -f motorcycle_control/CMakeFiles/roscpp_generate_messages_eus.dir/build.make motorcycle_control/CMakeFiles/roscpp_generate_messages_eus.dir/build
 .PHONY : roscpp_generate_messages_eus/fast
 
 #=============================================================================
@@ -320,7 +320,7 @@ roscpp_generate_messages_lisp: cmake_check_build_system
 
 # fast build rule for target.
 roscpp_generate_messages_lisp/fast:
-	$(MAKE) -f motorcycle_gz/CMakeFiles/roscpp_generate_messages_lisp.dir/build.make motorcycle_gz/CMakeFiles/roscpp_generate_messages_lisp.dir/build
+	$(MAKE) -f motorcycle_control/CMakeFiles/roscpp_generate_messages_lisp.dir/build.make motorcycle_control/CMakeFiles/roscpp_generate_messages_lisp.dir/build
 .PHONY : roscpp_generate_messages_lisp/fast
 
 #=============================================================================
@@ -333,7 +333,7 @@ roscpp_generate_messages_cpp: cmake_check_build_system
 
 # fast build rule for target.
 roscpp_generate_messages_cpp/fast:
-	$(MAKE) -f motorcycle_gz/CMakeFiles/roscpp_generate_messages_cpp.dir/build.make motorcycle_gz/CMakeFiles/roscpp_generate_messages_cpp.dir/build
+	$(MAKE) -f motorcycle_control/CMakeFiles/roscpp_generate_messages_cpp.dir/build.make motorcycle_control/CMakeFiles/roscpp_generate_messages_cpp.dir/build
 .PHONY : roscpp_generate_messages_cpp/fast
 
 #=============================================================================
@@ -346,7 +346,7 @@ _catkin_empty_exported_target: cmake_check_build_system
 
 # fast build rule for target.
 _catkin_empty_exported_target/fast:
-	$(MAKE) -f motorcycle_gz/CMakeFiles/_catkin_empty_exported_target.dir/build.make motorcycle_gz/CMakeFiles/_catkin_empty_exported_target.dir/build
+	$(MAKE) -f motorcycle_control/CMakeFiles/_catkin_empty_exported_target.dir/build.make motorcycle_control/CMakeFiles/_catkin_empty_exported_target.dir/build
 .PHONY : _catkin_empty_exported_target/fast
 
 #=============================================================================
@@ -359,7 +359,7 @@ rosgraph_msgs_generate_messages_cpp: cmake_check_build_system
 
 # fast build rule for target.
 rosgraph_msgs_generate_messages_cpp/fast:
-	$(MAKE) -f motorcycle_gz/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make motorcycle_gz/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build
+	$(MAKE) -f motorcycle_control/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make motorcycle_control/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build
 .PHONY : rosgraph_msgs_generate_messages_cpp/fast
 
 #=============================================================================
@@ -372,7 +372,7 @@ std_msgs_generate_messages_lisp: cmake_check_build_system
 
 # fast build rule for target.
 std_msgs_generate_messages_lisp/fast:
-	$(MAKE) -f motorcycle_gz/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make motorcycle_gz/CMakeFiles/std_msgs_generate_messages_lisp.dir/build
+	$(MAKE) -f motorcycle_control/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make motorcycle_control/CMakeFiles/std_msgs_generate_messages_lisp.dir/build
 .PHONY : std_msgs_generate_messages_lisp/fast
 
 #=============================================================================
@@ -385,7 +385,7 @@ rosgraph_msgs_generate_messages_eus: cmake_check_build_system
 
 # fast build rule for target.
 rosgraph_msgs_generate_messages_eus/fast:
-	$(MAKE) -f motorcycle_gz/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build.make motorcycle_gz/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build
+	$(MAKE) -f motorcycle_control/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build.make motorcycle_control/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build
 .PHONY : rosgraph_msgs_generate_messages_eus/fast
 
 #=============================================================================
@@ -398,7 +398,7 @@ rosgraph_msgs_generate_messages_lisp: cmake_check_build_system
 
 # fast build rule for target.
 rosgraph_msgs_generate_messages_lisp/fast:
-	$(MAKE) -f motorcycle_gz/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build.make motorcycle_gz/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build
+	$(MAKE) -f motorcycle_control/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build.make motorcycle_control/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build
 .PHONY : rosgraph_msgs_generate_messages_lisp/fast
 
 #=============================================================================
@@ -411,7 +411,7 @@ std_msgs_generate_messages_eus: cmake_check_build_system
 
 # fast build rule for target.
 std_msgs_generate_messages_eus/fast:
-	$(MAKE) -f motorcycle_gz/CMakeFiles/std_msgs_generate_messages_eus.dir/build.make motorcycle_gz/CMakeFiles/std_msgs_generate_messages_eus.dir/build
+	$(MAKE) -f motorcycle_control/CMakeFiles/std_msgs_generate_messages_eus.dir/build.make motorcycle_control/CMakeFiles/std_msgs_generate_messages_eus.dir/build
 .PHONY : std_msgs_generate_messages_eus/fast
 
 #=============================================================================
@@ -424,7 +424,7 @@ rosgraph_msgs_generate_messages_nodejs: cmake_check_build_system
 
 # fast build rule for target.
 rosgraph_msgs_generate_messages_nodejs/fast:
-	$(MAKE) -f motorcycle_gz/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build.make motorcycle_gz/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build
+	$(MAKE) -f motorcycle_control/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build.make motorcycle_control/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build
 .PHONY : rosgraph_msgs_generate_messages_nodejs/fast
 
 #=============================================================================
@@ -437,7 +437,7 @@ rosgraph_msgs_generate_messages_py: cmake_check_build_system
 
 # fast build rule for target.
 rosgraph_msgs_generate_messages_py/fast:
-	$(MAKE) -f motorcycle_gz/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make motorcycle_gz/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build
+	$(MAKE) -f motorcycle_control/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make motorcycle_control/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build
 .PHONY : rosgraph_msgs_generate_messages_py/fast
 
 #=============================================================================
@@ -450,7 +450,7 @@ std_msgs_generate_messages_cpp: cmake_check_build_system
 
 # fast build rule for target.
 std_msgs_generate_messages_cpp/fast:
-	$(MAKE) -f motorcycle_gz/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make motorcycle_gz/CMakeFiles/std_msgs_generate_messages_cpp.dir/build
+	$(MAKE) -f motorcycle_control/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make motorcycle_control/CMakeFiles/std_msgs_generate_messages_cpp.dir/build
 .PHONY : std_msgs_generate_messages_cpp/fast
 
 #=============================================================================
@@ -463,7 +463,7 @@ std_msgs_generate_messages_nodejs: cmake_check_build_system
 
 # fast build rule for target.
 std_msgs_generate_messages_nodejs/fast:
-	$(MAKE) -f motorcycle_gz/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build.make motorcycle_gz/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build
+	$(MAKE) -f motorcycle_control/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build.make motorcycle_control/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build
 .PHONY : std_msgs_generate_messages_nodejs/fast
 
 #=============================================================================
@@ -476,7 +476,7 @@ roscpp_generate_messages_nodejs: cmake_check_build_system
 
 # fast build rule for target.
 roscpp_generate_messages_nodejs/fast:
-	$(MAKE) -f motorcycle_gz/CMakeFiles/roscpp_generate_messages_nodejs.dir/build.make motorcycle_gz/CMakeFiles/roscpp_generate_messages_nodejs.dir/build
+	$(MAKE) -f motorcycle_control/CMakeFiles/roscpp_generate_messages_nodejs.dir/build.make motorcycle_control/CMakeFiles/roscpp_generate_messages_nodejs.dir/build
 .PHONY : roscpp_generate_messages_nodejs/fast
 
 #=============================================================================
@@ -489,8 +489,21 @@ std_msgs_generate_messages_py: cmake_check_build_system
 
 # fast build rule for target.
 std_msgs_generate_messages_py/fast:
-	$(MAKE) -f motorcycle_gz/CMakeFiles/std_msgs_generate_messages_py.dir/build.make motorcycle_gz/CMakeFiles/std_msgs_generate_messages_py.dir/build
+	$(MAKE) -f motorcycle_control/CMakeFiles/std_msgs_generate_messages_py.dir/build.make motorcycle_control/CMakeFiles/std_msgs_generate_messages_py.dir/build
 .PHONY : std_msgs_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named motorcycle
+
+# Build rule for target.
+motorcycle: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 motorcycle
+.PHONY : motorcycle
+
+# fast build rule for target.
+motorcycle/fast:
+	$(MAKE) -f motorcycle_gz/CMakeFiles/motorcycle.dir/build.make motorcycle_gz/CMakeFiles/motorcycle.dir/build
+.PHONY : motorcycle/fast
 
 # Help Target
 help:
@@ -530,6 +543,7 @@ help:
 	@echo "... std_msgs_generate_messages_nodejs"
 	@echo "... roscpp_generate_messages_nodejs"
 	@echo "... std_msgs_generate_messages_py"
+	@echo "... motorcycle"
 .PHONY : help
 
 

@@ -5,5 +5,6 @@
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.
 subdirs("gtest")
+subdirs("motorcycle_control")
 subdirs("motorcycle_gz")
 subdirs("motorcycle_description")

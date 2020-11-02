@@ -1,0 +1,16 @@
+motorcycle:
+  # Publish all joint states -----------------------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50  
+  
+  # Velocity Controllers ---------------------------------------
+  wheel_front_joint_velocity_controller:
+    type: effort_controllers/JointVelocityController
+    joint: wheel_front_joint
+    pid: {p: 50.0, i: 0.1, d: 0.0}
+  wheel_back_joint_velocity_controller:
+    type: effort_controllers/JointVelocityController
+    joint: wheel_back_joint
+    pid: {p: 50.0, i: 0.1, d: 0.0}
+ 
