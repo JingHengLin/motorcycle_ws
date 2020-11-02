@@ -1,0 +1,8 @@
+prefix=/home/iclab/motorcycle_ws/install
+
+Name: motorcycle_gz
+Description: Description of motorcycle_gz
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

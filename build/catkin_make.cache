@@ -1,0 +1,2 @@
+motorcycle_description:motorcycle_gz
+-DCATKIN_DEVEL_PREFIX=/home/iclab/motorcycle_ws/devel -DCMAKE_INSTALL_PREFIX=/home/iclab/motorcycle_ws/install -G Unix Makefiles
