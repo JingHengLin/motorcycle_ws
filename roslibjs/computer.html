@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Computer</title>
+    <style type="text/css">
+        body {
+            background-color: lightblue;
+            border: 10px #FFF dashed;
+            margin-top: 10px;
+            padding-top: 10px;
+        }
+
+        Button {
+            background: #FF0;
+            margin: 0 auto
+        }
+    </style>
+</head>
+
+<body>
+    <script type="text/javascript" src="./js/roslib/eventemitter2.min.js"></script>
+    <script type="text/javascript" src="./js/roslib/roslib.min.js"></script>
+    <script src="./jquery-ui-1.11.4/jquery-1.4.1.js"></script>
+    <script type="text/javascript">
+        var ros = new ROSLIB.Ros({
+            url: 'ws://localhost:9090'
+        });
+        ros.on('connection', function () {
+            console.log('Connection made!');
+            document.getElementById('connected').style.display = 'inline';
+        });
+        ros.on('error', function (error) {
+            console.log('Error connecting to websocket server: ', error);
+        });
+        ros.on('close', function () {
+            console.log('Connection to websocket server closed.');
+        });
+        var Input_Topic = new ROSLIB.Topic({
+            ros: ros,
+            name: '/web/inputdata',
+            messageType: 'example/input'
+        });
+        var inputcmd = new ROSLIB.Message({
+            x: 0,
+            y: 0
+        });
+        // var Output_Topic = new ROSLIB.Topic({
+        //     ros: ros,
+        //     name: '/web/outputdata',
+        //     messageType: 'example/output'
+        // });
+        // Output_Topic.subscribe(function (msg) {
+        //     document.getElementById("Ansvalue").value = msg.answer;
+        //     console.log("ans=", msg.answer);
+        // });
+        var Xvaluetmp = 0;
+        var Yvaluetmp = 0;
+        function Generate() {
+            inputcmd.x = Number(Xvaluetmp);
+            inputcmd.y = Number(Yvaluetmp);
+            Input_Topic.publish(inputcmd);
+        }
+        function changeXvalue(value) {
+            Xvaluetmp = value;
+            document.getElementById("Xvalue").value = Xvaluetmp;
+        }
+        function changeYvalue(value) {
+            Yvaluetmp = value;
+            document.getElementById("Yvalue").value = Yvaluetmp;
+        }
+    </script>
+    <p id="connected" style="color:#00D600;display:none">
+        Connected
+    </p>
+    <div align="center">
+        <h1 style="color:rgb(0,0,0);background-color:rgb(255,255,255);font-family:Arial,Tahoma">Computer</h1>
+        <form>
+            X&nbsp=&nbsp<input type="text" id="Xvalue" name="Xvalue" value="0" onchange="changeXvalue(this.value)"><br>
+            Y&nbsp=&nbsp<input type="text" id="Yvalue" name="Yvalue" value="0" onchange="changeYvalue(this.value)"><br>
+            X&nbsp+&nbspY&nbsp=&nbsp<input type="test" name="Ansvalue" id="Ansvalue" value="0"><br>
+            <button type="button" style="width:121px;height:40px" onclick="Generate()">Generate
+            </button>
+        </form>
+    </div>
+</body>
+
+</html>

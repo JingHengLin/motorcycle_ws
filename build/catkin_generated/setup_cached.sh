@@ -8,3 +8,4 @@
 
 # modified environment variables
 export PWD='/home/iclab/motorcycle_ws/build'
+export PYTHONPATH="/home/iclab/motorcycle_ws/devel/lib/python2.7/dist-packages:$PYTHONPATH"
