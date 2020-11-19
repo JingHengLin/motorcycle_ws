@@ -30,6 +30,8 @@ int main(int argc, char** argv)
 	ros::init(argc, argv, "motorcycle");
 	ros::NodeHandle nh;
 	ros::Subscriber Input_subscribe;
+	ros::Rate loop_rate(1);
+
 	Input_subscribe = nh.subscribe("/web/inputdata", 1000, GetInputValue);
 
 	wheel_front_pub = nh.advertise<std_msgs::Float64>("/motorcycle/wheel_front_joint_velocity_controller/command", 10);
@@ -49,12 +51,11 @@ int main(int argc, char** argv)
 
         front_wheel = web_x;
 		back_wheel = web_y;
-		ROS_INFO("front_wheel test 1 = %d", web_x);
+		ROS_INFO("back_wheel test = %d", web_y);
 		set_velocity( front_wheel, back_wheel);
-        ROS_INFO("front_wheel test 2 = %d", web_x);
-
+        
+		loop_rate.sleep();
         ros::spinOnce();
     }
-	
 	return 0;
 }
