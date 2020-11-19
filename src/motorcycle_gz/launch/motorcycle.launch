@@ -1,3 +1,4 @@
 <launch>
 	<node name="motorcycle" pkg="motorcycle_gz" type="motorcycle" output="screen"/>
+	<node name="loadparameter" pkg="motorcycle_gz" type="loadparameter" output="screen"/>
 </launch>

@@ -90,17 +90,6 @@ list_install_components/fast: list_install_components
 
 .PHONY : list_install_components/fast
 
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-
-.PHONY : test/fast
-
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -111,6 +100,17 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
+
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
 
 # Special rule for the target install/local
 install/local: preinstall
@@ -243,6 +243,21 @@ motorcycle_gz_generate_messages/fast:
 .PHONY : motorcycle_gz_generate_messages/fast
 
 # Convenience name for target.
+motorcycle_gz/CMakeFiles/loadparameter.dir/rule:
+	cd /home/iclab/motorcycle_ws/build && $(MAKE) -f CMakeFiles/Makefile2 motorcycle_gz/CMakeFiles/loadparameter.dir/rule
+.PHONY : motorcycle_gz/CMakeFiles/loadparameter.dir/rule
+
+# Convenience name for target.
+loadparameter: motorcycle_gz/CMakeFiles/loadparameter.dir/rule
+
+.PHONY : loadparameter
+
+# fast build rule for target.
+loadparameter/fast:
+	cd /home/iclab/motorcycle_ws/build && $(MAKE) -f motorcycle_gz/CMakeFiles/loadparameter.dir/build.make motorcycle_gz/CMakeFiles/loadparameter.dir/build
+.PHONY : loadparameter/fast
+
+# Convenience name for target.
 motorcycle_gz/CMakeFiles/motorcycle_gz_generate_messages_lisp.dir/rule:
 	cd /home/iclab/motorcycle_ws/build && $(MAKE) -f CMakeFiles/Makefile2 motorcycle_gz/CMakeFiles/motorcycle_gz_generate_messages_lisp.dir/rule
 .PHONY : motorcycle_gz/CMakeFiles/motorcycle_gz_generate_messages_lisp.dir/rule
@@ -362,6 +377,33 @@ motorcycle_gz_genpy/fast:
 	cd /home/iclab/motorcycle_ws/build && $(MAKE) -f motorcycle_gz/CMakeFiles/motorcycle_gz_genpy.dir/build.make motorcycle_gz/CMakeFiles/motorcycle_gz_genpy.dir/build
 .PHONY : motorcycle_gz_genpy/fast
 
+src/loadparameter.o: src/loadparameter.cpp.o
+
+.PHONY : src/loadparameter.o
+
+# target to build an object file
+src/loadparameter.cpp.o:
+	cd /home/iclab/motorcycle_ws/build && $(MAKE) -f motorcycle_gz/CMakeFiles/loadparameter.dir/build.make motorcycle_gz/CMakeFiles/loadparameter.dir/src/loadparameter.cpp.o
+.PHONY : src/loadparameter.cpp.o
+
+src/loadparameter.i: src/loadparameter.cpp.i
+
+.PHONY : src/loadparameter.i
+
+# target to preprocess a source file
+src/loadparameter.cpp.i:
+	cd /home/iclab/motorcycle_ws/build && $(MAKE) -f motorcycle_gz/CMakeFiles/loadparameter.dir/build.make motorcycle_gz/CMakeFiles/loadparameter.dir/src/loadparameter.cpp.i
+.PHONY : src/loadparameter.cpp.i
+
+src/loadparameter.s: src/loadparameter.cpp.s
+
+.PHONY : src/loadparameter.s
+
+# target to generate assembly for a file
+src/loadparameter.cpp.s:
+	cd /home/iclab/motorcycle_ws/build && $(MAKE) -f motorcycle_gz/CMakeFiles/loadparameter.dir/build.make motorcycle_gz/CMakeFiles/loadparameter.dir/src/loadparameter.cpp.s
+.PHONY : src/loadparameter.cpp.s
+
 src/motorcycle.o: src/motorcycle.cpp.o
 
 .PHONY : src/motorcycle.o
@@ -398,14 +440,15 @@ help:
 	@echo "... install/strip"
 	@echo "... install"
 	@echo "... list_install_components"
+	@echo "... rebuild_cache"
 	@echo "... test"
 	@echo "... motorcycle_gz_gencpp"
 	@echo "... motorcycle_gz_generate_messages_cpp"
 	@echo "... motorcycle_gz_gennodejs"
 	@echo "... motorcycle_gz_geneus"
 	@echo "... motorcycle_gz_generate_messages"
-	@echo "... rebuild_cache"
 	@echo "... install/local"
+	@echo "... loadparameter"
 	@echo "... motorcycle_gz_generate_messages_lisp"
 	@echo "... motorcycle_gz_genlisp"
 	@echo "... motorcycle_gz_generate_messages_nodejs"
@@ -415,6 +458,9 @@ help:
 	@echo "... motorcycle"
 	@echo "... motorcycle_gz_genpy"
 	@echo "... edit_cache"
+	@echo "... src/loadparameter.o"
+	@echo "... src/loadparameter.i"
+	@echo "... src/loadparameter.s"
 	@echo "... src/motorcycle.o"
 	@echo "... src/motorcycle.i"
 	@echo "... src/motorcycle.s"

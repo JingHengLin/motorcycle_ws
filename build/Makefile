@@ -558,6 +558,19 @@ motorcycle_gz_generate_messages/fast:
 .PHONY : motorcycle_gz_generate_messages/fast
 
 #=============================================================================
+# Target rules for targets named loadparameter
+
+# Build rule for target.
+loadparameter: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 loadparameter
+.PHONY : loadparameter
+
+# fast build rule for target.
+loadparameter/fast:
+	$(MAKE) -f motorcycle_gz/CMakeFiles/loadparameter.dir/build.make motorcycle_gz/CMakeFiles/loadparameter.dir/build
+.PHONY : loadparameter/fast
+
+#=============================================================================
 # Target rules for targets named motorcycle_gz_generate_messages_lisp
 
 # Build rule for target.
@@ -704,6 +717,7 @@ help:
 	@echo "... motorcycle_gz_gennodejs"
 	@echo "... motorcycle_gz_geneus"
 	@echo "... motorcycle_gz_generate_messages"
+	@echo "... loadparameter"
 	@echo "... motorcycle_gz_generate_messages_lisp"
 	@echo "... motorcycle_gz_genlisp"
 	@echo "... motorcycle_gz_generate_messages_nodejs"

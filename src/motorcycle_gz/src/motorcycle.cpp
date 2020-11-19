@@ -7,13 +7,14 @@
 // ros::Publisher wheel_front_pub;
 ros::Publisher wheel_back_pub;
 
-// int web_x;
-int web_y;
+// int input_x;
+int input_y;
 
 void GetInputValue(const motorcycle_gz::input &msg)
 {
-    // web_x = msg.x;
-    web_y = msg.y;
+    // input_x = msg.x;
+	ROS_INFO("12312313");
+    input_y = msg.y;
 }
 
 // void set_velocity(float front_wheel, float back_wheel)
@@ -36,13 +37,12 @@ int main(int argc, char** argv)
 	ros::init(argc, argv, "motorcycle");
 	ros::NodeHandle nh;
 	ros::Subscriber Input_subscribe;
-	ros::Rate loop_rate(1);
+	ros::Rate loop_rate(30);
+	// Input_subscribe = nh.subscribe("/web/inputdata", 1000, GetInputValue);
+	Input_subscribe = nh.subscribe("/loadparameter/inputdata", 1000, GetInputValue);
 
-	Input_subscribe = nh.subscribe("/web/inputdata", 1000, GetInputValue);
-	// Input_subscribe = nh.subscribe("/inputdata", 1000, GetInputValue);
-
-	// wheel_front_pub = nh.advertise<std_msgs::Float64>("/motorcycle/wheel_front_joint_velocity_controller/command", 10);
-	wheel_back_pub = nh.advertise<std_msgs::Float64>("/motorcycle/wheel_back_joint_velocity_controller/command", 10);
+	// wheel_front_pub = nh.advertise<std_msgs::Float64>("/motorcycle/wheel_front_joint_velocity_controller/command", 1000);
+	wheel_back_pub = nh.advertise<std_msgs::Float64>("/motorcycle/wheel_back_joint_velocity_controller/command", 1000);
 
 
 	// float front_wheel = 0;
@@ -55,14 +55,13 @@ int main(int argc, char** argv)
 
 	while (nh.ok())
     {
-
-        // front_wheel = web_x;
-		back_wheel = web_y;
-		ROS_INFO("back_wheel test = %d", web_y);
+		ros::spinOnce();
+        // front_wheel = input_x;
+		back_wheel = input_y;
+		ROS_INFO("back_wheel test = %d", input_y);
 		// set_velocity( front_wheel, back_wheel);
         set_velocity(back_wheel);
 		loop_rate.sleep();
-        ros::spinOnce();
     }
 	return 0;
 }
