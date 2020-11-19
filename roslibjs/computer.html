@@ -42,7 +42,7 @@
             messageType: 'motorcycle_gz/input'
         });
         var inputcmd = new ROSLIB.Message({
-            x: 0,
+            // x: 0,
             y: 0
         });
         // var Output_Topic = new ROSLIB.Topic({
@@ -54,17 +54,17 @@
         //     document.getElementById("Ansvalue").value = msg.answer;
         //     console.log("ans=", msg.answer);
         // });
-        var Xvaluetmp = 0;
+        // var Xvaluetmp = 0;
         var Yvaluetmp = 0;
         function Generate() {
-            inputcmd.x = Number(Xvaluetmp);
+            // inputcmd.x = Number(Xvaluetmp);
             inputcmd.y = Number(Yvaluetmp);
             Input_Topic.publish(inputcmd);
         }
-        function changeXvalue(value) {
-            Xvaluetmp = value;
-            document.getElementById("Xvalue").value = Xvaluetmp;
-        }
+        // function changeXvalue(value) {
+        //     Xvaluetmp = value;
+        //     document.getElementById("Xvalue").value = Xvaluetmp;
+        // }
         function changeYvalue(value) {
             Yvaluetmp = value;
             document.getElementById("Yvalue").value = Yvaluetmp;
@@ -76,7 +76,7 @@
     <div align="center">
         <h1 style="color:rgb(0,0,0);background-color:rgb(255,255,255);font-family:Arial,Tahoma">Web Control Motorcycle in Gazebo</h1>
         <form>
-            Front Wheel Velocity&nbsp=&nbsp<input type="text" id="Xvalue" name="Xvalue" value="0" onchange="changeXvalue(this.value)"><br>
+            <!-- Front Wheel Velocity&nbsp=&nbsp<input type="text" id="Xvalue" name="Xvalue" value="0" onchange="changeXvalue(this.value)"><br> -->
             Back Wheel Velocity&nbsp=&nbsp<input type="text" id="Yvalue" name="Yvalue" value="0" onchange="changeYvalue(this.value)"><br>
             <!-- X&nbsp+&nbspY&nbsp=&nbsp<input type="test" name="Ansvalue" id="Ansvalue" value="0"><br> -->
             <button type="button" style="width:121px;height:40px" onclick="Generate()">Generate

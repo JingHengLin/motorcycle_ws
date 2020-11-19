@@ -1,6 +1,4 @@
 (cl:in-package motorcycle_gz-msg)
-(cl:export '(X-VAL
-          X
-          Y-VAL
+(cl:export '(Y-VAL
           Y
 ))

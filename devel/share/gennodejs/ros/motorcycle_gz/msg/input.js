@@ -18,16 +18,9 @@ class input {
   constructor(initObj={}) {
     if (initObj === null) {
       // initObj === null is a special case for deserialization where we don't initialize fields
-      this.x = null;
       this.y = null;
     }
     else {
-      if (initObj.hasOwnProperty('x')) {
-        this.x = initObj.x
-      }
-      else {
-        this.x = 0;
-      }
       if (initObj.hasOwnProperty('y')) {
         this.y = initObj.y
       }
@@ -39,8 +32,6 @@ class input {
 
   static serialize(obj, buffer, bufferOffset) {
     // Serializes a message object of type input
-    // Serialize message field [x]
-    bufferOffset = _serializer.int32(obj.x, buffer, bufferOffset);
     // Serialize message field [y]
     bufferOffset = _serializer.int32(obj.y, buffer, bufferOffset);
     return bufferOffset;
@@ -50,15 +41,13 @@ class input {
     //deserializes a message object of type input
     let len;
     let data = new input(null);
-    // Deserialize message field [x]
-    data.x = _deserializer.int32(buffer, bufferOffset);
     // Deserialize message field [y]
     data.y = _deserializer.int32(buffer, bufferOffset);
     return data;
   }
 
   static getMessageSize(object) {
-    return 8;
+    return 4;
   }
 
   static datatype() {
@@ -68,13 +57,12 @@ class input {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return 'bd7b43fd41d4c47bf5c703cc7d016709';
+    return '48a1903b27e436ce72db71499e9e0169';
   }
 
   static messageDefinition() {
     // Returns full string definition for message
     return `
-    int32 x
     int32 y
     
     `;
@@ -86,13 +74,6 @@ class input {
       msg = {};
     }
     const resolved = new input(null);
-    if (msg.x !== undefined) {
-      resolved.x = msg.x;
-    }
-    else {
-      resolved.x = 0
-    }
-
     if (msg.y !== undefined) {
       resolved.y = msg.y;
     }
