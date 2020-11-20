@@ -24,17 +24,22 @@ struct input_
   typedef input_<ContainerAllocator> Type;
 
   input_()
-    : y(0)  {
+    : v(0)
+    , t(0)  {
     }
   input_(const ContainerAllocator& _alloc)
-    : y(0)  {
+    : v(0)
+    , t(0)  {
   (void)_alloc;
     }
 
 
 
-   typedef int32_t _y_type;
-  _y_type y;
+   typedef int32_t _v_type;
+  _v_type v;
+
+   typedef int32_t _t_type;
+  _t_type t;
 
 
 
@@ -65,7 +70,8 @@ return s;
 template<typename ContainerAllocator1, typename ContainerAllocator2>
 bool operator==(const ::motorcycle_gz::input_<ContainerAllocator1> & lhs, const ::motorcycle_gz::input_<ContainerAllocator2> & rhs)
 {
-  return lhs.y == rhs.y;
+  return lhs.v == rhs.v &&
+    lhs.t == rhs.t;
 }
 
 template<typename ContainerAllocator1, typename ContainerAllocator2>
@@ -122,12 +128,12 @@ struct MD5Sum< ::motorcycle_gz::input_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "48a1903b27e436ce72db71499e9e0169";
+    return "8f20aea9a85b7f60df8ca357388922ad";
   }
 
   static const char* value(const ::motorcycle_gz::input_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x48a1903b27e436ceULL;
-  static const uint64_t static_value2 = 0x72db71499e9e0169ULL;
+  static const uint64_t static_value1 = 0x8f20aea9a85b7f60ULL;
+  static const uint64_t static_value2 = 0xdf8ca357388922adULL;
 };
 
 template<class ContainerAllocator>
@@ -146,7 +152,8 @@ struct Definition< ::motorcycle_gz::input_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "int32 y\n"
+    return "int32 v\n"
+"int32 t\n"
 ;
   }
 
@@ -165,7 +172,8 @@ namespace serialization
   {
     template<typename Stream, typename T> inline static void allInOne(Stream& stream, T m)
     {
-      stream.next(m.y);
+      stream.next(m.v);
+      stream.next(m.t);
     }
 
     ROS_DECLARE_ALLINONE_SERIALIZER
@@ -184,8 +192,10 @@ struct Printer< ::motorcycle_gz::input_<ContainerAllocator> >
 {
   template<typename Stream> static void stream(Stream& s, const std::string& indent, const ::motorcycle_gz::input_<ContainerAllocator>& v)
   {
-    s << indent << "y: ";
-    Printer<int32_t>::stream(s, indent + "  ", v.y);
+    s << indent << "v: ";
+    Printer<int32_t>::stream(s, indent + "  ", v.v);
+    s << indent << "t: ";
+    Printer<int32_t>::stream(s, indent + "  ", v.t);
   }
 };
 

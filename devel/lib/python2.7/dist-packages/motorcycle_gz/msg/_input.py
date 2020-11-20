@@ -8,13 +8,14 @@ import struct
 
 
 class input(genpy.Message):
-  _md5sum = "48a1903b27e436ce72db71499e9e0169"
+  _md5sum = "8f20aea9a85b7f60df8ca357388922ad"
   _type = "motorcycle_gz/input"
   _has_header = False  # flag to mark the presence of a Header object
-  _full_text = """int32 y
+  _full_text = """int32 v
+int32 t
 """
-  __slots__ = ['y']
-  _slot_types = ['int32']
+  __slots__ = ['v','t']
+  _slot_types = ['int32','int32']
 
   def __init__(self, *args, **kwds):
     """
@@ -24,7 +25,7 @@ class input(genpy.Message):
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       y
+       v,t
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -33,10 +34,13 @@ class input(genpy.Message):
     if args or kwds:
       super(input, self).__init__(*args, **kwds)
       # message fields cannot be None, assign default values for those that are
-      if self.y is None:
-        self.y = 0
+      if self.v is None:
+        self.v = 0
+      if self.t is None:
+        self.t = 0
     else:
-      self.y = 0
+      self.v = 0
+      self.t = 0
 
   def _get_types(self):
     """
@@ -50,8 +54,8 @@ class input(genpy.Message):
     :param buff: buffer, ``StringIO``
     """
     try:
-      _x = self.y
-      buff.write(_get_struct_i().pack(_x))
+      _x = self
+      buff.write(_get_struct_2i().pack(_x.v, _x.t))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -63,9 +67,10 @@ class input(genpy.Message):
     codecs.lookup_error("rosmsg").msg_type = self._type
     try:
       end = 0
+      _x = self
       start = end
-      end += 4
-      (self.y,) = _get_struct_i().unpack(str[start:end])
+      end += 8
+      (_x.v, _x.t,) = _get_struct_2i().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e)  # most likely buffer underfill
@@ -78,8 +83,8 @@ class input(genpy.Message):
     :param numpy: numpy python module
     """
     try:
-      _x = self.y
-      buff.write(_get_struct_i().pack(_x))
+      _x = self
+      buff.write(_get_struct_2i().pack(_x.v, _x.t))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -92,9 +97,10 @@ class input(genpy.Message):
     codecs.lookup_error("rosmsg").msg_type = self._type
     try:
       end = 0
+      _x = self
       start = end
-      end += 4
-      (self.y,) = _get_struct_i().unpack(str[start:end])
+      end += 8
+      (_x.v, _x.t,) = _get_struct_2i().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e)  # most likely buffer underfill
@@ -103,9 +109,9 @@ _struct_I = genpy.struct_I
 def _get_struct_I():
     global _struct_I
     return _struct_I
-_struct_i = None
-def _get_struct_i():
-    global _struct_i
-    if _struct_i is None:
-        _struct_i = struct.Struct("<i")
-    return _struct_i
+_struct_2i = None
+def _get_struct_2i():
+    global _struct_2i
+    if _struct_2i is None:
+        _struct_2i = struct.Struct("<2i")
+    return _struct_2i

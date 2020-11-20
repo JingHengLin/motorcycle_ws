@@ -1,2 +1,6 @@
 velocity = 150
-velocity = 250
+time = 1
+velocity = -250
+time = 3
+velocity = 0
+time = 1

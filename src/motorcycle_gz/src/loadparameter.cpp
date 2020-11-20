@@ -16,10 +16,16 @@
 #include "motorcycle_gz/input.h"
 using namespace std;
 
-void readvalue(string v);
+// check input
+// --------------------------
+#define parameterData 3
+// --------------------------
 string v = "velocity";
+string t = "time";
 string e = "=";
-int parameter[100]; 
+int parameter_v[100]; 
+int parameter_t[100];
+void readvalue(string v, string t);
 
 void Delay(int timedelay)
 {
@@ -34,29 +40,38 @@ void Delay(int timedelay)
     }
 }
 
-void readvalue(string v)
+void readvalue(string v, string t)
 {
 	ifstream in("/home/iclab/motorcycle_ws/src/motorcycle_gz/src/parameter.txt");
-
 	string line;
 	char buffer[100];
 	int ans = atoi(buffer);
 	int i = 0;
+	int j = 0;
 	if(in) 
 	{
 		while (getline (in, line, ' ')) 
 		{ 	
-			++i;	
 			if(line == v){
+				++i;
 				getline (in, line, ' ');
 				if(line == e){
 					getline (in, line, '\n');
 					strcpy(buffer, line.c_str());
 					ans = atoi(buffer);
-					parameter[i] = ans;
-					ROS_INFO("test 1111111");
-					ROS_INFO("test %d", parameter[i]);
-					// cout << parameter[i] << endl;
+					parameter_v[i] = ans;
+					ROS_INFO("read from data (velocity) : %d", parameter_v[i]);
+				}
+			}
+			if(line == t){
+				++j;
+				getline (in, line, ' ');
+				if(line == e){
+					getline (in, line, '\n');
+					strcpy(buffer, line.c_str());
+					ans = atoi(buffer);
+					parameter_t[j] = ans;
+					ROS_INFO("read from data (time) : %d", parameter_t[i]);
 				}
 			}
 		}
@@ -68,28 +83,26 @@ void readvalue(string v)
 }
 
 int main(int argc, char** argv){
-	int data = 2;
-	
 	ros::init(argc, argv, "loadparameter");
 	ros::NodeHandle nh;
 	ros::Publisher wheel_back_pub;
+	ros::Publisher velocity_time;
 	wheel_back_pub = nh.advertise<motorcycle_gz::input>("/loadparameter/inputdata", 1000);
-	ros::Rate loop_rate(10);
-	readvalue(v);
-	ROS_INFO("test 2222222");
-	// wheel_back_pub.publish(msg);
-	// loop_rate.sleep();
-	int i;
+	velocity_time = nh.advertise<motorcycle_gz::input>("/loadparameter/inputdata", 1000);
+	ros::Rate loop_rate(30);
+
+	readvalue(v,t);
 	Delay(500);
-	for(i=1; i<=data; i++){
+	for(int i=1; i<=parameterData; i++){
 		motorcycle_gz::input msg;
-		msg.y = parameter[i];
-		ROS_INFO("msg.y = %d", msg.y);
+		msg.v = parameter_v[i];
+		msg.t = parameter_t[i];
+		ROS_INFO("msg.v = %d", msg.v);
+		ROS_INFO("msg.t = %d", msg.t);
 		wheel_back_pub.publish(msg);
-		ROS_INFO("test 333333333");
+		velocity_time.publish(msg);
 		Delay(1000);
 		loop_rate.sleep();
-    	// ros::spinOnce();
 	}
 	return 0;
 }

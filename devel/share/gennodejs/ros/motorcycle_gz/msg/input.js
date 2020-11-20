@@ -18,22 +18,31 @@ class input {
   constructor(initObj={}) {
     if (initObj === null) {
       // initObj === null is a special case for deserialization where we don't initialize fields
-      this.y = null;
+      this.v = null;
+      this.t = null;
     }
     else {
-      if (initObj.hasOwnProperty('y')) {
-        this.y = initObj.y
+      if (initObj.hasOwnProperty('v')) {
+        this.v = initObj.v
       }
       else {
-        this.y = 0;
+        this.v = 0;
+      }
+      if (initObj.hasOwnProperty('t')) {
+        this.t = initObj.t
+      }
+      else {
+        this.t = 0;
       }
     }
   }
 
   static serialize(obj, buffer, bufferOffset) {
     // Serializes a message object of type input
-    // Serialize message field [y]
-    bufferOffset = _serializer.int32(obj.y, buffer, bufferOffset);
+    // Serialize message field [v]
+    bufferOffset = _serializer.int32(obj.v, buffer, bufferOffset);
+    // Serialize message field [t]
+    bufferOffset = _serializer.int32(obj.t, buffer, bufferOffset);
     return bufferOffset;
   }
 
@@ -41,13 +50,15 @@ class input {
     //deserializes a message object of type input
     let len;
     let data = new input(null);
-    // Deserialize message field [y]
-    data.y = _deserializer.int32(buffer, bufferOffset);
+    // Deserialize message field [v]
+    data.v = _deserializer.int32(buffer, bufferOffset);
+    // Deserialize message field [t]
+    data.t = _deserializer.int32(buffer, bufferOffset);
     return data;
   }
 
   static getMessageSize(object) {
-    return 4;
+    return 8;
   }
 
   static datatype() {
@@ -57,13 +68,14 @@ class input {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return '48a1903b27e436ce72db71499e9e0169';
+    return '8f20aea9a85b7f60df8ca357388922ad';
   }
 
   static messageDefinition() {
     // Returns full string definition for message
     return `
-    int32 y
+    int32 v
+    int32 t
     
     `;
   }
@@ -74,11 +86,18 @@ class input {
       msg = {};
     }
     const resolved = new input(null);
-    if (msg.y !== undefined) {
-      resolved.y = msg.y;
+    if (msg.v !== undefined) {
+      resolved.v = msg.v;
     }
     else {
-      resolved.y = 0
+      resolved.v = 0
+    }
+
+    if (msg.t !== undefined) {
+      resolved.t = msg.t;
+    }
+    else {
+      resolved.t = 0
     }
 
     return resolved;

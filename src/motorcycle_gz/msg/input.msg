@@ -1,1 +1,2 @@
-int32 y
+int32 v
+int32 t
