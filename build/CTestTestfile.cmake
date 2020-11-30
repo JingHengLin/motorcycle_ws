@@ -7,4 +7,4 @@
 subdirs("gtest")
 subdirs("motorcycle_control")
 subdirs("motorcycle_gz")
-subdirs("motorcycle_description")
+subdirs("motorcycle_description_direction/motorcycle_description")

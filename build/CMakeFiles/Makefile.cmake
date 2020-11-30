@@ -15,7 +15,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "catkin_generated/order_packages.cmake"
   "motorcycle_control/catkin_generated/ordered_paths.cmake"
   "motorcycle_control/catkin_generated/package.cmake"
-  "motorcycle_description/catkin_generated/package.cmake"
+  "motorcycle_description_direction/motorcycle_description/catkin_generated/package.cmake"
   "motorcycle_gz/catkin_generated/motorcycle_gz-msg-extras.cmake.develspace.in"
   "motorcycle_gz/catkin_generated/motorcycle_gz-msg-extras.cmake.installspace.in"
   "motorcycle_gz/catkin_generated/ordered_paths.cmake"
@@ -25,8 +25,8 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/home/iclab/motorcycle_ws/src/CMakeLists.txt"
   "/home/iclab/motorcycle_ws/src/motorcycle_control/CMakeLists.txt"
   "/home/iclab/motorcycle_ws/src/motorcycle_control/package.xml"
-  "/home/iclab/motorcycle_ws/src/motorcycle_description/CMakeLists.txt"
-  "/home/iclab/motorcycle_ws/src/motorcycle_description/package.xml"
+  "/home/iclab/motorcycle_ws/src/motorcycle_description_direction/motorcycle_description/CMakeLists.txt"
+  "/home/iclab/motorcycle_ws/src/motorcycle_description_direction/motorcycle_description/package.xml"
   "/home/iclab/motorcycle_ws/src/motorcycle_gz/CMakeLists.txt"
   "/home/iclab/motorcycle_ws/src/motorcycle_gz/package.xml"
   "/opt/ros/melodic/share/catkin/cmake/../package.xml"
@@ -216,7 +216,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "gtest/googlemock/gtest/CMakeFiles/CMakeDirectoryInformation.cmake"
   "motorcycle_control/CMakeFiles/CMakeDirectoryInformation.cmake"
   "motorcycle_gz/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "motorcycle_description/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "motorcycle_description_direction/motorcycle_description/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:

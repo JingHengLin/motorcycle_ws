@@ -133,7 +133,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/iclab/motorcycle_ws/build/gtest/cmake_install.cmake")
   include("/home/iclab/motorcycle_ws/build/motorcycle_control/cmake_install.cmake")
   include("/home/iclab/motorcycle_ws/build/motorcycle_gz/cmake_install.cmake")
-  include("/home/iclab/motorcycle_ws/build/motorcycle_description/cmake_install.cmake")
+  include("/home/iclab/motorcycle_ws/build/motorcycle_description_direction/motorcycle_description/cmake_install.cmake")
 
 endif()
 

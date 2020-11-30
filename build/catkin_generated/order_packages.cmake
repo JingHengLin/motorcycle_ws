@@ -13,7 +13,7 @@ list(APPEND CATKIN_ORDERED_PACKAGE_PATHS "motorcycle_gz")
 list(APPEND CATKIN_ORDERED_PACKAGES_IS_META "False")
 list(APPEND CATKIN_ORDERED_PACKAGES_BUILD_TYPE "catkin")
 list(APPEND CATKIN_ORDERED_PACKAGES "motorcycle_description")
-list(APPEND CATKIN_ORDERED_PACKAGE_PATHS "motorcycle_description")
+list(APPEND CATKIN_ORDERED_PACKAGE_PATHS "motorcycle_description_direction/motorcycle_description")
 list(APPEND CATKIN_ORDERED_PACKAGES_IS_META "False")
 list(APPEND CATKIN_ORDERED_PACKAGES_BUILD_TYPE "catkin")
 
