@@ -19,6 +19,7 @@ class input {
     if (initObj === null) {
       // initObj === null is a special case for deserialization where we don't initialize fields
       this.v = null;
+      this.d = null;
       this.t = null;
     }
     else {
@@ -27,6 +28,12 @@ class input {
       }
       else {
         this.v = 0;
+      }
+      if (initObj.hasOwnProperty('d')) {
+        this.d = initObj.d
+      }
+      else {
+        this.d = 0.0;
       }
       if (initObj.hasOwnProperty('t')) {
         this.t = initObj.t
@@ -41,6 +48,8 @@ class input {
     // Serializes a message object of type input
     // Serialize message field [v]
     bufferOffset = _serializer.int32(obj.v, buffer, bufferOffset);
+    // Serialize message field [d]
+    bufferOffset = _serializer.float64(obj.d, buffer, bufferOffset);
     // Serialize message field [t]
     bufferOffset = _serializer.int32(obj.t, buffer, bufferOffset);
     return bufferOffset;
@@ -52,13 +61,15 @@ class input {
     let data = new input(null);
     // Deserialize message field [v]
     data.v = _deserializer.int32(buffer, bufferOffset);
+    // Deserialize message field [d]
+    data.d = _deserializer.float64(buffer, bufferOffset);
     // Deserialize message field [t]
     data.t = _deserializer.int32(buffer, bufferOffset);
     return data;
   }
 
   static getMessageSize(object) {
-    return 8;
+    return 16;
   }
 
   static datatype() {
@@ -68,13 +79,14 @@ class input {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return '8f20aea9a85b7f60df8ca357388922ad';
+    return 'd20864dc5c2c2035946b751aab74d0f1';
   }
 
   static messageDefinition() {
     // Returns full string definition for message
     return `
     int32 v
+    float64 d
     int32 t
     
     `;
@@ -91,6 +103,13 @@ class input {
     }
     else {
       resolved.v = 0
+    }
+
+    if (msg.d !== undefined) {
+      resolved.d = msg.d;
+    }
+    else {
+      resolved.d = 0.0
     }
 
     if (msg.t !== undefined) {

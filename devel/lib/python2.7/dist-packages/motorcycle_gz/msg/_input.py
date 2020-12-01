@@ -8,14 +8,15 @@ import struct
 
 
 class input(genpy.Message):
-  _md5sum = "8f20aea9a85b7f60df8ca357388922ad"
+  _md5sum = "d20864dc5c2c2035946b751aab74d0f1"
   _type = "motorcycle_gz/input"
   _has_header = False  # flag to mark the presence of a Header object
   _full_text = """int32 v
+float64 d
 int32 t
 """
-  __slots__ = ['v','t']
-  _slot_types = ['int32','int32']
+  __slots__ = ['v','d','t']
+  _slot_types = ['int32','float64','int32']
 
   def __init__(self, *args, **kwds):
     """
@@ -25,7 +26,7 @@ int32 t
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       v,t
+       v,d,t
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -36,10 +37,13 @@ int32 t
       # message fields cannot be None, assign default values for those that are
       if self.v is None:
         self.v = 0
+      if self.d is None:
+        self.d = 0.
       if self.t is None:
         self.t = 0
     else:
       self.v = 0
+      self.d = 0.
       self.t = 0
 
   def _get_types(self):
@@ -55,7 +59,7 @@ int32 t
     """
     try:
       _x = self
-      buff.write(_get_struct_2i().pack(_x.v, _x.t))
+      buff.write(_get_struct_idi().pack(_x.v, _x.d, _x.t))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -69,8 +73,8 @@ int32 t
       end = 0
       _x = self
       start = end
-      end += 8
-      (_x.v, _x.t,) = _get_struct_2i().unpack(str[start:end])
+      end += 16
+      (_x.v, _x.d, _x.t,) = _get_struct_idi().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e)  # most likely buffer underfill
@@ -84,7 +88,7 @@ int32 t
     """
     try:
       _x = self
-      buff.write(_get_struct_2i().pack(_x.v, _x.t))
+      buff.write(_get_struct_idi().pack(_x.v, _x.d, _x.t))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -99,8 +103,8 @@ int32 t
       end = 0
       _x = self
       start = end
-      end += 8
-      (_x.v, _x.t,) = _get_struct_2i().unpack(str[start:end])
+      end += 16
+      (_x.v, _x.d, _x.t,) = _get_struct_idi().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e)  # most likely buffer underfill
@@ -109,9 +113,9 @@ _struct_I = genpy.struct_I
 def _get_struct_I():
     global _struct_I
     return _struct_I
-_struct_2i = None
-def _get_struct_2i():
-    global _struct_2i
-    if _struct_2i is None:
-        _struct_2i = struct.Struct("<2i")
-    return _struct_2i
+_struct_idi = None
+def _get_struct_idi():
+    global _struct_idi
+    if _struct_idi is None:
+        _struct_idi = struct.Struct("<idi")
+    return _struct_idi

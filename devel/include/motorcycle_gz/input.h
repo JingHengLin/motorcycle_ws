@@ -25,10 +25,12 @@ struct input_
 
   input_()
     : v(0)
+    , d(0.0)
     , t(0)  {
     }
   input_(const ContainerAllocator& _alloc)
     : v(0)
+    , d(0.0)
     , t(0)  {
   (void)_alloc;
     }
@@ -37,6 +39,9 @@ struct input_
 
    typedef int32_t _v_type;
   _v_type v;
+
+   typedef double _d_type;
+  _d_type d;
 
    typedef int32_t _t_type;
   _t_type t;
@@ -71,6 +76,7 @@ template<typename ContainerAllocator1, typename ContainerAllocator2>
 bool operator==(const ::motorcycle_gz::input_<ContainerAllocator1> & lhs, const ::motorcycle_gz::input_<ContainerAllocator2> & rhs)
 {
   return lhs.v == rhs.v &&
+    lhs.d == rhs.d &&
     lhs.t == rhs.t;
 }
 
@@ -128,12 +134,12 @@ struct MD5Sum< ::motorcycle_gz::input_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "8f20aea9a85b7f60df8ca357388922ad";
+    return "d20864dc5c2c2035946b751aab74d0f1";
   }
 
   static const char* value(const ::motorcycle_gz::input_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x8f20aea9a85b7f60ULL;
-  static const uint64_t static_value2 = 0xdf8ca357388922adULL;
+  static const uint64_t static_value1 = 0xd20864dc5c2c2035ULL;
+  static const uint64_t static_value2 = 0x946b751aab74d0f1ULL;
 };
 
 template<class ContainerAllocator>
@@ -153,6 +159,7 @@ struct Definition< ::motorcycle_gz::input_<ContainerAllocator> >
   static const char* value()
   {
     return "int32 v\n"
+"float64 d\n"
 "int32 t\n"
 ;
   }
@@ -173,6 +180,7 @@ namespace serialization
     template<typename Stream, typename T> inline static void allInOne(Stream& stream, T m)
     {
       stream.next(m.v);
+      stream.next(m.d);
       stream.next(m.t);
     }
 
@@ -194,6 +202,8 @@ struct Printer< ::motorcycle_gz::input_<ContainerAllocator> >
   {
     s << indent << "v: ";
     Printer<int32_t>::stream(s, indent + "  ", v.v);
+    s << indent << "d: ";
+    Printer<double>::stream(s, indent + "  ", v.d);
     s << indent << "t: ";
     Printer<int32_t>::stream(s, indent + "  ", v.t);
   }

@@ -150,10 +150,10 @@
     <child
       link="direction_link" />
     <axis
-      xyz="0 0 -1" />
+      xyz="0 0 1" />
     <limit
-      lower="-0.5235"
-      upper="0.5235"
+      lower="-1"
+      upper="1"
       effort="0"
       velocity="0" />
     <dynamics
@@ -229,8 +229,8 @@
   </gazebo>
   <gazebo
      reference="wheel_front_link">
-    <mu1>0.1</mu1>
-    <mu2>0.1</mu2>
+    <mu1>0.5</mu1>
+    <mu2>0.5</mu2>
     <material>Gazebo/Black</material>
   </gazebo>
   <gazebo
@@ -248,7 +248,7 @@
     </plugin>
   </gazebo>
 
-  <transmission name="tran1">
+  <!-- <transmission name="tran1">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="wheel_front_joint">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
@@ -257,7 +257,7 @@
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
-  </transmission>
+  </transmission> -->
 
   <transmission name="tran2">
     <type>transmission_interface/SimpleTransmission</type>

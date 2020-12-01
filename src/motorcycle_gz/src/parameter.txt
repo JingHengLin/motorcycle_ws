@@ -1,6 +1,10 @@
 velocity = 150
+direction = 0.4
 time = 1
 velocity = -250
+direction = -0.4
 time = 3
 velocity = 0
+direction = 0
 time = 1
+
