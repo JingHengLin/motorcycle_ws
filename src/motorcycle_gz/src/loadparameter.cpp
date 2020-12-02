@@ -24,22 +24,23 @@ string v = "velocity";
 string d = "direction";
 string t = "time";
 string e = "=";
-int parameter_v[100]; 
+int parameter_v[100];
 double parameter_d[100];
 int parameter_t[100];
 void readvalue(string v, string d, string t);
 
 void Delay(int timedelay)
 {
-    double timeuse;
-    struct timeval tstart, tend;
-    gettimeofday(&tstart, NULL);
-    gettimeofday(&tend, NULL);
-    timeuse = (1000000*(tend.tv_sec - tstart.tv_sec) + (tend.tv_usec - tstart.tv_usec))/1000;
-    while (timeuse <= timedelay) {
-        gettimeofday(&tend, NULL);
-        timeuse = (1000000*(tend.tv_sec - tstart.tv_sec) + (tend.tv_usec - tstart.tv_usec))/1000;
-    }
+	double timeuse;
+	struct timeval tstart, tend;
+	gettimeofday(&tstart, NULL);
+	gettimeofday(&tend, NULL);
+	timeuse = (1000000 * (tend.tv_sec - tstart.tv_sec) + (tend.tv_usec - tstart.tv_usec)) / 1000;
+	while (timeuse <= timedelay)
+	{
+		gettimeofday(&tend, NULL);
+		timeuse = (1000000 * (tend.tv_sec - tstart.tv_sec) + (tend.tv_usec - tstart.tv_usec)) / 1000;
+	}
 }
 
 void readvalue(string v, string d, string t)
@@ -52,37 +53,43 @@ void readvalue(string v, string d, string t)
 	int i = 0;
 	int j = 0;
 	int k = 0;
-	if(in) 
+	if (in)
 	{
-		while (getline (in, line, ' ')) 
-		{ 	
-			if(line == v){
+		while (getline(in, line, ' '))
+		{
+			if (line == v)
+			{
 				++i;
-				getline (in, line, ' ');
-				if(line == e){
-					getline (in, line, '\n');
+				getline(in, line, ' ');
+				if (line == e)
+				{
+					getline(in, line, '\n');
 					strcpy(buffer, line.c_str());
 					ans = atoi(buffer);
 					parameter_v[i] = ans;
 					ROS_INFO("read from data (velocity) : %d", parameter_v[i]);
 				}
 			}
-			if(line == d){
+			if (line == d)
+			{
 				++j;
-				getline (in, line, ' ');
-				if(line == e){
-					getline (in, line, '\n');
+				getline(in, line, ' ');
+				if (line == e)
+				{
+					getline(in, line, '\n');
 					strcpy(buffer, line.c_str());
 					ansf = atof(buffer);
 					parameter_d[j] = ansf;
 					ROS_INFO("read from data (direction) : %f", parameter_d[j]);
 				}
 			}
-			if(line == t){
+			if (line == t)
+			{
 				++k;
-				getline (in, line, ' ');
-				if(line == e){
-					getline (in, line, '\n');
+				getline(in, line, ' ');
+				if (line == e)
+				{
+					getline(in, line, '\n');
 					strcpy(buffer, line.c_str());
 					ans = atoi(buffer);
 					parameter_t[k] = ans;
@@ -91,13 +98,14 @@ void readvalue(string v, string d, string t)
 			}
 		}
 	}
-	else 
+	else
 	{
-		cout <<"no such file" << endl;
-	}	
+		cout << "no such file" << endl;
+	}
 }
 
-int main(int argc, char** argv){
+int main(int argc, char **argv)
+{
 	ros::init(argc, argv, "loadparameter");
 	ros::NodeHandle nh;
 	ros::Publisher wheel_back_pub;
@@ -110,7 +118,8 @@ int main(int argc, char** argv){
 
 	readvalue(v, d, t);
 	Delay(500);
-	for(int i=1; i<=parameterData; i++){
+	for (int i = 1; i <= parameterData; i++)
+	{
 		motorcycle_gz::input msg;
 		msg.v = parameter_v[i];
 		msg.d = parameter_d[i];
@@ -126,10 +135,3 @@ int main(int argc, char** argv){
 	}
 	return 0;
 }
-
-	
-	
-	
-			
-
-
