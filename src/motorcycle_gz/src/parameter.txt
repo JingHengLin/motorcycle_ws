@@ -1,10 +1,10 @@
-velocity = 150
-direction = 0.4
-time = 1
-velocity = -250
-direction = -0.4
+velocity = 100
+direction = 0.6
+time = 10
+velocity = 0
+direction = 0.785
 time = 3
 velocity = 0
-direction = 0
+direction = 0.785
 time = 1
 
