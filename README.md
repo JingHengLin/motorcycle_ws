@@ -16,7 +16,8 @@ terminal 3:(crtl+shift+T)
 	roslaunch motorcycle_gz motorcycle.launch
 
 
-20210203 NEW:
+20210203 NEW terminal 1:
+cd motorcycle_ws
 catkin_make
 source src/scripts/env.sh
 roslaunch motorcycle_gz motorcycle_world.launch
