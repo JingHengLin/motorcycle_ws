@@ -1,0 +1,8 @@
+prefix=/home/iclab/motorcycle_ws/install
+
+Name: tool_gz
+Description: Description of tool_gz
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

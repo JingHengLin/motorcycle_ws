@@ -14,3 +14,10 @@ terminal 2:(crtl+shift+T)
 terminal 3:(crtl+shift+T)
 	source devel/setup.bash
 	roslaunch motorcycle_gz motorcycle.launch
+
+
+20210203 NEW:
+catkin_make
+source src/scripts/env.sh
+roslaunch motorcycle_gz motorcycle_world.launch
+

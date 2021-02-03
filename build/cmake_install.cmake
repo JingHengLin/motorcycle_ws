@@ -131,9 +131,11 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/iclab/motorcycle_ws/build/gtest/cmake_install.cmake")
+  include("/home/iclab/motorcycle_ws/build/models/cmake_install.cmake")
   include("/home/iclab/motorcycle_ws/build/motorcycle_control/cmake_install.cmake")
   include("/home/iclab/motorcycle_ws/build/motorcycle_gz/cmake_install.cmake")
   include("/home/iclab/motorcycle_ws/build/motorcycle_description_direction/motorcycle_description/cmake_install.cmake")
+  include("/home/iclab/motorcycle_ws/build/tool_gz/cmake_install.cmake")
 
 endif()
 

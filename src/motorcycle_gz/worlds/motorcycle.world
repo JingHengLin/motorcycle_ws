@@ -1,8 +1,8 @@
 <?xml version="1.0" ?>
-<sdf version="1.4">
+<sdf version="1.5">
   <!-- We use a custom world for the rrbot so that the camera angle is launched correctly -->
 
-  <world name="default">
+  <world name="motorcycle_world">
     <include>
       <uri>model://ground_plane</uri>
     </include>
@@ -11,6 +11,34 @@
     <include>
       <uri>model://sun</uri>
     </include>
+
+    <include>
+      <uri>model://TestGazeboPlaneMax2016</uri>
+      <pose>2.109200 0.05 1.4 0.58 0.0000001 -1.578</pose>
+    </include>
+
+    <!-- <model name="TestGazeboPlaneMax2016">
+      <pose>0 0 0  0 0 0</pose>
+      <static>true</static>
+      <link name="body">
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file://TestGazeboPlaneMax2016.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model> -->
+
+    <!-- <visual name="visual">
+      <pose>0 0 0 1.5708 0 0</pose>
+      <geometry>
+        <mesh>
+          <uri>file://TestGazeboPlaneMax2016.dae</uri>
+        </mesh>
+      </geometry>
+    </visual> -->
 
   </world>
 </sdf>
