@@ -1,17 +1,28 @@
 # motorcycle_ws
 
 ## How to use:
-20210203 (2 edition):
+20210205 (3 edition):
 ```
-cd ~/motorcycle_ws
-catkin_make
-source src/scripts/env.sh (DIR: /home/iclab/motorcycle_ws/src/scripts)
-source src/scripts/motorcycle_launch_world.sh
-source src/scripts/rosbridge_websocket_launch.sh
-source src/scripts/motorcycle_launch.sh
+ctrl+alt+t:
+	cd ~/motorcycle_ws
+	catkin_make
+	source src/scripts/env.sh 
 ```
+
 ---
 Old Version (Hide):
+<!-- 20210203 (2 edition):
+```
+1. ctrl+alt+t:
+	cd ~/motorcycle_ws
+	catkin_make
+	source src/scripts/env.sh (DIR: /home/iclab/motorcycle_ws/src/scripts)  
+	source src/scripts/motorcycle_world_launch.sh  
+2. ctrl+shift+t:
+	source src/scripts/rosbridge_websocket_launch.sh  
+3. ctrl+shift+t:
+	source src/scripts/motorcycle_launch.sh  
+``` -->
 <!-- 
 (1 edition):
 * terminal 1:
