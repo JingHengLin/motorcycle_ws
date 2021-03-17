@@ -17,7 +17,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "models/catkin_generated/package.cmake"
   "motorcycle_control/catkin_generated/ordered_paths.cmake"
   "motorcycle_control/catkin_generated/package.cmake"
-  "motorcycle_description_direction/motorcycle_description/catkin_generated/package.cmake"
+  "motorcycle_description/catkin_generated/package.cmake"
   "motorcycle_gz/catkin_generated/motorcycle_gz-msg-extras.cmake.develspace.in"
   "motorcycle_gz/catkin_generated/motorcycle_gz-msg-extras.cmake.installspace.in"
   "motorcycle_gz/catkin_generated/ordered_paths.cmake"
@@ -31,8 +31,8 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/home/iclab/motorcycle_ws/src/models/package.xml"
   "/home/iclab/motorcycle_ws/src/motorcycle_control/CMakeLists.txt"
   "/home/iclab/motorcycle_ws/src/motorcycle_control/package.xml"
-  "/home/iclab/motorcycle_ws/src/motorcycle_description_direction/motorcycle_description/CMakeLists.txt"
-  "/home/iclab/motorcycle_ws/src/motorcycle_description_direction/motorcycle_description/package.xml"
+  "/home/iclab/motorcycle_ws/src/motorcycle_description/CMakeLists.txt"
+  "/home/iclab/motorcycle_ws/src/motorcycle_description/package.xml"
   "/home/iclab/motorcycle_ws/src/motorcycle_gz/CMakeLists.txt"
   "/home/iclab/motorcycle_ws/src/motorcycle_gz/package.xml"
   "/home/iclab/motorcycle_ws/src/tool_gz/CMakeLists.txt"
@@ -275,7 +275,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "models/CMakeFiles/CMakeDirectoryInformation.cmake"
   "motorcycle_control/CMakeFiles/CMakeDirectoryInformation.cmake"
   "motorcycle_gz/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "motorcycle_description_direction/motorcycle_description/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "motorcycle_description/CMakeFiles/CMakeDirectoryInformation.cmake"
   "tool_gz/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 

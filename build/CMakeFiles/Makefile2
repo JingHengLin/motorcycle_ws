@@ -1472,22 +1472,22 @@ clean: motorcycle_gz/CMakeFiles/motorcycle_gz_genpy.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Directory level rules for directory motorcycle_description_direction/motorcycle_description
+# Directory level rules for directory motorcycle_description
 
 # Convenience name for "all" pass in the directory.
-motorcycle_description_direction/motorcycle_description/all:
+motorcycle_description/all:
 
-.PHONY : motorcycle_description_direction/motorcycle_description/all
+.PHONY : motorcycle_description/all
 
 # Convenience name for "clean" pass in the directory.
-motorcycle_description_direction/motorcycle_description/clean:
+motorcycle_description/clean:
 
-.PHONY : motorcycle_description_direction/motorcycle_description/clean
+.PHONY : motorcycle_description/clean
 
 # Convenience name for "preinstall" pass in the directory.
-motorcycle_description_direction/motorcycle_description/preinstall:
+motorcycle_description/preinstall:
 
-.PHONY : motorcycle_description_direction/motorcycle_description/preinstall
+.PHONY : motorcycle_description/preinstall
 
 #=============================================================================
 # Directory level rules for directory tool_gz

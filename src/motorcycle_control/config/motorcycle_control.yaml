@@ -2,21 +2,46 @@ motorcycle:
   # Publish all joint states -----------------------------------
   joint_state_controller:
     type: joint_state_controller/JointStateController
-    publish_rate: 0  
+    publish_rate: 50  
   
-   # Position Controllers ---------------------------------------
-  direction_joint_position_controller:
+  # Position Controllers ---------------------------------------
+  FrontFork_Joint_position_controller:
     type: effort_controllers/JointPositionController
-    joint: direction_joint
-    pid: {p: 100.0, i: 0.01, d: 10.0}
+    joint: FrontFork_Joint
+    pid: {p: 1.0, i: 0.1, d: 0.0}
+
+  # Velocity Controllers ---------------------------------------
+  Fwheel_Joint_velocity_controller:
+    type: effort_controllers/JointVelocityController
+    joint: Fwheel_Joint
+    pid: {p: 50.0, i: 0.1, d: 0.0}
+
+  Bwheel_Joint_velocity_controller:
+    type: effort_controllers/JointVelocityController
+    joint: Bwheel_Joint
+    pid: {p: 50.0, i: 0.1, d: 0.0}
+
+
+
+  # Publish all joint states -----------------------------------
+  # joint_state_controller:
+  #   type: joint_state_controller/JointStateController
+  #   publish_rate: 0  
+  
+  # Position Controllers ---------------------------------------
+  # direction_joint_position_controller:
+  #   type: effort_controllers/JointPositionController
+  #   joint: direction_joint
+  #   pid: {p: 100.0, i: 0.01, d: 10.0}
 
   # Velocity Controllers ---------------------------------------
   # wheel_front_joint_velocity_controller:
   #   type: effort_controllers/JointVelocityController
   #   joint: wheel_front_joint
   #   pid: {p: 50.0, i: 0.1, d: 0.0}
-  wheel_back_joint_velocity_controller:
-    type: effort_controllers/JointVelocityController
-    joint: wheel_back_joint
-    pid: {p: 50.0, i: 0.1, d: 0.0}
- 
+
+  # wheel_back_joint_velocity_controller:
+  #   type: effort_controllers/JointVelocityController
+  #   joint: wheel_back_joint
+  #   pid: {p: 50.0, i: 0.1, d: 0.0}
+

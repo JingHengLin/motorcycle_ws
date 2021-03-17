@@ -1,0 +1,70 @@
+<gazebo reference="Body_Link">
+  <mu1>1</mu1>
+  <mu2>1</mu2>
+  <material>Gazebo/Orange</material>
+</gazebo>
+<gazebo reference="Direction_Link">
+  <mu1>1</mu1>
+  <mu2>1</mu2>
+  <material>Gazebo/blue</material>
+</gazebo>
+<gazebo reference="Fwheel_Link">
+  <mu1>1</mu1>
+  <mu2>1</mu2>
+  <material>Gazebo/Black</material>
+</gazebo>
+<gazebo reference="Bwheel_Link">
+  <mu1>1</mu1>
+  <mu2>1</mu2>
+  <material>Gazebo/Black</material>
+</gazebo>
+
+<gazebo>
+  <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+    <robotNamespace>/motorcycle</robotNamespace>
+    <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+    <legacyModeNS>true</legacyModeNS>
+  </plugin>
+</gazebo>
+
+
+  <transmission name="tran1">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="FrontFork_Joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor1">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission> 
+
+<transmission name="tran2">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="Fwheel_Joint">
+    <hardwareInterface
+      >hardware_interface/EffortJointInterface</hardwareInterface
+    >
+  </joint>
+  <actuator name="motor2">
+    <hardwareInterface
+      >hardware_interface/EffortJointInterface</hardwareInterface
+    >
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="tran3">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="Bwheel_Joint">
+    <hardwareInterface
+      >hardware_interface/EffortJointInterface</hardwareInterface
+    >
+  </joint>
+  <actuator name="motor3">
+    <hardwareInterface
+      >hardware_interface/EffortJointInterface</hardwareInterface
+    >
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>

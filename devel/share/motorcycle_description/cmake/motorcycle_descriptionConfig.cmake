@@ -67,7 +67,7 @@ set(motorcycle_description_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("TRUE" STREQUAL "TRUE")
-  set(motorcycle_description_SOURCE_PREFIX /home/iclab/motorcycle_ws/src/motorcycle_description_direction/motorcycle_description)
+  set(motorcycle_description_SOURCE_PREFIX /home/iclab/motorcycle_ws/src/motorcycle_description)
   set(motorcycle_description_DEVEL_PREFIX /home/iclab/motorcycle_ws/devel)
   set(motorcycle_description_INSTALL_PREFIX "")
   set(motorcycle_description_PREFIX ${motorcycle_description_DEVEL_PREFIX})
@@ -110,7 +110,7 @@ if(NOT " " STREQUAL " ")
         message(FATAL_ERROR "Project 'motorcycle_description' specifies '${idir}' as an include dir, which is not found.  It does not exist in '${include}'.  ${_report}")
       endif()
     else()
-      message(FATAL_ERROR "Project 'motorcycle_description' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/iclab/motorcycle_ws/src/motorcycle_description_direction/motorcycle_description/${idir}'.  ${_report}")
+      message(FATAL_ERROR "Project 'motorcycle_description' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/iclab/motorcycle_ws/src/motorcycle_description/${idir}'.  ${_report}")
     endif()
     _list_append_unique(motorcycle_description_INCLUDE_DIRS ${include})
   endforeach()
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/iclab/motorcycle_ws/devel/lib;/home/iclab/motorcycle_ws/devel/lib;/opt/ros/melodic/lib)
+    foreach(path /home/iclab/motorcycle_ws/devel/lib;/opt/ros/melodic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

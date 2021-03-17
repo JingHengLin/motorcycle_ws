@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="motorcycle_description">
+  <link
+    name="Body_Link">
+    <inertial>
+      <origin
+        xyz="-0.0457307267180003 0.000365145415786028 -0.0589187011884054"
+        rpy="0 0 0" />
+      <mass
+        value="7211369.76127266" />
+      <inertia
+        ixx="0020234.6349576474"
+        ixy="-4674454.91686321E-05"
+        ixz="0008359.35390031763"
+        iyy="0060915.1666273547"
+        iyz="-1453581.3974047E-05"
+        izz="0065326.2068969237" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://motorcycle_description/meshes/Body_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://motorcycle_description/meshes/Body_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="Bwheel_Link">
+    <inertial>
+      <origin
+        xyz="-8.15629473827073E-06 -6.00897998026539E-09 4.46091212635835E-06"
+        rpy="0 0 0" />
+      <mass
+        value="1392324.96652693" />
+      <inertia
+        ixx="0007106.79469347714"
+        ixy="-5163927.14799496E-08"
+        ixz="-6138840.77825968E-08"
+        iyy="0013640.5161462466"
+        iyz="3184005.99978213E-08"
+        izz="0007107.07233974415" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://motorcycle_description/meshes/Bwheel_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://motorcycle_description/meshes/Bwheel_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Bwheel_Joint"
+    type="continuous">
+    <origin
+      xyz="-0.34348 0 -0.079568"
+      rpy="0 0 0" />
+    <parent
+      link="Body_Link" />
+    <child
+      link="Bwheel_Link" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+    <dynamics
+      damping="0.7" />
+  </joint>
+  <link
+    name="Direction_Link">
+    <inertial>
+      <origin
+        xyz="-0.166474781300737 -0.000119263857456087 0.281677589005923"
+        rpy="0 0 0" />
+      <mass
+        value="0550171.42922688" />
+      <inertia
+        ixx="0004818.3824249781"
+        ixy="2957816.10845726E-05"
+        ixz="0000233.761603315691"
+        iyy="0000716.769510720634"
+        iyz="1577611.86134796E-05"
+        izz="0004519.25784703187" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://motorcycle_description/meshes/Direction_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://motorcycle_description/meshes/Direction_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FrontFork_Joint"
+    type="continuous">
+    <!-- revolute -->
+    <origin
+      xyz="0.37974 9.9046E-05 0.018665"
+      rpy="0 0 0" />
+    <parent
+      link="Body_Link" />
+    <child
+      link="Direction_Link" />
+    <axis
+      xyz="0.46947 0 -0.88295" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="Fwheel_Link">
+    <inertial>
+      <origin
+        xyz="-7.20173011448111E-06 -7.57340004042817E-08 -5.86105189182007E-06"
+        rpy="0 0 0" />
+      <mass
+        value="1392325.39502733" />
+      <inertia
+        ixx="0007107.39669025681"
+        ixy="-4575720.74141143E-05"
+        ixz="1170486.34697159E-07"
+        iyy="0013640.1059071135"
+        iyz="-2434061.71991038E-05"
+        izz="0007106.88249191573" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://motorcycle_description/meshes/Fwheel_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://motorcycle_description/meshes/Fwheel_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Fwheel_Joint"
+    type="continuous">
+    <origin
+      xyz="0.037443 -9.9046E-05 -0.097045"
+      rpy="0 0 0" />
+    <parent
+      link="Direction_Link" />
+    <child
+      link="Fwheel_Link" />
+    <axis
+      xyz="0.0069962 0.99997 0.00372" />
+  </joint>
+
+<gazebo reference="Body_Link">
+  <mu1>1</mu1>
+  <mu2>1</mu2>
+  <material>Gazebo/Orange</material>
+</gazebo>
+<gazebo reference="Direction_Link">
+  <mu1>1</mu1>
+  <mu2>1</mu2>
+  <material>Gazebo/blue</material>
+</gazebo>
+<gazebo reference="Fwheel_Link">
+  <mu1>1</mu1>
+  <mu2>1</mu2>
+  <material>Gazebo/Black</material>
+</gazebo>
+<gazebo reference="Bwheel_Link">
+  <mu1>1</mu1>
+  <mu2>1</mu2>
+  <material>Gazebo/Black</material>
+</gazebo>
+
+<gazebo>
+  <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+    <robotNamespace>/motorcycle</robotNamespace>
+    <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+    <legacyModeNS>true</legacyModeNS>
+  </plugin>
+</gazebo>
+
+
+  <transmission name="tran1">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="FrontFork_Joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor1">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission> 
+
+<transmission name="tran2">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="Fwheel_Joint">
+    <hardwareInterface
+      >hardware_interface/EffortJointInterface</hardwareInterface
+    >
+  </joint>
+  <actuator name="motor2">
+    <hardwareInterface
+      >hardware_interface/EffortJointInterface</hardwareInterface
+    >
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="tran3">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="Bwheel_Joint">
+    <hardwareInterface
+      >hardware_interface/EffortJointInterface</hardwareInterface
+    >
+  </joint>
+  <actuator name="motor3">
+    <hardwareInterface
+      >hardware_interface/EffortJointInterface</hardwareInterface
+    >
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+  
+</robot>
