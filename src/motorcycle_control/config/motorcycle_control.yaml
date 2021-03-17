@@ -8,18 +8,18 @@ motorcycle:
   FrontFork_Joint_position_controller:
     type: effort_controllers/JointPositionController
     joint: FrontFork_Joint
-    pid: {p: 1.0, i: 0.1, d: 0.0}
+    pid: {p: 1.0, i: 0.1, d: 0.01}
 
   # Velocity Controllers ---------------------------------------
   Fwheel_Joint_velocity_controller:
     type: effort_controllers/JointVelocityController
     joint: Fwheel_Joint
-    pid: {p: 50.0, i: 0.1, d: 0.0}
+    pid: {p: 1.0, i: 0.1, d: 0.01}
 
   Bwheel_Joint_velocity_controller:
     type: effort_controllers/JointVelocityController
     joint: Bwheel_Joint
-    pid: {p: 50.0, i: 0.1, d: 0.0}
+    pid: {p: 1.0, i: 0.1, d: 0.01}
 
 
 
