@@ -146,6 +146,8 @@ include_directories(
 # add_executable(${PROJECT_NAME}_node src/motorcycle_gz_node.cpp)
 add_executable(motorcycle src/motorcycle.cpp)
 add_executable(loadparameter src/loadparameter.cpp)
+add_executable(motorcycle_force src/motorcycle_force.cpp)
+add_executable(loadparameter_force src/loadparameter_force.cpp)
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
 ## target back to the shorter version for ease of user use
@@ -164,6 +166,12 @@ target_link_libraries(motorcycle
   ${catkin_LIBRARIES}
 )
 target_link_libraries(loadparameter
+  ${catkin_LIBRARIES}
+)
+target_link_libraries(motorcycle_force
+  ${catkin_LIBRARIES}
+)
+target_link_libraries(loadparameter_force
   ${catkin_LIBRARIES}
 )
 #############

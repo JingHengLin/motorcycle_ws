@@ -8,15 +8,15 @@ import struct
 
 
 class input(genpy.Message):
-  _md5sum = "d20864dc5c2c2035946b751aab74d0f1"
+  _md5sum = "cb0e4b0c846c6cafc467bc7405eac5f2"
   _type = "motorcycle_gz/input"
   _has_header = False  # flag to mark the presence of a Header object
-  _full_text = """int32 v
+  _full_text = """float64 force
 float64 d
-int32 t
+float64 t
 """
-  __slots__ = ['v','d','t']
-  _slot_types = ['int32','float64','int32']
+  __slots__ = ['force','d','t']
+  _slot_types = ['float64','float64','float64']
 
   def __init__(self, *args, **kwds):
     """
@@ -26,7 +26,7 @@ int32 t
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       v,d,t
+       force,d,t
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -35,16 +35,16 @@ int32 t
     if args or kwds:
       super(input, self).__init__(*args, **kwds)
       # message fields cannot be None, assign default values for those that are
-      if self.v is None:
-        self.v = 0
+      if self.force is None:
+        self.force = 0.
       if self.d is None:
         self.d = 0.
       if self.t is None:
-        self.t = 0
+        self.t = 0.
     else:
-      self.v = 0
+      self.force = 0.
       self.d = 0.
-      self.t = 0
+      self.t = 0.
 
   def _get_types(self):
     """
@@ -59,7 +59,7 @@ int32 t
     """
     try:
       _x = self
-      buff.write(_get_struct_idi().pack(_x.v, _x.d, _x.t))
+      buff.write(_get_struct_3d().pack(_x.force, _x.d, _x.t))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -73,8 +73,8 @@ int32 t
       end = 0
       _x = self
       start = end
-      end += 16
-      (_x.v, _x.d, _x.t,) = _get_struct_idi().unpack(str[start:end])
+      end += 24
+      (_x.force, _x.d, _x.t,) = _get_struct_3d().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e)  # most likely buffer underfill
@@ -88,7 +88,7 @@ int32 t
     """
     try:
       _x = self
-      buff.write(_get_struct_idi().pack(_x.v, _x.d, _x.t))
+      buff.write(_get_struct_3d().pack(_x.force, _x.d, _x.t))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -103,8 +103,8 @@ int32 t
       end = 0
       _x = self
       start = end
-      end += 16
-      (_x.v, _x.d, _x.t,) = _get_struct_idi().unpack(str[start:end])
+      end += 24
+      (_x.force, _x.d, _x.t,) = _get_struct_3d().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e)  # most likely buffer underfill
@@ -113,9 +113,9 @@ _struct_I = genpy.struct_I
 def _get_struct_I():
     global _struct_I
     return _struct_I
-_struct_idi = None
-def _get_struct_idi():
-    global _struct_idi
-    if _struct_idi is None:
-        _struct_idi = struct.Struct("<idi")
-    return _struct_idi
+_struct_3d = None
+def _get_struct_3d():
+    global _struct_3d
+    if _struct_3d is None:
+        _struct_3d = struct.Struct("<3d")
+    return _struct_3d

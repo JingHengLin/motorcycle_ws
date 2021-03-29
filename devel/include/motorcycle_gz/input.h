@@ -24,26 +24,26 @@ struct input_
   typedef input_<ContainerAllocator> Type;
 
   input_()
-    : v(0)
+    : force(0.0)
     , d(0.0)
-    , t(0)  {
+    , t(0.0)  {
     }
   input_(const ContainerAllocator& _alloc)
-    : v(0)
+    : force(0.0)
     , d(0.0)
-    , t(0)  {
+    , t(0.0)  {
   (void)_alloc;
     }
 
 
 
-   typedef int32_t _v_type;
-  _v_type v;
+   typedef double _force_type;
+  _force_type force;
 
    typedef double _d_type;
   _d_type d;
 
-   typedef int32_t _t_type;
+   typedef double _t_type;
   _t_type t;
 
 
@@ -75,7 +75,7 @@ return s;
 template<typename ContainerAllocator1, typename ContainerAllocator2>
 bool operator==(const ::motorcycle_gz::input_<ContainerAllocator1> & lhs, const ::motorcycle_gz::input_<ContainerAllocator2> & rhs)
 {
-  return lhs.v == rhs.v &&
+  return lhs.force == rhs.force &&
     lhs.d == rhs.d &&
     lhs.t == rhs.t;
 }
@@ -134,12 +134,12 @@ struct MD5Sum< ::motorcycle_gz::input_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "d20864dc5c2c2035946b751aab74d0f1";
+    return "cb0e4b0c846c6cafc467bc7405eac5f2";
   }
 
   static const char* value(const ::motorcycle_gz::input_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0xd20864dc5c2c2035ULL;
-  static const uint64_t static_value2 = 0x946b751aab74d0f1ULL;
+  static const uint64_t static_value1 = 0xcb0e4b0c846c6cafULL;
+  static const uint64_t static_value2 = 0xc467bc7405eac5f2ULL;
 };
 
 template<class ContainerAllocator>
@@ -158,9 +158,9 @@ struct Definition< ::motorcycle_gz::input_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "int32 v\n"
+    return "float64 force\n"
 "float64 d\n"
-"int32 t\n"
+"float64 t\n"
 ;
   }
 
@@ -179,7 +179,7 @@ namespace serialization
   {
     template<typename Stream, typename T> inline static void allInOne(Stream& stream, T m)
     {
-      stream.next(m.v);
+      stream.next(m.force);
       stream.next(m.d);
       stream.next(m.t);
     }
@@ -200,12 +200,12 @@ struct Printer< ::motorcycle_gz::input_<ContainerAllocator> >
 {
   template<typename Stream> static void stream(Stream& s, const std::string& indent, const ::motorcycle_gz::input_<ContainerAllocator>& v)
   {
-    s << indent << "v: ";
-    Printer<int32_t>::stream(s, indent + "  ", v.v);
+    s << indent << "force: ";
+    Printer<double>::stream(s, indent + "  ", v.force);
     s << indent << "d: ";
     Printer<double>::stream(s, indent + "  ", v.d);
     s << indent << "t: ";
-    Printer<int32_t>::stream(s, indent + "  ", v.t);
+    Printer<double>::stream(s, indent + "  ", v.t);
   }
 };
 

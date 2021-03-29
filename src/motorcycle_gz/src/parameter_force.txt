@@ -1,0 +1,7 @@
+force = 2000000
+direction = 0
+time = 5
+force = 0
+direction = 0
+time = 5
+

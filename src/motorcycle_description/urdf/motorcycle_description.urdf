@@ -52,7 +52,7 @@
     <parent link="Body_Link" />
     <child link="Bwheel_Link" />
     <axis xyz="0 1 0" />
-    <limit lower="0" upper="0" effort="0" velocity="0" />
+    <!-- <limit lower="0" upper="0" effort="0" velocity="0" /> -->
     <dynamics damping="0.0" friction="0.7" />
   </joint>
   <link name="Direction_Link">

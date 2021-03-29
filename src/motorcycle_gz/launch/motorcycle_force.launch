@@ -1,0 +1,4 @@
+<launch>
+	<node name="motorcycle_force" pkg="motorcycle_gz" type="motorcycle_force" output="screen"/>
+	<node name="loadparameter_force" pkg="motorcycle_gz" type="loadparameter_force" output="screen"/>
+</launch>

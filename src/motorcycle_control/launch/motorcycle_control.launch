@@ -7,11 +7,22 @@
   <!-- load the controllers -->
   <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="/motorcycle" args="joint_state_controller
             FrontFork_Joint_position_controller
+            Fwheel_Joint_effort_controller
+            Bwheel_Joint_effort_controller"/>
+
+
+  <!-- Vespa Velocity Version -->
+  <!-- Load joint controller configurations from YAML file to parameter server -->
+  <!-- <rosparam file="$(find motorcycle_control)/config/motorcycle_control.yaml" command="load"/> -->
+
+  <!-- load the controllers -->
+  <!-- <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="/motorcycle" args="joint_state_controller
+            FrontFork_Joint_position_controller
 					  Fwheel_Joint_velocity_controller
-            Bwheel_Joint_velocity_controller"/>
+            Bwheel_Joint_velocity_controller"/> -->
 
 
-
+  <!-- First Version -->
   <!-- Load joint controller configurations from YAML file to parameter server -->
   <!-- <rosparam file="$(find motorcycle_control)/config/motorcycle_control.yaml" command="load"/> -->
 
@@ -19,5 +30,6 @@
   <!-- <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="/motorcycle" args="joint_state_controller
             direction_joint_position_controller
 					  wheel_back_joint_velocity_controller"/> -->
+
 </launch>
 

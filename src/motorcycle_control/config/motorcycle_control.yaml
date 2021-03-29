@@ -2,7 +2,7 @@ motorcycle:
   # Publish all joint states -----------------------------------
   joint_state_controller:
     type: joint_state_controller/JointStateController
-    publish_rate: 400
+    publish_rate: 1000
   
   # Position Controllers ---------------------------------------
   FrontFork_Joint_position_controller:
@@ -10,19 +10,41 @@ motorcycle:
     joint: FrontFork_Joint
     pid: {p: 1.0, i: 0.1, d: 0.01}
 
-  # Velocity Controllers ---------------------------------------
-  Fwheel_Joint_velocity_controller:
-    type: effort_controllers/JointVelocityController
+  # Effort Controllers ---------------------------------------
+  Fwheel_Joint_effort_controller:
+    type: effort_controllers/JointEffortController
     joint: Fwheel_Joint
-    pid: {p: 1.0, i: 0.1, d: 0.01}
+    #pid: {p: 1.0, i: 0.1, d: 0.01}
 
-  Bwheel_Joint_velocity_controller:
-    type: effort_controllers/JointVelocityController
+  Bwheel_Joint_effort_controller:
+    type: effort_controllers/JointEffortController
     joint: Bwheel_Joint
-    pid: {p: 1.0, i: 0.1, d: 0.01}
+    # pid: {p: 1.0, i: 0.1, d: 0.01}
 
+  # # ---------- Vespa Velocity Version ----------
+  # # Publish all joint states -----------------------------------
+  # joint_state_controller:
+  #   type: joint_state_controller/JointStateController
+  #   publish_rate: 400
+  
+  # # Position Controllers ---------------------------------------
+  # FrontFork_Joint_position_controller:
+  #   type: effort_controllers/JointPositionController
+  #   joint: FrontFork_Joint
+  #   pid: {p: 1.0, i: 0.1, d: 0.01}
 
+  # # Velocity Controllers ---------------------------------------
+  # Fwheel_Joint_velocity_controller:
+  #   type: effort_controllers/JointVelocityController
+  #   joint: Fwheel_Joint
+  #   pid: {p: 1.0, i: 0.1, d: 0.01}
 
+  # Bwheel_Joint_velocity_controller:
+  #   type: effort_controllers/JointVelocityController
+  #   joint: Bwheel_Joint
+  #   pid: {p: 1.0, i: 0.1, d: 0.01}
+    
+  # ---------- First Version ----------
   # Publish all joint states -----------------------------------
   # joint_state_controller:
   #   type: joint_state_controller/JointStateController

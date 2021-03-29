@@ -18,16 +18,16 @@ class input {
   constructor(initObj={}) {
     if (initObj === null) {
       // initObj === null is a special case for deserialization where we don't initialize fields
-      this.v = null;
+      this.force = null;
       this.d = null;
       this.t = null;
     }
     else {
-      if (initObj.hasOwnProperty('v')) {
-        this.v = initObj.v
+      if (initObj.hasOwnProperty('force')) {
+        this.force = initObj.force
       }
       else {
-        this.v = 0;
+        this.force = 0.0;
       }
       if (initObj.hasOwnProperty('d')) {
         this.d = initObj.d
@@ -39,19 +39,19 @@ class input {
         this.t = initObj.t
       }
       else {
-        this.t = 0;
+        this.t = 0.0;
       }
     }
   }
 
   static serialize(obj, buffer, bufferOffset) {
     // Serializes a message object of type input
-    // Serialize message field [v]
-    bufferOffset = _serializer.int32(obj.v, buffer, bufferOffset);
+    // Serialize message field [force]
+    bufferOffset = _serializer.float64(obj.force, buffer, bufferOffset);
     // Serialize message field [d]
     bufferOffset = _serializer.float64(obj.d, buffer, bufferOffset);
     // Serialize message field [t]
-    bufferOffset = _serializer.int32(obj.t, buffer, bufferOffset);
+    bufferOffset = _serializer.float64(obj.t, buffer, bufferOffset);
     return bufferOffset;
   }
 
@@ -59,17 +59,17 @@ class input {
     //deserializes a message object of type input
     let len;
     let data = new input(null);
-    // Deserialize message field [v]
-    data.v = _deserializer.int32(buffer, bufferOffset);
+    // Deserialize message field [force]
+    data.force = _deserializer.float64(buffer, bufferOffset);
     // Deserialize message field [d]
     data.d = _deserializer.float64(buffer, bufferOffset);
     // Deserialize message field [t]
-    data.t = _deserializer.int32(buffer, bufferOffset);
+    data.t = _deserializer.float64(buffer, bufferOffset);
     return data;
   }
 
   static getMessageSize(object) {
-    return 16;
+    return 24;
   }
 
   static datatype() {
@@ -79,15 +79,15 @@ class input {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return 'd20864dc5c2c2035946b751aab74d0f1';
+    return 'cb0e4b0c846c6cafc467bc7405eac5f2';
   }
 
   static messageDefinition() {
     // Returns full string definition for message
     return `
-    int32 v
+    float64 force
     float64 d
-    int32 t
+    float64 t
     
     `;
   }
@@ -98,11 +98,11 @@ class input {
       msg = {};
     }
     const resolved = new input(null);
-    if (msg.v !== undefined) {
-      resolved.v = msg.v;
+    if (msg.force !== undefined) {
+      resolved.force = msg.force;
     }
     else {
-      resolved.v = 0
+      resolved.force = 0.0
     }
 
     if (msg.d !== undefined) {
@@ -116,7 +116,7 @@ class input {
       resolved.t = msg.t;
     }
     else {
-      resolved.t = 0
+      resolved.t = 0.0
     }
 
     return resolved;
