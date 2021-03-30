@@ -4,6 +4,6 @@
 (defsystem "motorcycle_gz-msg"
   :depends-on (:roslisp-msg-protocol :roslisp-utils )
   :components ((:file "_package")
-    (:file "input" :depends-on ("_package_input"))
-    (:file "_package_input" :depends-on ("_package"))
+    (:file "parameterData" :depends-on ("_package_parameterData"))
+    (:file "_package_parameterData" :depends-on ("_package"))
   ))

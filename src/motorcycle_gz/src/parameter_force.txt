@@ -1,7 +1,22 @@
-force = 2000000
-direction = 0
-time = 5
 force = 0
 direction = 0
-time = 5
+time = 0
+force = 600000
+direction = 0.0
+time = 2
+force = 2500000
+direction = 0.0
+time = 10
+force = 0
+direction = 0.0
+time = 0
+force = 0
+direction = 0
+time = 0
+force = 0
+direction = 0
+time = 0
+force = 0
+direction = 0
+time = 0
 

@@ -6,6 +6,22 @@
 
 #IncludeRegexTransform: 
 
+/home/iclab/motorcycle_ws/devel/include/motorcycle_gz/input.h
+string
+-
+vector
+-
+map
+-
+ros/types.h
+-
+ros/serialization.h
+-
+ros/builtin_message_traits.h
+-
+ros/message_operations.h
+-
+
 /home/iclab/motorcycle_ws/src/motorcycle_gz/src/loadparameter.cpp
 ros/ros.h
 -
@@ -246,6 +262,10 @@ boost/make_shared.hpp
 cstddef
 -
 memory
+-
+
+/opt/ros/melodic/include/ros/message_operations.h
+ostream
 -
 
 /opt/ros/melodic/include/ros/message_traits.h

@@ -24,9 +24,9 @@ string v = "velocity";
 string d = "direction";
 string t = "time";
 string e = "=";
-int parameter_v[100];
+float parameter_v[100];
 double parameter_d[100];
-int parameter_t[100];
+float parameter_t[100];
 void readvalue(string v, string d, string t);
 
 void Delay(int timedelay)
@@ -48,7 +48,7 @@ void readvalue(string v, string d, string t)
 	ifstream in("/home/iclab/motorcycle_ws/src/motorcycle_gz/src/parameter.txt");
 	string line;
 	char buffer[100];
-	int ans = atoi(buffer);
+	float ans = atof(buffer);
 	double ansf = atof(buffer);
 	int i = 0;
 	int j = 0;
@@ -65,9 +65,9 @@ void readvalue(string v, string d, string t)
 				{
 					getline(in, line, '\n');
 					strcpy(buffer, line.c_str());
-					ans = atoi(buffer);
+					ans = atof(buffer);
 					parameter_v[i] = ans;
-					ROS_INFO("read from data (velocity) : %d", parameter_v[i]);
+					ROS_INFO("read from data (velocity) : %f", parameter_v[i]);
 				}
 			}
 			if (line == d)
@@ -91,9 +91,9 @@ void readvalue(string v, string d, string t)
 				{
 					getline(in, line, '\n');
 					strcpy(buffer, line.c_str());
-					ans = atoi(buffer);
+					ans = atof(buffer);
 					parameter_t[k] = ans;
-					ROS_INFO("read from data (time) : %d", parameter_t[k]);
+					ROS_INFO("read from data (time) : %f", parameter_t[k]);
 				}
 			}
 		}
@@ -124,9 +124,9 @@ int main(int argc, char **argv)
 		msg.v = parameter_v[i];
 		msg.d = parameter_d[i];
 		msg.t = parameter_t[i];
-		ROS_INFO("msg.v = %d", msg.v);
+		ROS_INFO("msg.v = %f", msg.v);
 		ROS_INFO("msg.d = %f", msg.d);
-		ROS_INFO("msg.t = %d", msg.t);
+		ROS_INFO("msg.t = %f", msg.t);
 		wheel_back_pub.publish(msg);
 		direction_pub.publish(msg);
 		velocity_time.publish(msg);

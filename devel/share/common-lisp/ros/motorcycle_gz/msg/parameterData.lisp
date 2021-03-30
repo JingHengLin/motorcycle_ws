@@ -4,60 +4,60 @@
 (cl:in-package motorcycle_gz-msg)
 
 
-;//! \htmlinclude input.msg.html
+;//! \htmlinclude parameterData.msg.html
 
-(cl:defclass <input> (roslisp-msg-protocol:ros-message)
+(cl:defclass <parameterData> (roslisp-msg-protocol:ros-message)
   ((force
     :reader force
     :initarg :force
     :type cl:float
     :initform 0.0)
-   (v
-    :reader v
-    :initarg :v
+   (velocity
+    :reader velocity
+    :initarg :velocity
     :type cl:float
     :initform 0.0)
-   (d
-    :reader d
-    :initarg :d
+   (direction
+    :reader direction
+    :initarg :direction
     :type cl:float
     :initform 0.0)
-   (t
-    :reader t
-    :initarg :t
+   (time
+    :reader time
+    :initarg :time
     :type cl:float
     :initform 0.0))
 )
 
-(cl:defclass input (<input>)
+(cl:defclass parameterData (<parameterData>)
   ())
 
-(cl:defmethod cl:initialize-instance :after ((m <input>) cl:&rest args)
+(cl:defmethod cl:initialize-instance :after ((m <parameterData>) cl:&rest args)
   (cl:declare (cl:ignorable args))
-  (cl:unless (cl:typep m 'input)
-    (roslisp-msg-protocol:msg-deprecation-warning "using old message class name motorcycle_gz-msg:<input> is deprecated: use motorcycle_gz-msg:input instead.")))
+  (cl:unless (cl:typep m 'parameterData)
+    (roslisp-msg-protocol:msg-deprecation-warning "using old message class name motorcycle_gz-msg:<parameterData> is deprecated: use motorcycle_gz-msg:parameterData instead.")))
 
 (cl:ensure-generic-function 'force-val :lambda-list '(m))
-(cl:defmethod force-val ((m <input>))
+(cl:defmethod force-val ((m <parameterData>))
   (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader motorcycle_gz-msg:force-val is deprecated.  Use motorcycle_gz-msg:force instead.")
   (force m))
 
-(cl:ensure-generic-function 'v-val :lambda-list '(m))
-(cl:defmethod v-val ((m <input>))
-  (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader motorcycle_gz-msg:v-val is deprecated.  Use motorcycle_gz-msg:v instead.")
-  (v m))
+(cl:ensure-generic-function 'velocity-val :lambda-list '(m))
+(cl:defmethod velocity-val ((m <parameterData>))
+  (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader motorcycle_gz-msg:velocity-val is deprecated.  Use motorcycle_gz-msg:velocity instead.")
+  (velocity m))
 
-(cl:ensure-generic-function 'd-val :lambda-list '(m))
-(cl:defmethod d-val ((m <input>))
-  (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader motorcycle_gz-msg:d-val is deprecated.  Use motorcycle_gz-msg:d instead.")
-  (d m))
+(cl:ensure-generic-function 'direction-val :lambda-list '(m))
+(cl:defmethod direction-val ((m <parameterData>))
+  (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader motorcycle_gz-msg:direction-val is deprecated.  Use motorcycle_gz-msg:direction instead.")
+  (direction m))
 
-(cl:ensure-generic-function 't-val :lambda-list '(m))
-(cl:defmethod t-val ((m <input>))
-  (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader motorcycle_gz-msg:t-val is deprecated.  Use motorcycle_gz-msg:t instead.")
-  (t m))
-(cl:defmethod roslisp-msg-protocol:serialize ((msg <input>) ostream)
-  "Serializes a message object of type '<input>"
+(cl:ensure-generic-function 'time-val :lambda-list '(m))
+(cl:defmethod time-val ((m <parameterData>))
+  (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader motorcycle_gz-msg:time-val is deprecated.  Use motorcycle_gz-msg:time instead.")
+  (time m))
+(cl:defmethod roslisp-msg-protocol:serialize ((msg <parameterData>) ostream)
+  "Serializes a message object of type '<parameterData>"
   (cl:let ((bits (roslisp-utils:encode-double-float-bits (cl:slot-value msg 'force))))
     (cl:write-byte (cl:ldb (cl:byte 8 0) bits) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 8) bits) ostream)
@@ -67,7 +67,7 @@
     (cl:write-byte (cl:ldb (cl:byte 8 40) bits) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 48) bits) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 56) bits) ostream))
-  (cl:let ((bits (roslisp-utils:encode-double-float-bits (cl:slot-value msg 'v))))
+  (cl:let ((bits (roslisp-utils:encode-double-float-bits (cl:slot-value msg 'velocity))))
     (cl:write-byte (cl:ldb (cl:byte 8 0) bits) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 8) bits) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 16) bits) ostream)
@@ -76,7 +76,7 @@
     (cl:write-byte (cl:ldb (cl:byte 8 40) bits) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 48) bits) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 56) bits) ostream))
-  (cl:let ((bits (roslisp-utils:encode-double-float-bits (cl:slot-value msg 'd))))
+  (cl:let ((bits (roslisp-utils:encode-double-float-bits (cl:slot-value msg 'direction))))
     (cl:write-byte (cl:ldb (cl:byte 8 0) bits) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 8) bits) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 16) bits) ostream)
@@ -85,7 +85,7 @@
     (cl:write-byte (cl:ldb (cl:byte 8 40) bits) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 48) bits) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 56) bits) ostream))
-  (cl:let ((bits (roslisp-utils:encode-double-float-bits (cl:slot-value msg 't))))
+  (cl:let ((bits (roslisp-utils:encode-double-float-bits (cl:slot-value msg 'time))))
     (cl:write-byte (cl:ldb (cl:byte 8 0) bits) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 8) bits) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 16) bits) ostream)
@@ -95,8 +95,8 @@
     (cl:write-byte (cl:ldb (cl:byte 8 48) bits) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 56) bits) ostream))
 )
-(cl:defmethod roslisp-msg-protocol:deserialize ((msg <input>) istream)
-  "Deserializes a message object of type '<input>"
+(cl:defmethod roslisp-msg-protocol:deserialize ((msg <parameterData>) istream)
+  "Deserializes a message object of type '<parameterData>"
     (cl:let ((bits 0))
       (cl:setf (cl:ldb (cl:byte 8 0) bits) (cl:read-byte istream))
       (cl:setf (cl:ldb (cl:byte 8 8) bits) (cl:read-byte istream))
@@ -116,7 +116,7 @@
       (cl:setf (cl:ldb (cl:byte 8 40) bits) (cl:read-byte istream))
       (cl:setf (cl:ldb (cl:byte 8 48) bits) (cl:read-byte istream))
       (cl:setf (cl:ldb (cl:byte 8 56) bits) (cl:read-byte istream))
-    (cl:setf (cl:slot-value msg 'v) (roslisp-utils:decode-double-float-bits bits)))
+    (cl:setf (cl:slot-value msg 'velocity) (roslisp-utils:decode-double-float-bits bits)))
     (cl:let ((bits 0))
       (cl:setf (cl:ldb (cl:byte 8 0) bits) (cl:read-byte istream))
       (cl:setf (cl:ldb (cl:byte 8 8) bits) (cl:read-byte istream))
@@ -126,7 +126,7 @@
       (cl:setf (cl:ldb (cl:byte 8 40) bits) (cl:read-byte istream))
       (cl:setf (cl:ldb (cl:byte 8 48) bits) (cl:read-byte istream))
       (cl:setf (cl:ldb (cl:byte 8 56) bits) (cl:read-byte istream))
-    (cl:setf (cl:slot-value msg 'd) (roslisp-utils:decode-double-float-bits bits)))
+    (cl:setf (cl:slot-value msg 'direction) (roslisp-utils:decode-double-float-bits bits)))
     (cl:let ((bits 0))
       (cl:setf (cl:ldb (cl:byte 8 0) bits) (cl:read-byte istream))
       (cl:setf (cl:ldb (cl:byte 8 8) bits) (cl:read-byte istream))
@@ -136,39 +136,39 @@
       (cl:setf (cl:ldb (cl:byte 8 40) bits) (cl:read-byte istream))
       (cl:setf (cl:ldb (cl:byte 8 48) bits) (cl:read-byte istream))
       (cl:setf (cl:ldb (cl:byte 8 56) bits) (cl:read-byte istream))
-    (cl:setf (cl:slot-value msg 't) (roslisp-utils:decode-double-float-bits bits)))
+    (cl:setf (cl:slot-value msg 'time) (roslisp-utils:decode-double-float-bits bits)))
   msg
 )
-(cl:defmethod roslisp-msg-protocol:ros-datatype ((msg (cl:eql '<input>)))
-  "Returns string type for a message object of type '<input>"
-  "motorcycle_gz/input")
-(cl:defmethod roslisp-msg-protocol:ros-datatype ((msg (cl:eql 'input)))
-  "Returns string type for a message object of type 'input"
-  "motorcycle_gz/input")
-(cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql '<input>)))
-  "Returns md5sum for a message object of type '<input>"
-  "1ccb91360ba5aa0292ae5dfbab053fc4")
-(cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql 'input)))
-  "Returns md5sum for a message object of type 'input"
-  "1ccb91360ba5aa0292ae5dfbab053fc4")
-(cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<input>)))
-  "Returns full string definition for message of type '<input>"
-  (cl:format cl:nil "float64 force~%float64 v~%float64 d~%float64 t~%~%~%"))
-(cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql 'input)))
-  "Returns full string definition for message of type 'input"
-  (cl:format cl:nil "float64 force~%float64 v~%float64 d~%float64 t~%~%~%"))
-(cl:defmethod roslisp-msg-protocol:serialization-length ((msg <input>))
+(cl:defmethod roslisp-msg-protocol:ros-datatype ((msg (cl:eql '<parameterData>)))
+  "Returns string type for a message object of type '<parameterData>"
+  "motorcycle_gz/parameterData")
+(cl:defmethod roslisp-msg-protocol:ros-datatype ((msg (cl:eql 'parameterData)))
+  "Returns string type for a message object of type 'parameterData"
+  "motorcycle_gz/parameterData")
+(cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql '<parameterData>)))
+  "Returns md5sum for a message object of type '<parameterData>"
+  "ea51df68025e04a7c8e74f0d28f60b43")
+(cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql 'parameterData)))
+  "Returns md5sum for a message object of type 'parameterData"
+  "ea51df68025e04a7c8e74f0d28f60b43")
+(cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<parameterData>)))
+  "Returns full string definition for message of type '<parameterData>"
+  (cl:format cl:nil "float64 force~%float64 velocity~%float64 direction~%float64 time~%~%~%"))
+(cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql 'parameterData)))
+  "Returns full string definition for message of type 'parameterData"
+  (cl:format cl:nil "float64 force~%float64 velocity~%float64 direction~%float64 time~%~%~%"))
+(cl:defmethod roslisp-msg-protocol:serialization-length ((msg <parameterData>))
   (cl:+ 0
      8
      8
      8
      8
 ))
-(cl:defmethod roslisp-msg-protocol:ros-message-to-list ((msg <input>))
+(cl:defmethod roslisp-msg-protocol:ros-message-to-list ((msg <parameterData>))
   "Converts a ROS message object to a list"
-  (cl:list 'input
+  (cl:list 'parameterData
     (cl:cons ':force (force msg))
-    (cl:cons ':v (v msg))
-    (cl:cons ':d (d msg))
-    (cl:cons ':t (t msg))
+    (cl:cons ':velocity (velocity msg))
+    (cl:cons ':direction (direction msg))
+    (cl:cons ':time (time msg))
 ))

@@ -13,12 +13,12 @@
 #include <math.h>
 #include <vector>
 #include <cstdlib>
-#include "motorcycle_gz/input.h"
+#include "motorcycle_gz/parameterData.h"
 using namespace std;
 
 // check input
 // --------------------------
-#define parameterData 2
+#define parameterDataSet 7 //How many set of data
 // --------------------------
 string force = "force";
 string v = "velocity";
@@ -83,7 +83,7 @@ void readvalue(string force, string d, string t)
 					strcpy(buffer, line.c_str());
 					ansf = atof(buffer);
 					parameter_force[i] = ansf;
-					ROS_INFO("read from data (force) : %f", parameter_force[i]);
+					// ROS_INFO("read from data (force) : %f", parameter_force[i]);
 				}
 			}
 			if (line == d)
@@ -96,7 +96,7 @@ void readvalue(string force, string d, string t)
 					strcpy(buffer, line.c_str());
 					ansf = atof(buffer);
 					parameter_d[j] = ansf;
-					ROS_INFO("read from data (direction) : %f", parameter_d[j]);
+					// ROS_INFO("read from data (direction) : %f", parameter_d[j]);
 				}
 			}
 			if (line == t)
@@ -109,7 +109,7 @@ void readvalue(string force, string d, string t)
 					strcpy(buffer, line.c_str());
 					ansf = atof(buffer);
 					parameter_t[k] = ansf;
-					ROS_INFO("read from data (time) : %f", parameter_t[k]);
+					// ROS_INFO("read from data (time) : %f", parameter_t[k]);
 				}
 			}
 		}
@@ -124,29 +124,28 @@ int main(int argc, char **argv)
 {
 	ros::init(argc, argv, "loadparameter");
 	ros::NodeHandle nh;
-	ros::Publisher Bwheel_pub;
-	ros::Publisher FrontFork_pub;
-	ros::Publisher force_time;
-	Bwheel_pub = nh.advertise<motorcycle_gz::input>("/loadparameter/inputdata", 1000);
-	FrontFork_pub = nh.advertise<motorcycle_gz::input>("/loadparameter/inputdata", 1000);
-	force_time = nh.advertise<motorcycle_gz::input>("/loadparameter/inputdata", 1000);
-	ros::Rate loop_rate(30);
+	// ros::Publisher Bwheel_pub;
+	// ros::Publisher FrontFork_pub;
+	// ros::Publisher force_time;
+	// Bwheel_pub = nh.advertise<motorcycle_gz::parameterData>("/loadparameter/data", 1000);
+	// FrontFork_pub = nh.advertise<motorcycle_gz::parameterData>("/loadparameter/data", 1000);
+	// force_time = nh.advertise<motorcycle_gz::parameterData>("/loadparameter/data", 1000);
+	ros::Publisher Data_pub;
+	Data_pub = nh.advertise<motorcycle_gz::parameterData>("/loadparameter/data", 1000);
+	ros::Rate loop_rate(1000);
 
 	readvalue(force, d, t);
-	Delay(500);
-	for (int i = 1; i <= parameterData; i++)
+
+	for (int i = 1; i <= parameterDataSet; i++)
 	{
-		motorcycle_gz::input msg;
-		msg.force = parameter_force[i];
-		msg.d = parameter_d[i];
-		msg.t = parameter_t[i];
-		ROS_INFO("msg.force = %f", msg.force);
-		ROS_INFO("msg.d = %f", msg.d);
-		ROS_INFO("msg.t = %f", msg.t);
-		Bwheel_pub.publish(msg);
-		FrontFork_pub.publish(msg);
-		force_time.publish(msg);
-		Delay(1000);
+		motorcycle_gz::parameterData Data_msg;
+		Data_msg.force = parameter_force[i];
+		Data_msg.direction = parameter_d[i];
+		Data_msg.time = parameter_t[i];
+		ROS_INFO("loadparameter : Data_msg.force = %f", Data_msg.force);
+		// ROS_INFO("Data_msg.direction = %f", Data_msg.direction);
+		// ROS_INFO("Data_msg.time = %f", Data_msg.time);
+		Data_pub.publish(Data_msg);
 		loop_rate.sleep();
 	}
 	return 0;

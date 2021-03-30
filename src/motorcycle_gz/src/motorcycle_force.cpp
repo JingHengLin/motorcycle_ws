@@ -2,34 +2,32 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <std_msgs/Float64.h>
-#include "motorcycle_gz/input.h"
+#include "motorcycle_gz/parameterData.h"
 
-float input_force;
-int input_v;
-float input_d;
-float input_t;
-ros::Publisher Bwheel_pub;
-ros::Publisher FrontFork_pub;
+float drive_force;
+float drive_direction;
+float drive_time;
+ros::Publisher force_pub;
+ros::Publisher direction_pub;
 
-void GetInputValue(const motorcycle_gz::input &msg)
+void GetInputValue(const motorcycle_gz::parameterData &Data_msg)
 {
-	input_force = msg.force;
-	input_d = msg.d;
-	input_t = msg.t;
+	drive_force = Data_msg.force;
+	drive_direction = Data_msg.direction;
+	drive_time = Data_msg.time;
 }
 
-void set_force(float back_wheel)
+void set_force(float force)
 {
 	std_msgs::Float64 msg;
-	msg.data = back_wheel;
-	ROS_INFO("msg.data = %f", msg.data);
-	Bwheel_pub.publish(msg);
+	msg.data = force;
+	force_pub.publish(msg);
 }
 void set_position(float direction)
 {
 	std_msgs::Float64 msg;
 	msg.data = direction;
-	FrontFork_pub.publish(msg);
+	direction_pub.publish(msg);
 }
 
 void Delay(int timedelay)
@@ -48,30 +46,23 @@ void Delay(int timedelay)
 
 int main(int argc, char **argv)
 {
-	ros::init(argc, argv, "motorcycle");
+	ros::init(argc, argv, "drive");
 	ros::NodeHandle nh;
-	ros::Subscriber Input_subscribe;
-	ros::Rate loop_rate(30);
+	ros::Subscriber Data_sub;
+	ros::Rate loop_rate(1000);
 
-	Input_subscribe = nh.subscribe("/loadparameter/inputdata", 1000, GetInputValue);
-	Bwheel_pub = nh.advertise<std_msgs::Float64>("/motorcycle/Bwheel_Joint_effort_controller/command", 1000);
-	FrontFork_pub = nh.advertise<std_msgs::Float64>("/motorcycle/FrontFork_Joint_position_controller/command", 1000);
+	Data_sub = nh.subscribe("/loadparameter/data", 1000, GetInputValue);
+	force_pub = nh.advertise<std_msgs::Float64>("/motorcycle/Bwheel_Joint_effort_controller/command", 1000);
+	direction_pub = nh.advertise<std_msgs::Float64>("/motorcycle/FrontFork_Joint_position_controller/command", 1000);
 
-	float back_wheel = 0;
-	float direction = 0;
-	float time = 0;
-
+	float time = 0; // time of force and direction keep 
 	while (nh.ok())
 	{
 		ros::spinOnce();
-		back_wheel = input_force;
-		// ROS_INFO("back_wheel = %f", back_wheel);
-		set_force(back_wheel);
-		direction = input_d;
-		// ROS_INFO("direction = %f", direction);
-		set_position(direction);
-		time = input_t * 1000;
-		// ROS_INFO("time = %f", time);
+		ROS_INFO("motorcycle_force : back_wheel = %f", drive_force);
+		set_force(drive_force);
+		set_position(drive_direction);
+		time = drive_time * 1000;
 		Delay(time);
 		loop_rate.sleep();
 	}

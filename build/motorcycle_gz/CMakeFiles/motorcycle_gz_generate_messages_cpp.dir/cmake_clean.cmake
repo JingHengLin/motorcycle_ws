@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/motorcycle_gz_generate_messages_cpp"
-  "/home/iclab/motorcycle_ws/devel/include/motorcycle_gz/input.h"
+  "/home/iclab/motorcycle_ws/devel/include/motorcycle_gz/parameterData.h"
 )
 
 # Per-language clean rules from dependency scanning.

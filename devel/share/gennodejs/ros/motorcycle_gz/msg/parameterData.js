@@ -14,14 +14,14 @@ const _getByteLength = _ros_msg_utils.getByteLength;
 
 //-----------------------------------------------------------
 
-class input {
+class parameterData {
   constructor(initObj={}) {
     if (initObj === null) {
       // initObj === null is a special case for deserialization where we don't initialize fields
       this.force = null;
-      this.v = null;
-      this.d = null;
-      this.t = null;
+      this.velocity = null;
+      this.direction = null;
+      this.time = null;
     }
     else {
       if (initObj.hasOwnProperty('force')) {
@@ -30,52 +30,52 @@ class input {
       else {
         this.force = 0.0;
       }
-      if (initObj.hasOwnProperty('v')) {
-        this.v = initObj.v
+      if (initObj.hasOwnProperty('velocity')) {
+        this.velocity = initObj.velocity
       }
       else {
-        this.v = 0.0;
+        this.velocity = 0.0;
       }
-      if (initObj.hasOwnProperty('d')) {
-        this.d = initObj.d
-      }
-      else {
-        this.d = 0.0;
-      }
-      if (initObj.hasOwnProperty('t')) {
-        this.t = initObj.t
+      if (initObj.hasOwnProperty('direction')) {
+        this.direction = initObj.direction
       }
       else {
-        this.t = 0.0;
+        this.direction = 0.0;
+      }
+      if (initObj.hasOwnProperty('time')) {
+        this.time = initObj.time
+      }
+      else {
+        this.time = 0.0;
       }
     }
   }
 
   static serialize(obj, buffer, bufferOffset) {
-    // Serializes a message object of type input
+    // Serializes a message object of type parameterData
     // Serialize message field [force]
     bufferOffset = _serializer.float64(obj.force, buffer, bufferOffset);
-    // Serialize message field [v]
-    bufferOffset = _serializer.float64(obj.v, buffer, bufferOffset);
-    // Serialize message field [d]
-    bufferOffset = _serializer.float64(obj.d, buffer, bufferOffset);
-    // Serialize message field [t]
-    bufferOffset = _serializer.float64(obj.t, buffer, bufferOffset);
+    // Serialize message field [velocity]
+    bufferOffset = _serializer.float64(obj.velocity, buffer, bufferOffset);
+    // Serialize message field [direction]
+    bufferOffset = _serializer.float64(obj.direction, buffer, bufferOffset);
+    // Serialize message field [time]
+    bufferOffset = _serializer.float64(obj.time, buffer, bufferOffset);
     return bufferOffset;
   }
 
   static deserialize(buffer, bufferOffset=[0]) {
-    //deserializes a message object of type input
+    //deserializes a message object of type parameterData
     let len;
-    let data = new input(null);
+    let data = new parameterData(null);
     // Deserialize message field [force]
     data.force = _deserializer.float64(buffer, bufferOffset);
-    // Deserialize message field [v]
-    data.v = _deserializer.float64(buffer, bufferOffset);
-    // Deserialize message field [d]
-    data.d = _deserializer.float64(buffer, bufferOffset);
-    // Deserialize message field [t]
-    data.t = _deserializer.float64(buffer, bufferOffset);
+    // Deserialize message field [velocity]
+    data.velocity = _deserializer.float64(buffer, bufferOffset);
+    // Deserialize message field [direction]
+    data.direction = _deserializer.float64(buffer, bufferOffset);
+    // Deserialize message field [time]
+    data.time = _deserializer.float64(buffer, bufferOffset);
     return data;
   }
 
@@ -85,21 +85,21 @@ class input {
 
   static datatype() {
     // Returns string type for a message object
-    return 'motorcycle_gz/input';
+    return 'motorcycle_gz/parameterData';
   }
 
   static md5sum() {
     //Returns md5sum for a message object
-    return '1ccb91360ba5aa0292ae5dfbab053fc4';
+    return 'ea51df68025e04a7c8e74f0d28f60b43';
   }
 
   static messageDefinition() {
     // Returns full string definition for message
     return `
     float64 force
-    float64 v
-    float64 d
-    float64 t
+    float64 velocity
+    float64 direction
+    float64 time
     
     `;
   }
@@ -109,7 +109,7 @@ class input {
     if (typeof msg !== 'object' || msg === null) {
       msg = {};
     }
-    const resolved = new input(null);
+    const resolved = new parameterData(null);
     if (msg.force !== undefined) {
       resolved.force = msg.force;
     }
@@ -117,29 +117,29 @@ class input {
       resolved.force = 0.0
     }
 
-    if (msg.v !== undefined) {
-      resolved.v = msg.v;
+    if (msg.velocity !== undefined) {
+      resolved.velocity = msg.velocity;
     }
     else {
-      resolved.v = 0.0
+      resolved.velocity = 0.0
     }
 
-    if (msg.d !== undefined) {
-      resolved.d = msg.d;
+    if (msg.direction !== undefined) {
+      resolved.direction = msg.direction;
     }
     else {
-      resolved.d = 0.0
+      resolved.direction = 0.0
     }
 
-    if (msg.t !== undefined) {
-      resolved.t = msg.t;
+    if (msg.time !== undefined) {
+      resolved.time = msg.time;
     }
     else {
-      resolved.t = 0.0
+      resolved.time = 0.0
     }
 
     return resolved;
     }
 };
 
-module.exports = input;
+module.exports = parameterData;

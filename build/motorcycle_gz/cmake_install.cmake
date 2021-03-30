@@ -38,7 +38,7 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/motorcycle_gz/msg" TYPE FILE FILES "/home/iclab/motorcycle_ws/src/motorcycle_gz/msg/input.msg")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/motorcycle_gz/msg" TYPE FILE FILES "/home/iclab/motorcycle_ws/src/motorcycle_gz/msg/parameterData.msg")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)

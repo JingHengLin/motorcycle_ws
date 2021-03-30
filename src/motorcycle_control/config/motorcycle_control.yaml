@@ -2,7 +2,7 @@ motorcycle:
   # Publish all joint states -----------------------------------
   joint_state_controller:
     type: joint_state_controller/JointStateController
-    publish_rate: 1000
+    publish_rate: 2000
   
   # Position Controllers ---------------------------------------
   FrontFork_Joint_position_controller:
@@ -20,6 +20,7 @@ motorcycle:
     type: effort_controllers/JointEffortController
     joint: Bwheel_Joint
     # pid: {p: 1.0, i: 0.1, d: 0.01}
+
 
   # # ---------- Vespa Velocity Version ----------
   # # Publish all joint states -----------------------------------

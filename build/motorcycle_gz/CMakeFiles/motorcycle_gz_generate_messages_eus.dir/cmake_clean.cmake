@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/motorcycle_gz_generate_messages_eus"
-  "/home/iclab/motorcycle_ws/devel/share/roseus/ros/motorcycle_gz/msg/input.l"
+  "/home/iclab/motorcycle_ws/devel/share/roseus/ros/motorcycle_gz/msg/parameterData.l"
   "/home/iclab/motorcycle_ws/devel/share/roseus/ros/motorcycle_gz/manifest.l"
 )
 

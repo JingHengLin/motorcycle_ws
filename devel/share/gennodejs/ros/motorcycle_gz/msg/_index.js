@@ -1,8 +1,8 @@
 
 "use strict";
 
-let input = require('./input.js');
+let parameterData = require('./parameterData.js');
 
 module.exports = {
-  input: input,
+  parameterData: parameterData,
 };

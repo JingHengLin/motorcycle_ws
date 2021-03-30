@@ -52,7 +52,6 @@
     <parent link="Body_Link" />
     <child link="Bwheel_Link" />
     <axis xyz="0 1 0" />
-    <!-- <limit lower="0" upper="0" effort="0" velocity="0" /> -->
     <dynamics damping="0.0" friction="0.7" />
   </joint>
   <link name="Direction_Link">
@@ -82,8 +81,8 @@
     <parent link="Body_Link" />
     <child link="Direction_Link" />
     <axis xyz="0.46947 0 -0.88295" />
-    <limit lower="${-pi*0.9}" upper="${pi*0.9}" effort="1000" velocity="100" />
-    <dynamics damping="0.0" friction="0.7" />
+    <limit lower="${-pi*0.8}" upper="${pi*0.8}" effort="10000" velocity="10000" />
+    <dynamics damping="0.0" friction="0.0" />
   </joint>
   <link name="Fwheel_Link">
     <inertial>
@@ -120,6 +119,8 @@
   </gazebo>
   <gazebo reference="Direction_Link">
     <material>Gazebo/white</material>
+    <mu1>0.01</mu1>
+    <mu2>0.01</mu2>
   </gazebo>
   <gazebo reference="Fwheel_Link">
     <mu1>1.0</mu1>
