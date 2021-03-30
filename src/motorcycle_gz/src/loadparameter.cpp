@@ -13,12 +13,12 @@
 #include <math.h>
 #include <vector>
 #include <cstdlib>
-#include "motorcycle_gz/input.h"
+#include "motorcycle_gz/parameterData.h"
 using namespace std;
 
 // check input
 // --------------------------
-#define parameterData 3
+#define parameterDataSet 3
 // --------------------------
 string v = "velocity";
 string d = "direction";
@@ -118,7 +118,7 @@ int main(int argc, char **argv)
 
 	readvalue(v, d, t);
 	Delay(500);
-	for (int i = 1; i <= parameterData; i++)
+	for (int i = 1; i <= parameterDataSet; i++)
 	{
 		motorcycle_gz::input msg;
 		msg.v = parameter_v[i];

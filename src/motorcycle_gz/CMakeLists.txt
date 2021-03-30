@@ -144,8 +144,8 @@ include_directories(
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
 # add_executable(${PROJECT_NAME}_node src/motorcycle_gz_node.cpp)
-add_executable(motorcycle src/motorcycle.cpp)
-add_executable(loadparameter src/loadparameter.cpp)
+#add_executable(motorcycle src/motorcycle.cpp)
+#add_executable(loadparameter src/loadparameter.cpp)
 add_executable(motorcycle_force src/motorcycle_force.cpp)
 add_executable(loadparameter_force src/loadparameter_force.cpp)
 ## Rename C++ executable without prefix
@@ -162,12 +162,12 @@ add_executable(loadparameter_force src/loadparameter_force.cpp)
 # target_link_libraries(${PROJECT_NAME}_node
 #   ${catkin_LIBRARIES}
 # )
-target_link_libraries(motorcycle
-  ${catkin_LIBRARIES}
-)
-target_link_libraries(loadparameter
-  ${catkin_LIBRARIES}
-)
+#target_link_libraries(motorcycle
+#  ${catkin_LIBRARIES}
+#)
+#target_link_libraries(loadparameter
+#  ${catkin_LIBRARIES}
+#)
 target_link_libraries(motorcycle_force
   ${catkin_LIBRARIES}
 )

@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <std_msgs/Float64.h>
-#include "motorcycle_gz/input.h"
+#include "motorcycle_gz/parameterData.h"
 
 int input_v;
 int input_d;
