@@ -55,15 +55,17 @@ int main(int argc, char **argv)
 	force_pub = nh.advertise<std_msgs::Float64>("/motorcycle/Bwheel_Joint_effort_controller/command", 1000);
 	direction_pub = nh.advertise<std_msgs::Float64>("/motorcycle/FrontFork_Joint_position_controller/command", 1000);
 
-	float time = 0; // time of force and direction keep 
+	float timekeep = 0; // time of force and direction keep 
 	while (nh.ok())
 	{
 		ros::spinOnce();
-		ROS_INFO("motorcycle_force : back_wheel = %f", drive_force);
+		if (drive_force!=0){
+			ROS_INFO("motorcycle_force : back_wheel = %f", drive_force);
+		}
 		set_force(drive_force);
 		set_position(drive_direction);
-		time = drive_time * 1000;
-		Delay(time);
+		timekeep = drive_time * 1000;
+		Delay(timekeep);
 		loop_rate.sleep();
 	}
 	return 0;

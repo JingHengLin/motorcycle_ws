@@ -135,17 +135,21 @@ int main(int argc, char **argv)
 	ros::Rate loop_rate(1000);
 
 	readvalue(force, d, t);
-
+	float timekeep = 0; // time of force and direction keep 
 	for (int i = 1; i <= parameterDataSet; i++)
 	{
 		motorcycle_gz::parameterData Data_msg;
 		Data_msg.force = parameter_force[i];
 		Data_msg.direction = parameter_d[i];
 		Data_msg.time = parameter_t[i];
-		ROS_INFO("loadparameter : Data_msg.force = %f", Data_msg.force);
-		// ROS_INFO("Data_msg.direction = %f", Data_msg.direction);
-		// ROS_INFO("Data_msg.time = %f", Data_msg.time);
+		if (Data_msg.force!=0){
+			ROS_INFO("loadparameter : Data_msg.force = %f", Data_msg.force);
+			ROS_INFO("Data_msg.direction = %f", Data_msg.direction);
+			ROS_INFO("Data_msg.time = %f", Data_msg.time);	
+		}
 		Data_pub.publish(Data_msg);
+		timekeep = Data_msg.time * 1000;
+		Delay(timekeep);
 		loop_rate.sleep();
 	}
 	return 0;

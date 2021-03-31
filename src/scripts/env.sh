@@ -7,7 +7,7 @@ source ${DIR}/../../devel/setup.bash
 gnome-terminal \
 --window -e 'bash -c "cd ~/motorcycle_ws; killall rosmaster; killall gzserver; killall gzclient; roscore"' \
 --tab -e 'bash -c "sleep 3; source devel/setup.bash; roslaunch motorcycle_gz motorcycle_world.launch"' \
---tab -e 'bash -c "sleep 6; source devel/setup.bash; roslaunch motorcycle_gz motorcycle_force.launch"'
+--tab -e 'bash -c "sleep 10; source devel/setup.bash; roslaunch motorcycle_gz motorcycle_force.launch"'
 
 # gnome-terminal \
 # --window -e 'bash -c "cd ~/motorcycle_ws; roscore"' \
