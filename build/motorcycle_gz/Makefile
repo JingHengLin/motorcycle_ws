@@ -168,6 +168,21 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+motorcycle_gz/CMakeFiles/p_controller.dir/rule:
+	cd /home/iclab/motorcycle_ws/build && $(MAKE) -f CMakeFiles/Makefile2 motorcycle_gz/CMakeFiles/p_controller.dir/rule
+.PHONY : motorcycle_gz/CMakeFiles/p_controller.dir/rule
+
+# Convenience name for target.
+p_controller: motorcycle_gz/CMakeFiles/p_controller.dir/rule
+
+.PHONY : p_controller
+
+# fast build rule for target.
+p_controller/fast:
+	cd /home/iclab/motorcycle_ws/build && $(MAKE) -f motorcycle_gz/CMakeFiles/p_controller.dir/build.make motorcycle_gz/CMakeFiles/p_controller.dir/build
+.PHONY : p_controller/fast
+
+# Convenience name for target.
 motorcycle_gz/CMakeFiles/motorcycle_gz_generate_messages_eus.dir/rule:
 	cd /home/iclab/motorcycle_ws/build && $(MAKE) -f CMakeFiles/Makefile2 motorcycle_gz/CMakeFiles/motorcycle_gz_generate_messages_eus.dir/rule
 .PHONY : motorcycle_gz/CMakeFiles/motorcycle_gz_generate_messages_eus.dir/rule
@@ -476,12 +491,40 @@ src/motorcycle_force.cpp.s:
 	cd /home/iclab/motorcycle_ws/build && $(MAKE) -f motorcycle_gz/CMakeFiles/motorcycle_force.dir/build.make motorcycle_gz/CMakeFiles/motorcycle_force.dir/src/motorcycle_force.cpp.s
 .PHONY : src/motorcycle_force.cpp.s
 
+src/p_controller.o: src/p_controller.cpp.o
+
+.PHONY : src/p_controller.o
+
+# target to build an object file
+src/p_controller.cpp.o:
+	cd /home/iclab/motorcycle_ws/build && $(MAKE) -f motorcycle_gz/CMakeFiles/p_controller.dir/build.make motorcycle_gz/CMakeFiles/p_controller.dir/src/p_controller.cpp.o
+.PHONY : src/p_controller.cpp.o
+
+src/p_controller.i: src/p_controller.cpp.i
+
+.PHONY : src/p_controller.i
+
+# target to preprocess a source file
+src/p_controller.cpp.i:
+	cd /home/iclab/motorcycle_ws/build && $(MAKE) -f motorcycle_gz/CMakeFiles/p_controller.dir/build.make motorcycle_gz/CMakeFiles/p_controller.dir/src/p_controller.cpp.i
+.PHONY : src/p_controller.cpp.i
+
+src/p_controller.s: src/p_controller.cpp.s
+
+.PHONY : src/p_controller.s
+
+# target to generate assembly for a file
+src/p_controller.cpp.s:
+	cd /home/iclab/motorcycle_ws/build && $(MAKE) -f motorcycle_gz/CMakeFiles/p_controller.dir/build.make motorcycle_gz/CMakeFiles/p_controller.dir/src/p_controller.cpp.s
+.PHONY : src/p_controller.cpp.s
+
 src/pid.o: src/pid.cpp.o
 
 .PHONY : src/pid.o
 
 # target to build an object file
 src/pid.cpp.o:
+	cd /home/iclab/motorcycle_ws/build && $(MAKE) -f motorcycle_gz/CMakeFiles/p_controller.dir/build.make motorcycle_gz/CMakeFiles/p_controller.dir/src/pid.cpp.o
 	cd /home/iclab/motorcycle_ws/build && $(MAKE) -f motorcycle_gz/CMakeFiles/pid_example.dir/build.make motorcycle_gz/CMakeFiles/pid_example.dir/src/pid.cpp.o
 .PHONY : src/pid.cpp.o
 
@@ -491,6 +534,7 @@ src/pid.i: src/pid.cpp.i
 
 # target to preprocess a source file
 src/pid.cpp.i:
+	cd /home/iclab/motorcycle_ws/build && $(MAKE) -f motorcycle_gz/CMakeFiles/p_controller.dir/build.make motorcycle_gz/CMakeFiles/p_controller.dir/src/pid.cpp.i
 	cd /home/iclab/motorcycle_ws/build && $(MAKE) -f motorcycle_gz/CMakeFiles/pid_example.dir/build.make motorcycle_gz/CMakeFiles/pid_example.dir/src/pid.cpp.i
 .PHONY : src/pid.cpp.i
 
@@ -500,6 +544,7 @@ src/pid.s: src/pid.cpp.s
 
 # target to generate assembly for a file
 src/pid.cpp.s:
+	cd /home/iclab/motorcycle_ws/build && $(MAKE) -f motorcycle_gz/CMakeFiles/p_controller.dir/build.make motorcycle_gz/CMakeFiles/p_controller.dir/src/pid.cpp.s
 	cd /home/iclab/motorcycle_ws/build && $(MAKE) -f motorcycle_gz/CMakeFiles/pid_example.dir/build.make motorcycle_gz/CMakeFiles/pid_example.dir/src/pid.cpp.s
 .PHONY : src/pid.cpp.s
 
@@ -595,6 +640,7 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... test"
+	@echo "... p_controller"
 	@echo "... motorcycle_gz_generate_messages_eus"
 	@echo "... motorcycle_gz_geneus"
 	@echo "... motorcycle_gz_generate_messages"
@@ -620,6 +666,9 @@ help:
 	@echo "... src/motorcycle_force.o"
 	@echo "... src/motorcycle_force.i"
 	@echo "... src/motorcycle_force.s"
+	@echo "... src/p_controller.o"
+	@echo "... src/p_controller.i"
+	@echo "... src/p_controller.s"
 	@echo "... src/pid.o"
 	@echo "... src/pid.i"
 	@echo "... src/pid.s"

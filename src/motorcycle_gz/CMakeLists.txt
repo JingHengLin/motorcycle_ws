@@ -151,6 +151,7 @@ add_executable(loadparameter_force src/loadparameter_force.cpp)
 add_executable(velocity_sub src/velocity_sub.cpp)
 add_executable(pid_example src/pid.cpp src/pid_example.cpp)
 add_executable(velocity_goal src/velocity_goal.cpp)
+add_executable(p_controller src/pid.cpp src/p_controller.cpp)
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
 ## target back to the shorter version for ease of user use
@@ -165,6 +166,7 @@ add_dependencies(loadparameter_force ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catki
 add_dependencies(velocity_sub ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 add_dependencies(pid_example ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 add_dependencies(velocity_goal ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(p_controller ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 ## Specify libraries to link a library or executable target against
 # target_link_libraries(${PROJECT_NAME}_node
 #   ${catkin_LIBRARIES}
@@ -188,6 +190,9 @@ target_link_libraries(pid_example
   ${catkin_LIBRARIES}
 )
 target_link_libraries(velocity_goal
+  ${catkin_LIBRARIES}
+)
+target_link_libraries(p_controller
   ${catkin_LIBRARIES}
 )
 #############

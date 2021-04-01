@@ -493,6 +493,19 @@ _catkin_empty_exported_target/fast:
 .PHONY : _catkin_empty_exported_target/fast
 
 #=============================================================================
+# Target rules for targets named p_controller
+
+# Build rule for target.
+p_controller: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 p_controller
+.PHONY : p_controller
+
+# fast build rule for target.
+p_controller/fast:
+	$(MAKE) -f motorcycle_gz/CMakeFiles/p_controller.dir/build.make motorcycle_gz/CMakeFiles/p_controller.dir/build
+.PHONY : p_controller/fast
+
+#=============================================================================
 # Target rules for targets named motorcycle_gz_generate_messages_eus
 
 # Build rule for target.
@@ -1440,6 +1453,7 @@ help:
 	@echo "... roscpp_generate_messages_nodejs"
 	@echo "... std_msgs_generate_messages_py"
 	@echo "... _catkin_empty_exported_target"
+	@echo "... p_controller"
 	@echo "... motorcycle_gz_generate_messages_eus"
 	@echo "... motorcycle_gz_geneus"
 	@echo "... motorcycle_gz_generate_messages"
