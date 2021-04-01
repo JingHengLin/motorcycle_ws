@@ -1,41 +1,46 @@
 ;; Auto-generated. Do not edit!
 
 
-(when (boundp 'motorcycle_gz::parameterData)
+(when (boundp 'motorcycle_gz::driveJoint)
   (if (not (find-package "MOTORCYCLE_GZ"))
     (make-package "MOTORCYCLE_GZ"))
-  (shadow 'parameterData (find-package "MOTORCYCLE_GZ")))
-(unless (find-package "MOTORCYCLE_GZ::PARAMETERDATA")
-  (make-package "MOTORCYCLE_GZ::PARAMETERDATA"))
+  (shadow 'driveJoint (find-package "MOTORCYCLE_GZ")))
+(unless (find-package "MOTORCYCLE_GZ::DRIVEJOINT")
+  (make-package "MOTORCYCLE_GZ::DRIVEJOINT"))
 
 (in-package "ROS")
-;;//! \htmlinclude parameterData.msg.html
+;;//! \htmlinclude driveJoint.msg.html
 
 
-(defclass motorcycle_gz::parameterData
+(defclass motorcycle_gz::driveJoint
   :super ros::object
-  :slots (_force _velocity _direction _time ))
+  :slots (_force _velocity_goal _velocity_current _direction _time ))
 
-(defmethod motorcycle_gz::parameterData
+(defmethod motorcycle_gz::driveJoint
   (:init
    (&key
     ((:force __force) 0.0)
-    ((:velocity __velocity) 0.0)
+    ((:velocity_goal __velocity_goal) 0.0)
+    ((:velocity_current __velocity_current) 0.0)
     ((:direction __direction) 0.0)
     ((:time __time) 0.0)
     )
    (send-super :init)
    (setq _force (float __force))
-   (setq _velocity (float __velocity))
+   (setq _velocity_goal (float __velocity_goal))
+   (setq _velocity_current (float __velocity_current))
    (setq _direction (float __direction))
    (setq _time (float __time))
    self)
   (:force
    (&optional __force)
    (if __force (setq _force __force)) _force)
-  (:velocity
-   (&optional __velocity)
-   (if __velocity (setq _velocity __velocity)) _velocity)
+  (:velocity_goal
+   (&optional __velocity_goal)
+   (if __velocity_goal (setq _velocity_goal __velocity_goal)) _velocity_goal)
+  (:velocity_current
+   (&optional __velocity_current)
+   (if __velocity_current (setq _velocity_current __velocity_current)) _velocity_current)
   (:direction
    (&optional __direction)
    (if __direction (setq _direction __direction)) _direction)
@@ -47,7 +52,9 @@
    (+
     ;; float64 _force
     8
-    ;; float64 _velocity
+    ;; float64 _velocity_goal
+    8
+    ;; float64 _velocity_current
     8
     ;; float64 _direction
     8
@@ -60,8 +67,10 @@
               (make-string-output-stream (send self :serialization-length)))))
      ;; float64 _force
        (sys::poke _force (send s :buffer) (send s :count) :double) (incf (stream-count s) 8)
-     ;; float64 _velocity
-       (sys::poke _velocity (send s :buffer) (send s :count) :double) (incf (stream-count s) 8)
+     ;; float64 _velocity_goal
+       (sys::poke _velocity_goal (send s :buffer) (send s :count) :double) (incf (stream-count s) 8)
+     ;; float64 _velocity_current
+       (sys::poke _velocity_current (send s :buffer) (send s :count) :double) (incf (stream-count s) 8)
      ;; float64 _direction
        (sys::poke _direction (send s :buffer) (send s :count) :double) (incf (stream-count s) 8)
      ;; float64 _time
@@ -72,8 +81,10 @@
    (buf &optional (ptr- 0))
    ;; float64 _force
      (setq _force (sys::peek buf ptr- :double)) (incf ptr- 8)
-   ;; float64 _velocity
-     (setq _velocity (sys::peek buf ptr- :double)) (incf ptr- 8)
+   ;; float64 _velocity_goal
+     (setq _velocity_goal (sys::peek buf ptr- :double)) (incf ptr- 8)
+   ;; float64 _velocity_current
+     (setq _velocity_current (sys::peek buf ptr- :double)) (incf ptr- 8)
    ;; float64 _direction
      (setq _direction (sys::peek buf ptr- :double)) (incf ptr- 8)
    ;; float64 _time
@@ -82,11 +93,12 @@
    self)
   )
 
-(setf (get motorcycle_gz::parameterData :md5sum-) "ea51df68025e04a7c8e74f0d28f60b43")
-(setf (get motorcycle_gz::parameterData :datatype-) "motorcycle_gz/parameterData")
-(setf (get motorcycle_gz::parameterData :definition-)
+(setf (get motorcycle_gz::driveJoint :md5sum-) "84578ee7f01bae230834681aca563918")
+(setf (get motorcycle_gz::driveJoint :datatype-) "motorcycle_gz/driveJoint")
+(setf (get motorcycle_gz::driveJoint :definition-)
       "float64 force
-float64 velocity
+float64 velocity_goal
+float64 velocity_current
 float64 direction
 float64 time
 
@@ -94,6 +106,6 @@ float64 time
 
 
 
-(provide :motorcycle_gz/parameterData "ea51df68025e04a7c8e74f0d28f60b43")
+(provide :motorcycle_gz/driveJoint "84578ee7f01bae230834681aca563918")
 
 

@@ -6,9 +6,10 @@ source ${DIR}/../../devel/setup.bash
 
 gnome-terminal \
 --window -e 'bash -c "cd ~/motorcycle_ws; killall rosmaster; killall gzserver; killall gzclient; roscore"' \
---tab -e 'bash -c "sleep 2; source devel/setup.bash; roslaunch motorcycle_gz motorcycle_world.launch"' \
---tab -e 'bash -c "sleep 4; source devel/setup.bash; roslaunch motorcycle_gz motorcycle_force.launch"' \
---tab -e 'bash -c "sleep 8; source devel/setup.bash; rosrun  motorcycle_gz velocity_sub"'
+--tab -e 'bash -c "sleep 1; source devel/setup.bash; roslaunch motorcycle_gz motorcycle_world.launch"' \
+--tab -e 'bash -c "sleep 3; source devel/setup.bash; roslaunch motorcycle_gz motorcycle_force.launch"' \
+--tab -e 'bash -c "sleep 5; source devel/setup.bash; rosrun  motorcycle_gz velocity_sub"' \
+--tab -e 'bash -c "sleep 5; source devel/setup.bash; rosrun  motorcycle_gz velocity_goal"'
 
 # gnome-terminal \
 # --window -e 'bash -c "cd ~/motorcycle_ws; roscore"' \

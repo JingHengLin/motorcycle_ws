@@ -1,7 +1,7 @@
 (cl:defpackage motorcycle_gz-msg
   (:use )
   (:export
-   "<PARAMETERDATA>"
-   "PARAMETERDATA"
+   "<DRIVEJOINT>"
+   "DRIVEJOINT"
   ))
 

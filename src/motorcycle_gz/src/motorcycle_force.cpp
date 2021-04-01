@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <std_msgs/Float64.h>
-#include "motorcycle_gz/parameterData.h"
+#include "motorcycle_gz/driveJoint.h"
 
 float drive_force;
 float drive_direction;
@@ -10,7 +10,7 @@ float drive_time;
 ros::Publisher force_pub;
 ros::Publisher direction_pub;
 
-void GetInputValue(const motorcycle_gz::parameterData &Data_msg)
+void GetInputValue(const motorcycle_gz::driveJoint &Data_msg)
 {
 	drive_force = Data_msg.force;
 	drive_direction = Data_msg.direction;
@@ -46,7 +46,7 @@ void Delay(int timedelay)
 
 int main(int argc, char **argv)
 {
-	ros::init(argc, argv, "drive");
+	ros::init(argc, argv, "motorcycle_force");
 	ros::NodeHandle nh;
 	ros::Subscriber Data_sub;
 	ros::Rate loop_rate(1000);

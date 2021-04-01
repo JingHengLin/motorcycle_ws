@@ -14,12 +14,13 @@ const _getByteLength = _ros_msg_utils.getByteLength;
 
 //-----------------------------------------------------------
 
-class parameterData {
+class driveJoint {
   constructor(initObj={}) {
     if (initObj === null) {
       // initObj === null is a special case for deserialization where we don't initialize fields
       this.force = null;
-      this.velocity = null;
+      this.velocity_goal = null;
+      this.velocity_current = null;
       this.direction = null;
       this.time = null;
     }
@@ -30,11 +31,17 @@ class parameterData {
       else {
         this.force = 0.0;
       }
-      if (initObj.hasOwnProperty('velocity')) {
-        this.velocity = initObj.velocity
+      if (initObj.hasOwnProperty('velocity_goal')) {
+        this.velocity_goal = initObj.velocity_goal
       }
       else {
-        this.velocity = 0.0;
+        this.velocity_goal = 0.0;
+      }
+      if (initObj.hasOwnProperty('velocity_current')) {
+        this.velocity_current = initObj.velocity_current
+      }
+      else {
+        this.velocity_current = 0.0;
       }
       if (initObj.hasOwnProperty('direction')) {
         this.direction = initObj.direction
@@ -52,11 +59,13 @@ class parameterData {
   }
 
   static serialize(obj, buffer, bufferOffset) {
-    // Serializes a message object of type parameterData
+    // Serializes a message object of type driveJoint
     // Serialize message field [force]
     bufferOffset = _serializer.float64(obj.force, buffer, bufferOffset);
-    // Serialize message field [velocity]
-    bufferOffset = _serializer.float64(obj.velocity, buffer, bufferOffset);
+    // Serialize message field [velocity_goal]
+    bufferOffset = _serializer.float64(obj.velocity_goal, buffer, bufferOffset);
+    // Serialize message field [velocity_current]
+    bufferOffset = _serializer.float64(obj.velocity_current, buffer, bufferOffset);
     // Serialize message field [direction]
     bufferOffset = _serializer.float64(obj.direction, buffer, bufferOffset);
     // Serialize message field [time]
@@ -65,13 +74,15 @@ class parameterData {
   }
 
   static deserialize(buffer, bufferOffset=[0]) {
-    //deserializes a message object of type parameterData
+    //deserializes a message object of type driveJoint
     let len;
-    let data = new parameterData(null);
+    let data = new driveJoint(null);
     // Deserialize message field [force]
     data.force = _deserializer.float64(buffer, bufferOffset);
-    // Deserialize message field [velocity]
-    data.velocity = _deserializer.float64(buffer, bufferOffset);
+    // Deserialize message field [velocity_goal]
+    data.velocity_goal = _deserializer.float64(buffer, bufferOffset);
+    // Deserialize message field [velocity_current]
+    data.velocity_current = _deserializer.float64(buffer, bufferOffset);
     // Deserialize message field [direction]
     data.direction = _deserializer.float64(buffer, bufferOffset);
     // Deserialize message field [time]
@@ -80,24 +91,25 @@ class parameterData {
   }
 
   static getMessageSize(object) {
-    return 32;
+    return 40;
   }
 
   static datatype() {
     // Returns string type for a message object
-    return 'motorcycle_gz/parameterData';
+    return 'motorcycle_gz/driveJoint';
   }
 
   static md5sum() {
     //Returns md5sum for a message object
-    return 'ea51df68025e04a7c8e74f0d28f60b43';
+    return '84578ee7f01bae230834681aca563918';
   }
 
   static messageDefinition() {
     // Returns full string definition for message
     return `
     float64 force
-    float64 velocity
+    float64 velocity_goal
+    float64 velocity_current
     float64 direction
     float64 time
     
@@ -109,7 +121,7 @@ class parameterData {
     if (typeof msg !== 'object' || msg === null) {
       msg = {};
     }
-    const resolved = new parameterData(null);
+    const resolved = new driveJoint(null);
     if (msg.force !== undefined) {
       resolved.force = msg.force;
     }
@@ -117,11 +129,18 @@ class parameterData {
       resolved.force = 0.0
     }
 
-    if (msg.velocity !== undefined) {
-      resolved.velocity = msg.velocity;
+    if (msg.velocity_goal !== undefined) {
+      resolved.velocity_goal = msg.velocity_goal;
     }
     else {
-      resolved.velocity = 0.0
+      resolved.velocity_goal = 0.0
+    }
+
+    if (msg.velocity_current !== undefined) {
+      resolved.velocity_current = msg.velocity_current;
+    }
+    else {
+      resolved.velocity_current = 0.0
     }
 
     if (msg.direction !== undefined) {
@@ -142,4 +161,4 @@ class parameterData {
     }
 };
 
-module.exports = parameterData;
+module.exports = driveJoint;

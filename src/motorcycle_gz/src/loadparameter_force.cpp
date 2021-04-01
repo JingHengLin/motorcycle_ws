@@ -13,7 +13,7 @@
 #include <math.h>
 #include <vector>
 #include <cstdlib>
-#include "motorcycle_gz/parameterData.h"
+#include "motorcycle_gz/driveJoint.h"
 using namespace std;
 
 // check input
@@ -122,23 +122,23 @@ void readvalue(string force, string d, string t)
 
 int main(int argc, char **argv)
 {
-	ros::init(argc, argv, "loadparameter");
+	ros::init(argc, argv, "loadparameter_force");
 	ros::NodeHandle nh;
 	// ros::Publisher Bwheel_pub;
 	// ros::Publisher FrontFork_pub;
 	// ros::Publisher force_time;
-	// Bwheel_pub = nh.advertise<motorcycle_gz::parameterData>("/loadparameter/data", 1000);
-	// FrontFork_pub = nh.advertise<motorcycle_gz::parameterData>("/loadparameter/data", 1000);
-	// force_time = nh.advertise<motorcycle_gz::parameterData>("/loadparameter/data", 1000);
+	// Bwheel_pub = nh.advertise<motorcycle_gz::driveJoint>("/loadparameter/data", 1000);
+	// FrontFork_pub = nh.advertise<motorcycle_gz::driveJoint>("/loadparameter/data", 1000);
+	// force_time = nh.advertise<motorcycle_gz::driveJoint>("/loadparameter/data", 1000);
 	ros::Publisher Data_pub;
-	Data_pub = nh.advertise<motorcycle_gz::parameterData>("/loadparameter/data", 1000);
+	Data_pub = nh.advertise<motorcycle_gz::driveJoint>("/loadparameter/data", 1000);
 	ros::Rate loop_rate(1000);
 
 	readvalue(force, d, t);
 	float timekeep = 0; // time of force and direction keep 
 	for (int i = 1; i <= parameterDataSet; i++)
 	{
-		motorcycle_gz::parameterData Data_msg;
+		motorcycle_gz::driveJoint Data_msg;
 		Data_msg.force = parameter_force[i];
 		Data_msg.direction = parameter_d[i];
 		Data_msg.time = parameter_t[i];

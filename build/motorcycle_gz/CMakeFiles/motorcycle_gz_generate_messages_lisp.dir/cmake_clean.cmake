@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/motorcycle_gz_generate_messages_lisp"
-  "/home/iclab/motorcycle_ws/devel/share/common-lisp/ros/motorcycle_gz/msg/parameterData.lisp"
+  "/home/iclab/motorcycle_ws/devel/share/common-lisp/ros/motorcycle_gz/msg/driveJoint.lisp"
 )
 
 # Per-language clean rules from dependency scanning.

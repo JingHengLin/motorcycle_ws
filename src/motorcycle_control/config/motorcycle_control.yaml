@@ -8,7 +8,7 @@ motorcycle:
   FrontFork_Joint_position_controller:
     type: effort_controllers/JointPositionController
     joint: FrontFork_Joint
-    pid: {p: 200.0, i: 0.0, d: 0.0}
+    pid: {p: 200.0, i: 0.0, d: 150.0}
 
   # Effort Controllers ---------------------------------------
   Fwheel_Joint_effort_controller:

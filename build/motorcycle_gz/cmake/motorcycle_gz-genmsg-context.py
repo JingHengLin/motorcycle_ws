@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.context.in
 
-messages_str = "/home/iclab/motorcycle_ws/src/motorcycle_gz/msg/parameterData.msg"
+messages_str = "/home/iclab/motorcycle_ws/src/motorcycle_gz/msg/driveJoint.msg"
 services_str = ""
 pkg_name = "motorcycle_gz"
 dependencies_str = "std_msgs"

@@ -15,7 +15,6 @@ float feedback_velocity;
 void GetInputValue(const sensor_msgs::JointState &msg)
 {
 	feedback_velocity = msg.velocity[0];
-	ROS_INFO("-----------------------feedback_velocity = %f", feedback_velocity);
 }
 
 // void set_force(float force)
@@ -68,6 +67,7 @@ int main(int argc, char **argv)
 		// timekeep = drive_time * 1000;
 		// Delay(timekeep);
 		ROS_INFO("feedback_velocity = %f", feedback_velocity);
+		Delay(1000);
 		loop_rate.sleep();
 	}
 	return 0;

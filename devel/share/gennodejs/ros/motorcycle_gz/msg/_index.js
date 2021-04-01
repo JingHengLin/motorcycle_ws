@@ -1,8 +1,8 @@
 
 "use strict";
 
-let parameterData = require('./parameterData.js');
+let driveJoint = require('./driveJoint.js');
 
 module.exports = {
-  parameterData: parameterData,
+  driveJoint: driveJoint,
 };
