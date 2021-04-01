@@ -545,6 +545,19 @@ motorcycle_gz_generate_messages/fast:
 .PHONY : motorcycle_gz_generate_messages/fast
 
 #=============================================================================
+# Target rules for targets named motorcycle_gz_genpy
+
+# Build rule for target.
+motorcycle_gz_genpy: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 motorcycle_gz_genpy
+.PHONY : motorcycle_gz_genpy
+
+# fast build rule for target.
+motorcycle_gz_genpy/fast:
+	$(MAKE) -f motorcycle_gz/CMakeFiles/motorcycle_gz_genpy.dir/build.make motorcycle_gz/CMakeFiles/motorcycle_gz_genpy.dir/build
+.PHONY : motorcycle_gz_genpy/fast
+
+#=============================================================================
 # Target rules for targets named motorcycle_force
 
 # Build rule for target.
@@ -662,17 +675,30 @@ loadparameter_force/fast:
 .PHONY : loadparameter_force/fast
 
 #=============================================================================
-# Target rules for targets named motorcycle_gz_genpy
+# Target rules for targets named velocity_sub
 
 # Build rule for target.
-motorcycle_gz_genpy: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 motorcycle_gz_genpy
-.PHONY : motorcycle_gz_genpy
+velocity_sub: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 velocity_sub
+.PHONY : velocity_sub
 
 # fast build rule for target.
-motorcycle_gz_genpy/fast:
-	$(MAKE) -f motorcycle_gz/CMakeFiles/motorcycle_gz_genpy.dir/build.make motorcycle_gz/CMakeFiles/motorcycle_gz_genpy.dir/build
-.PHONY : motorcycle_gz_genpy/fast
+velocity_sub/fast:
+	$(MAKE) -f motorcycle_gz/CMakeFiles/velocity_sub.dir/build.make motorcycle_gz/CMakeFiles/velocity_sub.dir/build
+.PHONY : velocity_sub/fast
+
+#=============================================================================
+# Target rules for targets named pid
+
+# Build rule for target.
+pid: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 pid
+.PHONY : pid
+
+# fast build rule for target.
+pid/fast:
+	$(MAKE) -f motorcycle_gz/CMakeFiles/pid.dir/build.make motorcycle_gz/CMakeFiles/pid.dir/build
+.PHONY : pid/fast
 
 #=============================================================================
 # Target rules for targets named trajectory_msgs_generate_messages_nodejs
@@ -1405,6 +1431,7 @@ help:
 	@echo "... motorcycle_gz_generate_messages_cpp"
 	@echo "... motorcycle_gz_geneus"
 	@echo "... motorcycle_gz_generate_messages"
+	@echo "... motorcycle_gz_genpy"
 	@echo "... motorcycle_force"
 	@echo "... motorcycle_gz_generate_messages_eus"
 	@echo "... _motorcycle_gz_generate_messages_check_deps_parameterData"
@@ -1414,7 +1441,8 @@ help:
 	@echo "... motorcycle_gz_generate_messages_py"
 	@echo "... motorcycle_gz_gennodejs"
 	@echo "... loadparameter_force"
-	@echo "... motorcycle_gz_genpy"
+	@echo "... velocity_sub"
+	@echo "... pid"
 	@echo "... trajectory_msgs_generate_messages_nodejs"
 	@echo "... add_model"
 	@echo "... trajectory_msgs_generate_messages_lisp"

@@ -54,10 +54,10 @@ find_package(catkin REQUIRED COMPONENTS
 #   Message1.msg
 #   Message2.msg
 # )
- add_message_files(DIRECTORY msg
-   FILES
-   parameterData.msg
- )
+add_message_files(DIRECTORY msg
+  FILES
+  parameterData.msg
+)
 
 ## Generate services in the 'srv' folder
 # add_service_files(
@@ -78,10 +78,10 @@ find_package(catkin REQUIRED COMPONENTS
 #   DEPENDENCIES
 #   std_msgs
 # )
- generate_messages(
-   DEPENDENCIES
-   std_msgs
- )
+generate_messages(
+  DEPENDENCIES
+  std_msgs
+)
 
 ################################################
 ## Declare ROS dynamic reconfigure parameters ##
@@ -148,6 +148,8 @@ include_directories(
 #add_executable(loadparameter src/loadparameter.cpp)
 add_executable(motorcycle_force src/motorcycle_force.cpp)
 add_executable(loadparameter_force src/loadparameter_force.cpp)
+add_executable(velocity_sub src/velocity_sub.cpp)
+add_executable(pid src/pid.cpp src/pid_example.cpp)
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
 ## target back to the shorter version for ease of user use
@@ -157,7 +159,10 @@ add_executable(loadparameter_force src/loadparameter_force.cpp)
 ## Add cmake target dependencies of the executable
 ## same as for the library above
 # add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-
+add_dependencies(motorcycle_force ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(loadparameter_force ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(velocity_sub ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(pid ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 ## Specify libraries to link a library or executable target against
 # target_link_libraries(${PROJECT_NAME}_node
 #   ${catkin_LIBRARIES}
@@ -172,6 +177,12 @@ target_link_libraries(motorcycle_force
   ${catkin_LIBRARIES}
 )
 target_link_libraries(loadparameter_force
+  ${catkin_LIBRARIES}
+)
+target_link_libraries(velocity_sub
+  ${catkin_LIBRARIES}
+)
+target_link_libraries(pid
   ${catkin_LIBRARIES}
 )
 #############

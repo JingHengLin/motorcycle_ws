@@ -81,7 +81,7 @@
     <parent link="Body_Link" />
     <child link="Direction_Link" />
     <axis xyz="0.46947 0 -0.88295" />
-    <limit lower="${-pi*0.8}" upper="${pi*0.8}" effort="10000" velocity="10000" />
+    <limit lower="${-pi*0.5}" upper="${pi*0.5}" effort="10000000000" velocity="10000000000" />
     <dynamics damping="0.0" friction="0.0" />
   </joint>
   <link name="Fwheel_Link">
