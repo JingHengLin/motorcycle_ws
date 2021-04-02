@@ -198,6 +198,51 @@ motorcycle_gz_generate_messages_eus/fast:
 .PHONY : motorcycle_gz_generate_messages_eus/fast
 
 # Convenience name for target.
+motorcycle_gz/CMakeFiles/pid_example.dir/rule:
+	cd /home/iclab/motorcycle_ws/build && $(MAKE) -f CMakeFiles/Makefile2 motorcycle_gz/CMakeFiles/pid_example.dir/rule
+.PHONY : motorcycle_gz/CMakeFiles/pid_example.dir/rule
+
+# Convenience name for target.
+pid_example: motorcycle_gz/CMakeFiles/pid_example.dir/rule
+
+.PHONY : pid_example
+
+# fast build rule for target.
+pid_example/fast:
+	cd /home/iclab/motorcycle_ws/build && $(MAKE) -f motorcycle_gz/CMakeFiles/pid_example.dir/build.make motorcycle_gz/CMakeFiles/pid_example.dir/build
+.PHONY : pid_example/fast
+
+# Convenience name for target.
+motorcycle_gz/CMakeFiles/motorcycle_gz_gencpp.dir/rule:
+	cd /home/iclab/motorcycle_ws/build && $(MAKE) -f CMakeFiles/Makefile2 motorcycle_gz/CMakeFiles/motorcycle_gz_gencpp.dir/rule
+.PHONY : motorcycle_gz/CMakeFiles/motorcycle_gz_gencpp.dir/rule
+
+# Convenience name for target.
+motorcycle_gz_gencpp: motorcycle_gz/CMakeFiles/motorcycle_gz_gencpp.dir/rule
+
+.PHONY : motorcycle_gz_gencpp
+
+# fast build rule for target.
+motorcycle_gz_gencpp/fast:
+	cd /home/iclab/motorcycle_ws/build && $(MAKE) -f motorcycle_gz/CMakeFiles/motorcycle_gz_gencpp.dir/build.make motorcycle_gz/CMakeFiles/motorcycle_gz_gencpp.dir/build
+.PHONY : motorcycle_gz_gencpp/fast
+
+# Convenience name for target.
+motorcycle_gz/CMakeFiles/motorcycle_gz_generate_messages_cpp.dir/rule:
+	cd /home/iclab/motorcycle_ws/build && $(MAKE) -f CMakeFiles/Makefile2 motorcycle_gz/CMakeFiles/motorcycle_gz_generate_messages_cpp.dir/rule
+.PHONY : motorcycle_gz/CMakeFiles/motorcycle_gz_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+motorcycle_gz_generate_messages_cpp: motorcycle_gz/CMakeFiles/motorcycle_gz_generate_messages_cpp.dir/rule
+
+.PHONY : motorcycle_gz_generate_messages_cpp
+
+# fast build rule for target.
+motorcycle_gz_generate_messages_cpp/fast:
+	cd /home/iclab/motorcycle_ws/build && $(MAKE) -f motorcycle_gz/CMakeFiles/motorcycle_gz_generate_messages_cpp.dir/build.make motorcycle_gz/CMakeFiles/motorcycle_gz_generate_messages_cpp.dir/build
+.PHONY : motorcycle_gz_generate_messages_cpp/fast
+
+# Convenience name for target.
 motorcycle_gz/CMakeFiles/motorcycle_gz_geneus.dir/rule:
 	cd /home/iclab/motorcycle_ws/build && $(MAKE) -f CMakeFiles/Makefile2 motorcycle_gz/CMakeFiles/motorcycle_gz_geneus.dir/rule
 .PHONY : motorcycle_gz/CMakeFiles/motorcycle_gz_geneus.dir/rule
@@ -333,6 +378,21 @@ motorcycle_gz_generate_messages_nodejs/fast:
 .PHONY : motorcycle_gz_generate_messages_nodejs/fast
 
 # Convenience name for target.
+motorcycle_gz/CMakeFiles/velocity_goal_web.dir/rule:
+	cd /home/iclab/motorcycle_ws/build && $(MAKE) -f CMakeFiles/Makefile2 motorcycle_gz/CMakeFiles/velocity_goal_web.dir/rule
+.PHONY : motorcycle_gz/CMakeFiles/velocity_goal_web.dir/rule
+
+# Convenience name for target.
+velocity_goal_web: motorcycle_gz/CMakeFiles/velocity_goal_web.dir/rule
+
+.PHONY : velocity_goal_web
+
+# fast build rule for target.
+velocity_goal_web/fast:
+	cd /home/iclab/motorcycle_ws/build && $(MAKE) -f motorcycle_gz/CMakeFiles/velocity_goal_web.dir/build.make motorcycle_gz/CMakeFiles/velocity_goal_web.dir/build
+.PHONY : velocity_goal_web/fast
+
+# Convenience name for target.
 motorcycle_gz/CMakeFiles/motorcycle_gz_generate_messages_py.dir/rule:
 	cd /home/iclab/motorcycle_ws/build && $(MAKE) -f CMakeFiles/Makefile2 motorcycle_gz/CMakeFiles/motorcycle_gz_generate_messages_py.dir/rule
 .PHONY : motorcycle_gz/CMakeFiles/motorcycle_gz_generate_messages_py.dir/rule
@@ -391,51 +451,6 @@ velocity_sub: motorcycle_gz/CMakeFiles/velocity_sub.dir/rule
 velocity_sub/fast:
 	cd /home/iclab/motorcycle_ws/build && $(MAKE) -f motorcycle_gz/CMakeFiles/velocity_sub.dir/build.make motorcycle_gz/CMakeFiles/velocity_sub.dir/build
 .PHONY : velocity_sub/fast
-
-# Convenience name for target.
-motorcycle_gz/CMakeFiles/motorcycle_gz_gencpp.dir/rule:
-	cd /home/iclab/motorcycle_ws/build && $(MAKE) -f CMakeFiles/Makefile2 motorcycle_gz/CMakeFiles/motorcycle_gz_gencpp.dir/rule
-.PHONY : motorcycle_gz/CMakeFiles/motorcycle_gz_gencpp.dir/rule
-
-# Convenience name for target.
-motorcycle_gz_gencpp: motorcycle_gz/CMakeFiles/motorcycle_gz_gencpp.dir/rule
-
-.PHONY : motorcycle_gz_gencpp
-
-# fast build rule for target.
-motorcycle_gz_gencpp/fast:
-	cd /home/iclab/motorcycle_ws/build && $(MAKE) -f motorcycle_gz/CMakeFiles/motorcycle_gz_gencpp.dir/build.make motorcycle_gz/CMakeFiles/motorcycle_gz_gencpp.dir/build
-.PHONY : motorcycle_gz_gencpp/fast
-
-# Convenience name for target.
-motorcycle_gz/CMakeFiles/motorcycle_gz_generate_messages_cpp.dir/rule:
-	cd /home/iclab/motorcycle_ws/build && $(MAKE) -f CMakeFiles/Makefile2 motorcycle_gz/CMakeFiles/motorcycle_gz_generate_messages_cpp.dir/rule
-.PHONY : motorcycle_gz/CMakeFiles/motorcycle_gz_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-motorcycle_gz_generate_messages_cpp: motorcycle_gz/CMakeFiles/motorcycle_gz_generate_messages_cpp.dir/rule
-
-.PHONY : motorcycle_gz_generate_messages_cpp
-
-# fast build rule for target.
-motorcycle_gz_generate_messages_cpp/fast:
-	cd /home/iclab/motorcycle_ws/build && $(MAKE) -f motorcycle_gz/CMakeFiles/motorcycle_gz_generate_messages_cpp.dir/build.make motorcycle_gz/CMakeFiles/motorcycle_gz_generate_messages_cpp.dir/build
-.PHONY : motorcycle_gz_generate_messages_cpp/fast
-
-# Convenience name for target.
-motorcycle_gz/CMakeFiles/pid_example.dir/rule:
-	cd /home/iclab/motorcycle_ws/build && $(MAKE) -f CMakeFiles/Makefile2 motorcycle_gz/CMakeFiles/pid_example.dir/rule
-.PHONY : motorcycle_gz/CMakeFiles/pid_example.dir/rule
-
-# Convenience name for target.
-pid_example: motorcycle_gz/CMakeFiles/pid_example.dir/rule
-
-.PHONY : pid_example
-
-# fast build rule for target.
-pid_example/fast:
-	cd /home/iclab/motorcycle_ws/build && $(MAKE) -f motorcycle_gz/CMakeFiles/pid_example.dir/build.make motorcycle_gz/CMakeFiles/pid_example.dir/build
-.PHONY : pid_example/fast
 
 src/loadparameter_force.o: src/loadparameter_force.cpp.o
 
@@ -602,6 +617,33 @@ src/velocity_goal.cpp.s:
 	cd /home/iclab/motorcycle_ws/build && $(MAKE) -f motorcycle_gz/CMakeFiles/velocity_goal.dir/build.make motorcycle_gz/CMakeFiles/velocity_goal.dir/src/velocity_goal.cpp.s
 .PHONY : src/velocity_goal.cpp.s
 
+src/velocity_goal_web.o: src/velocity_goal_web.cpp.o
+
+.PHONY : src/velocity_goal_web.o
+
+# target to build an object file
+src/velocity_goal_web.cpp.o:
+	cd /home/iclab/motorcycle_ws/build && $(MAKE) -f motorcycle_gz/CMakeFiles/velocity_goal_web.dir/build.make motorcycle_gz/CMakeFiles/velocity_goal_web.dir/src/velocity_goal_web.cpp.o
+.PHONY : src/velocity_goal_web.cpp.o
+
+src/velocity_goal_web.i: src/velocity_goal_web.cpp.i
+
+.PHONY : src/velocity_goal_web.i
+
+# target to preprocess a source file
+src/velocity_goal_web.cpp.i:
+	cd /home/iclab/motorcycle_ws/build && $(MAKE) -f motorcycle_gz/CMakeFiles/velocity_goal_web.dir/build.make motorcycle_gz/CMakeFiles/velocity_goal_web.dir/src/velocity_goal_web.cpp.i
+.PHONY : src/velocity_goal_web.cpp.i
+
+src/velocity_goal_web.s: src/velocity_goal_web.cpp.s
+
+.PHONY : src/velocity_goal_web.s
+
+# target to generate assembly for a file
+src/velocity_goal_web.cpp.s:
+	cd /home/iclab/motorcycle_ws/build && $(MAKE) -f motorcycle_gz/CMakeFiles/velocity_goal_web.dir/build.make motorcycle_gz/CMakeFiles/velocity_goal_web.dir/src/velocity_goal_web.cpp.s
+.PHONY : src/velocity_goal_web.cpp.s
+
 src/velocity_sub.o: src/velocity_sub.cpp.o
 
 .PHONY : src/velocity_sub.o
@@ -642,6 +684,9 @@ help:
 	@echo "... test"
 	@echo "... p_controller"
 	@echo "... motorcycle_gz_generate_messages_eus"
+	@echo "... pid_example"
+	@echo "... motorcycle_gz_gencpp"
+	@echo "... motorcycle_gz_generate_messages_cpp"
 	@echo "... motorcycle_gz_geneus"
 	@echo "... motorcycle_gz_generate_messages"
 	@echo "... edit_cache"
@@ -653,13 +698,11 @@ help:
 	@echo "... motorcycle_gz_generate_messages_lisp"
 	@echo "... motorcycle_gz_genlisp"
 	@echo "... motorcycle_gz_generate_messages_nodejs"
+	@echo "... velocity_goal_web"
 	@echo "... motorcycle_gz_generate_messages_py"
 	@echo "... motorcycle_gz_gennodejs"
 	@echo "... loadparameter_force"
 	@echo "... velocity_sub"
-	@echo "... motorcycle_gz_gencpp"
-	@echo "... motorcycle_gz_generate_messages_cpp"
-	@echo "... pid_example"
 	@echo "... src/loadparameter_force.o"
 	@echo "... src/loadparameter_force.i"
 	@echo "... src/loadparameter_force.s"
@@ -678,6 +721,9 @@ help:
 	@echo "... src/velocity_goal.o"
 	@echo "... src/velocity_goal.i"
 	@echo "... src/velocity_goal.s"
+	@echo "... src/velocity_goal_web.o"
+	@echo "... src/velocity_goal_web.i"
+	@echo "... src/velocity_goal_web.s"
 	@echo "... src/velocity_sub.o"
 	@echo "... src/velocity_sub.i"
 	@echo "... src/velocity_sub.s"

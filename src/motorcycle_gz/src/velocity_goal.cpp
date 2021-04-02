@@ -19,7 +19,7 @@ using namespace std;
 void Delay(int timedelay)
 {
 	double timeuse;
-	struct timeval tstart, tend;
+	struct timeval tstart, tend; 
 	gettimeofday(&tstart, NULL);
 	gettimeofday(&tend, NULL);
 	timeuse = (1000000 * (tend.tv_sec - tstart.tv_sec) + (tend.tv_usec - tstart.tv_usec)) / 1000;
@@ -39,12 +39,15 @@ int main(int argc, char **argv)
 	ros::Rate loop_rate(1000);
 	motorcycle_gz::driveJoint msg;
 	float v_goal = 50; 
-
+	int count = 0;
 	while (nh.ok())
 	{
 		msg.velocity_goal = v_goal;
 		velocity_goal_pub.publish(msg);
-		ROS_INFO("msg.time = %f", msg.velocity_goal);	
+		if((++count)==1000){
+			ROS_INFO("msg.velocity_goal = %f", msg.velocity_goal);
+			count = 0;
+		}
 		loop_rate.sleep();
 	}
 	return 0;

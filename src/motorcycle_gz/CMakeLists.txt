@@ -149,9 +149,10 @@ include_directories(
 add_executable(motorcycle_force src/motorcycle_force.cpp)
 add_executable(loadparameter_force src/loadparameter_force.cpp)
 add_executable(velocity_sub src/velocity_sub.cpp)
+add_executable(velocity_goal_web src/velocity_goal_web.cpp)
 add_executable(pid_example src/pid.cpp src/pid_example.cpp)
 add_executable(velocity_goal src/velocity_goal.cpp)
-add_executable(p_controller src/pid.cpp src/p_controller.cpp)
+add_executable(p_controller src/pid.cpp src/p_controller.cpp) 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
 ## target back to the shorter version for ease of user use
@@ -164,6 +165,7 @@ add_executable(p_controller src/pid.cpp src/p_controller.cpp)
 add_dependencies(motorcycle_force ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 add_dependencies(loadparameter_force ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 add_dependencies(velocity_sub ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(velocity_goal_web ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 add_dependencies(pid_example ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 add_dependencies(velocity_goal ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 add_dependencies(p_controller ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
@@ -184,6 +186,9 @@ target_link_libraries(loadparameter_force
   ${catkin_LIBRARIES}
 )
 target_link_libraries(velocity_sub
+  ${catkin_LIBRARIES}
+)
+target_link_libraries(velocity_goal_web
   ${catkin_LIBRARIES}
 )
 target_link_libraries(pid_example

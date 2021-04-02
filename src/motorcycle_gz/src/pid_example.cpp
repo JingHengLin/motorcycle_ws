@@ -30,6 +30,5 @@ int main() {
         printf("val:% 7.3f inc:% 7.3f\n", val, inc);
         val += inc;
     }
-
     return 0;
 }

@@ -8,19 +8,38 @@ gnome-terminal \
 --window -e 'bash -c "cd ~/motorcycle_ws; killall rosmaster; killall gzserver; killall gzclient; roscore"' \
 --tab -e 'bash -c "sleep 1; source devel/setup.bash; roslaunch motorcycle_gz motorcycle_world.launch"' \
 --tab -e 'bash -c "sleep 5; source devel/setup.bash; rosrun motorcycle_gz p_controller"'
-# --tab -e 'bash -c "sleep 3; source devel/setup.bash; roslaunch motorcycle_gz motorcycle_force.launch"' \
-# --tab -e 'bash -c "sleep 5; source devel/setup.bash; rosrun motorcycle_gz velocity_sub"' \
-# --tab -e 'bash -c "sleep 5; source devel/setup.bash; rosrun motorcycle_gz velocity_goal"' \
 
-
+# # Gazebo Constant Speed 60 PD Controller
 # gnome-terminal \
-# --window -e 'bash -c "cd ~/motorcycle_ws; roscore"' \
-# --tab -e 'bash -c "sleep 5; source devel/setup.bash; roslaunch motorcycle_gz motorcycle_world.launch"' \
-# --tab -e 'bash -c "sleep 5; source devel/setup.bash; roslaunch rosbridge_server rosbridge_websocket.launch"' \
-# --tab -e 'bash -c "sleep 5; source devel/setup.bash; roslaunch motorcycle_gz motorcycle_force.launch"'
+# --window -e 'bash -c "cd ~/motorcycle_ws; killall rosmaster; killall gzserver; killall gzclient; roscore"' \
+# --tab -e 'bash -c "sleep 1; source devel/setup.bash; roslaunch motorcycle_gz motorcycle_world.launch"' \
+# --tab -e 'bash -c "sleep 5; source devel/setup.bash; rosrun motorcycle_gz p_controller"'
 
-# alias motorcycle_world_launch="source devel/setup.bash && roslaunch motorcycle_gz motorcycle_world.launch"
-# alias motorcycle_launch="source devel/setup.bash && roslaunch motorcycle_gz motorcycle.launch"
+# # PID Template
+# gnome-terminal \
+# --window -e 'bash -c "cd ~/motorcycle_ws; killall rosmaster; killall gzserver; killall gzclient; roscore"' \
+#  rosrun motorcycle_gz pid_example"' #******* open another terminal use rosrun to execute*******
 
-# xdotool type 'source devel/setup.bash' && xdotool key Return
-# xdotool type 'roslaunch motorcycle_gz motorcycle.launch' && xdotool key Return
+
+# # GazeboReadFileForce
+# gnome-terminal \
+# --window -e 'bash -c "cd ~/motorcycle_ws; killall rosmaster; killall gzserver; killall gzclient; roscore"' \
+# --tab -e 'bash -c "sleep 1; source devel/setup.bash; roslaunch motorcycle_gz motorcycle_world.launch"' \
+# --tab -e 'bash -c "sleep 3; source devel/setup.bash; roslaunch motorcycle_gz motorcycle_force.launch"' \
+
+# # nodePub
+# gnome-terminal \
+# --window -e 'bash -c "cd ~/motorcycle_ws; killall rosmaster; killall gzserver; killall gzclient; roscore"' \
+# --tab -e 'bash -c "sleep 3; source devel/setup.bash; rosrun motorcycle_gz velocity_goal"' 
+
+# # GazeboVelocitySub
+# gnome-terminal \
+# --window -e 'bash -c "cd ~/motorcycle_ws; killall rosmaster; killall gzserver; killall gzclient; roscore"' \
+# --tab -e 'bash -c "sleep 1; source devel/setup.bash; roslaunch motorcycle_gz motorcycle_world.launch"' \
+# --tab -e 'bash -c "sleep 3; source devel/setup.bash; rosrun motorcycle_gz velocity_sub"' \
+
+# # webPub nodeSub
+# gnome-terminal \
+# --window -e 'bash -c "cd ~/motorcycle_ws; killall rosmaster; killall gzserver; killall gzclient; roscore"' \
+# --tab -e 'bash -c "sleep 1; source devel/setup.bash; roslaunch rosbridge_server rosbridge_websocket.launch"' \
+# --tab -e 'bash -c "sleep 3; source devel/setup.bash; rosrun motorcycle_gz velocity_goal_web"' 
