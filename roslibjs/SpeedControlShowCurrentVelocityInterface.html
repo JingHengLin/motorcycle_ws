@@ -31,15 +31,6 @@
         console.log('Connection to websocket server closed.');
     });
 
-    var velocity_goal_Topic = new ROSLIB.Topic({
-        ros: ros,
-        name: '/velocity_goal',
-        messageType: 'motorcycle_gz/driveJoint'
-    });
-    var velocity_goal_pub = new ROSLIB.Message({
-        velocity_goal: 0
-    });
-
     // -----
     </script>
 	<style type="text/css">
@@ -77,22 +68,42 @@
         <h1 style="color:white;">Drive Parameter</h1>
         <div class="slidecontainer">
             <p style="color:white">velocity_goal : <span style="color:white" id="showVelGoaValue"></span></p>
-            <input type="range" class="Range" min="40" value="60" max="80" step="1" id="VelGoalRange">
+            <input type="range" class="Range" min="40" value="60" max="80" step="1" id="VelGoalRange" oninput="firstVel(this.value)">
+
+            <p style="color:white">velocity_current : <span style="color:white" id="showVelCurrentValue"></span></p>
+
         </div>
 
         <script>
-            var velGoal = document.getElementById("VelGoalRange");
-            var show_velGoal = document.getElementById("showVelGoaValue");
-            show_velGoal.innerHTML = VelGoalRange.value;
+            var velocity_goal_Topic = new ROSLIB.Topic({
+                ros: ros,
+                name: '/velocity_goal',
+                messageType: 'motorcycle_gz/driveJoint'
+            });
             
-            velGoal.oninput = function() {
-                show_velGoal.innerHTML = this.value;
-                var tmpVelGoal = this.value;
-                console.log(tmpVelGoal);
-                velocity_goal_pub.velocity_goal = Number(tmpVelGoal);
+            var velocity_goal_pub = new ROSLIB.Message({
+                velocity_goal: 60
+            });
+        
+            var velocity_current_Topic = new ROSLIB.Topic({
+                ros: ros,
+                name: '/motorcycle/joint_states',
+                messageType: 'sensor_msgs/JointState'
+            });
+            velocity_current_Topic.subscribe(function(msg){
+                document.getElementById("showVelCurrentValue").innerHTML = Number(msg.velocity[0]);
+                console.log("velocity_current", msg.velocity[0]);
+            });
+            
+            window.onload = firstVel(document.getElementById("VelGoalRange").value);
+
+            function firstVel(value) {
+                document.getElementById("showVelGoaValue").innerHTML = value;
+                console.log(value);
+                velocity_goal_pub.velocity_goal = Number(value);
                 velocity_goal_Topic.publish(velocity_goal_pub);
             }
-        </script>        
+        </script>
 </body>
 
 </html>
