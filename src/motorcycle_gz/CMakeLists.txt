@@ -153,6 +153,7 @@ add_executable(velocity_goal_web src/velocity_goal_web.cpp)
 add_executable(pid_example src/pid.cpp src/pid_example.cpp)
 add_executable(velocity_goal src/velocity_goal.cpp)
 add_executable(p_controller src/pid.cpp src/p_controller.cpp) 
+add_executable(p_controller_WebVgoal src/pid.cpp src/p_controller_WebVgoal.cpp)
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
 ## target back to the shorter version for ease of user use
@@ -198,6 +199,9 @@ target_link_libraries(velocity_goal
   ${catkin_LIBRARIES}
 )
 target_link_libraries(p_controller
+  ${catkin_LIBRARIES}
+)
+target_link_libraries(p_controller_WebVgoal
   ${catkin_LIBRARIES}
 )
 #############

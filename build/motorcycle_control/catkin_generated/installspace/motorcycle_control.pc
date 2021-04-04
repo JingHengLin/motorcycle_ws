@@ -1,8 +1,0 @@
-prefix=/home/iclab/motorcycle_ws/install
-
-Name: motorcycle_control
-Description: Description of motorcycle_control
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 
