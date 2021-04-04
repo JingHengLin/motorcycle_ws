@@ -9,6 +9,9 @@ gnome-terminal \
 --tab -e 'bash -c "sleep 1; source devel/setup.bash; roslaunch motorcycle_gz motorcycle_world.launch"' \
 --tab -e 'bash -c "sleep 5; source devel/setup.bash; rosrun motorcycle_gz p_controller"'
 
+
+
+# ------------------------------------------------Record------------------------------------------------------------------------------------------
 # # Gazebo Constant Speed 60 PD Controller
 # gnome-terminal \
 # --window -e 'bash -c "cd ~/motorcycle_ws; killall rosmaster; killall gzserver; killall gzclient; roscore"' \
@@ -43,3 +46,4 @@ gnome-terminal \
 # --window -e 'bash -c "cd ~/motorcycle_ws; killall rosmaster; killall gzserver; killall gzclient; roscore"' \
 # --tab -e 'bash -c "sleep 1; source devel/setup.bash; roslaunch rosbridge_server rosbridge_websocket.launch"' \
 # --tab -e 'bash -c "sleep 3; source devel/setup.bash; rosrun motorcycle_gz velocity_goal_web"' 
+

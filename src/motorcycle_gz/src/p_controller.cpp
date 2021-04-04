@@ -61,8 +61,8 @@ int main(int argc, char **argv)
 {
 	ros::init(argc, argv, "p_controller");
 	ros::NodeHandle nh;
-	ros::Subscriber velocity_sub;
-	velocity_sub = nh.subscribe("/motorcycle/joint_states", 1000, GetInputValue);
+	ros::Subscriber velocity_current_sub;
+	velocity_current_sub = nh.subscribe("/motorcycle/joint_states", 1000, GetInputValue);
 	direction_pub = nh.advertise<std_msgs::Float64>("/motorcycle/FrontFork_Joint_position_controller/command", 1000);
 	force_pub = nh.advertise<std_msgs::Float64>("/motorcycle/Bwheel_Joint_effort_controller/command", 1000);
 	ros::Rate loop_rate(1000);
@@ -81,7 +81,6 @@ int main(int argc, char **argv)
 			time_ROSINFO = 0;
 			ROS_INFO("direction, v_goal, force, v_current : %f %f %f %f", drive_direction, v_goal, drive_force, v_current);
 		}
-
 		loop_rate.sleep();
 	}
 	return 0;
