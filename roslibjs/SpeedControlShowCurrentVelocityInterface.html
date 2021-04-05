@@ -68,10 +68,13 @@
         <h1 style="color:white;">Drive Parameter</h1>
         <div class="slidecontainer">
             <p style="color:white">velocity_goal : <span style="color:white" id="showVelGoaValue"></span></p>
-            <input type="range" class="Range" min="40" value="60" max="80" step="1" id="VelGoalRange" oninput="firstVel(this.value)">
+            <input type="range" class="Range" min="40" value="60" max="80" step="10" id="VelGoalRange" oninput="firstVel(this.value)">
 
             <p style="color:white">velocity_current : <span style="color:white" id="showVelCurrentValue"></span></p>
-
+            
+            <div id="div_orign_image">
+				<img id="orign_image" style="-webkit-user-select: none; display:inline;" src="../plot.png">
+			</div>
         </div>
 
         <script>
@@ -95,6 +98,10 @@
                 console.log("velocity_current", msg.velocity[0]);
             });
             
+            function refresh(){
+                document.getElementById("orign_image").src = "../plot.png?"+Math.random();
+            }
+            setInterval("refresh()", 1000);
             window.onload = firstVel(document.getElementById("VelGoalRange").value);
 
             function firstVel(value) {
