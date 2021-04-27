@@ -4,7 +4,7 @@ source ${DIR}/../../devel/setup.bash
 # My_Gazebo_Model_Path="$( cd "${DIR}/../models" && pwd )"
 # export GAZEBO_MODEL_PATH=${My_Gazebo_Model_Path}
 
-# # Gazebo Speed Control by Web, PD Controller for Bwheel, Show Feedback Velocity on web, Show Feedback Velocity on Web with Topic, plot.py in one thread (ImgWithTopic_plotOneThread.html)
+# # Gazebo Speed Control by Web, PD Controller for Bwheel, Show Feedback Velocity on web, Show Feedback Velocity on Web with Topic, plot.py in one thread (ImgWithTopic_plotOneThread.html pyenv3.6.8)
 gnome-terminal \
 --window -e 'bash -c "cd ~/motorcycle_ws; killall rosmaster; killall gzserver; killall gzclient; roscore"' \
 --tab -e 'bash -c "sleep 1; source devel/setup.bash; rosrun motorcycle_gz plotOneThread.py"' \
