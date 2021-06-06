@@ -20,31 +20,32 @@
 #include "pid.h"
 using namespace std;
 
-
-float v_goal = 15, v_current = 0; 
-float drive_force = 0;
-float drive_direction = 0;
-// ROS Publisher 
-ros::Publisher force_pub;
-ros::Publisher direction_pub;
-// Get current quaternion from Gazebo parameter
+// ROS Subscribe : Velocity
+float v_goal = 10, v_current = 0; 
+// ROS Subscribe : Get current quaternion from Gazebo parameter
 float orientation_x = 0;
 float orientation_y = 0;
 float orientation_z = 0;
 float orientation_w = 0;
-// Euler-Angles
+// ROS Subscribe : Euler-Angles
 float rpy_angle_rad[3] = {0.0, 0.0, 0.0};
 float rpy_angle_deg[3] = {0.0, 0.0, 0.0};
 
+// ROS Publisher : Force
+float drive_force = 0;
+ros::Publisher force_pub;
+// ROS Publisher : Direction
+float drive_direction = 0;
+ros::Publisher direction_pub;
 
 void Delay(int timedelay);
-void set_force(float force);
-void set_position(float direction);
 void GetGoalVelocity(const motorcycle_gz::driveJoint &msg);
 void GetCurrentVelocity(const sensor_msgs::JointState &msg);
 void GetQuaternion(const sensor_msgs::Imu &imu_data);
 void QuaternionEuler();
 void RadiusDegree();
+void set_force(float force);
+void set_position(float direction);
 
 
 int main(int argc, char **argv)
@@ -52,42 +53,66 @@ int main(int argc, char **argv)
 	ros::init(argc, argv, "motorcycle_state");
 	ros::NodeHandle nh;
 
-	// Get input velocity from web
+	// ROS Subscribe : Get input velocity from web
 	ros::Subscriber velocity_goal_sub;
 	velocity_goal_sub = nh.subscribe("/velocity_goal", 1000, GetGoalVelocity);
-	// Get current velocity from Gazebo
+	// ROS Subscribe : Get current velocity from Gazebo
 	ros::Subscriber velocity_current_sub;
 	velocity_current_sub = nh.subscribe("/motorcycle/joint_states", 1000, GetCurrentVelocity);
-	// Pub force to back wheel
-	force_pub = nh.advertise<std_msgs::Float64>("/motorcycle/Bwheel_Joint_effort_controller/command", 1000);
-
-	// Get current quaternion from Gazebo
+	// ROS Subscribe : Get current quaternion from Gazebo 
 	ros::Subscriber quaternion_sub;
 	quaternion_sub = nh.subscribe("/imu", 1000, GetQuaternion);
-	// Pub direction
-	direction_pub = nh.advertise<std_msgs::Float64>("/motorcycle/FrontFork_Joint_position_controller/command", 1000);
 	
-	ros::Rate loop_rate(1000);
-	PID pid = PID(0.001, 5, -5, 0.005, 0, 0);
-
-	int time_ROSINFO = 0;
+	// ROS Publisher : force to back wheel, pid force
+	PID pid_force = PID(0.001, 1, -1, 8, 3, 1);
 	float inc_force = 0;
+	force_pub = nh.advertise<std_msgs::Float64>("/motorcycle/Bwheel_Joint_effort_controller/command", 1000);
+	// ROS Publisher : direction, pid direction
+	PID pid_dir = PID(0.001, 1, -1, 0.001, 0, 0);
+	float inc_direction = 0;
+	direction_pub = nh.advertise<std_msgs::Float64>("/motorcycle/FrontFork_Joint_position_controller/command", 1000);
+
+	// loop rate
+	ros::Rate loop_rate(1000);
+	
+	// Print Value In Terminal : time counter
+	int time_ROSINFO = 0;
+	int counter = 0;
+
 	while (nh.ok())
 	{
 		ros::spinOnce();
-		inc_force = pid.calculate(v_goal, v_current);
+		//////////////// PID Drive Force ////////////////
+		inc_force = pid_force.calculate(v_goal, v_current);
 		drive_force += inc_force;
 		set_force(drive_force);
+		//////////////// PID Drive Force ////////////////
+
+		//////////////// Set Drive Direction ////////////////
+		QuaternionEuler();
+		RadiusDegree();
+		inc_direction = pid_dir.calculate(0, rpy_angle_deg[0]) * (-1);
+		drive_direction += inc_direction;
+		if (drive_direction>5){
+			drive_direction = 5;
+		}
+		else if(drive_direction<-5){
+			drive_direction = -5;
+		}
 		set_position(drive_direction);
-		if ((++time_ROSINFO) == 500){
+		//////////////// Set Drive Direction ////////////////
+
+		//////////////// Print Value In Terminal ////////////////
+		if (counter<1000 && (++time_ROSINFO) == 2){
+			counter++;
 			time_ROSINFO = 0;
 			// ROS_INFO("direction, v_goal, force, v_current : %f %f %f %f", drive_direction, v_goal, drive_force, v_current);
 			// ROS_INFO("quaternion (x, y, z, w): %f,%f,%f,%f", orientation_x, orientation_y, orientation_z, orientation_w);
-			// print rpy_angle_deg
-			QuaternionEuler();
-			RadiusDegree();
-			ROS_INFO("rpy_angle_deg : %f,%f,%f", rpy_angle_deg[0], rpy_angle_deg[1], rpy_angle_deg[2]);
+			// ROS_INFO("rpy_angle_deg : %f,%f,%f", rpy_angle_deg[0], rpy_angle_deg[1], rpy_angle_deg[2]);
+			ROS_INFO("v_current : %f, lean degree : %f, drive_direction : %f", v_current, rpy_angle_deg[0], drive_direction);
 		}
+		//////////////// Print Value In Terminal ////////////////
+
 		loop_rate.sleep();
 	}
 	return 0;
@@ -105,18 +130,6 @@ void Delay(int timedelay)
 		gettimeofday(&tend, NULL);
 		timeuse = (1000000 * (tend.tv_sec - tstart.tv_sec) + (tend.tv_usec - tstart.tv_usec)) / 1000;
 	}
-}
-void set_force(float force)
-{
-	std_msgs::Float64 msg;
-	msg.data = force;
-	force_pub.publish(msg);
-}
-void set_position(float direction)
-{
-	std_msgs::Float64 msg;
-	msg.data = direction;
-	direction_pub.publish(msg);
 }
 void GetGoalVelocity(const motorcycle_gz::driveJoint &msg)
 {
@@ -148,7 +161,18 @@ void RadiusDegree()
 		rpy_angle_deg[i]=(rpy_angle_rad[i])*180/M_PI;
 	}
 }
-
+void set_force(float force)
+{
+	std_msgs::Float64 msg;
+	msg.data = force;
+	force_pub.publish(msg);
+}
+void set_position(float direction)
+{
+	std_msgs::Float64 msg;
+	msg.data = direction;
+	direction_pub.publish(msg);
+}
 
 
 

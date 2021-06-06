@@ -76,7 +76,7 @@
         <h1 style="color:white;">Drive Parameter</h1>
         <div class="slidecontainer">
             <p style="color:white">velocity_goal : <span style="color:white" id="showVelGoaValue"></span></p>
-            <input type="range" class="Range" min="0" value="15" max="80" step="5" id="VelGoalRange" oninput="firstVel(this.value)">
+            <input type="range" class="Range" min="0" value="10" max="80" step="5" id="VelGoalRange" oninput="firstVel(this.value)">
 
             <p style="color:white">velocity_current : <span style="color:white" id="showVelCurrentValue"></span></p>
             
@@ -93,7 +93,7 @@
             });
             
             var velocity_goal_pub = new ROSLIB.Message({
-                velocity_goal: 15
+                velocity_goal: 10
             });
         
             var velocity_current_Topic = new ROSLIB.Topic({

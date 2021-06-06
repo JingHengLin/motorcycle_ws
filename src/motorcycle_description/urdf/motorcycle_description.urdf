@@ -6,7 +6,7 @@
   <link name="Body_Link">
     <inertial>
       <origin xyz="-0.0457307267180003 0.000365145415786028 -0.0589187011884054" rpy="0 0 0" />
-      <mass value="85" />
+      <mass value="65" />
       <inertia ixx="002.02346349576474" ixy="-467.445491686321E-05" ixz="000.835935390031763" iyy="006.09151666273547" iyz="-145.35813974047E-05" izz="006.53262068969237" />
     </inertial>
     <visual>
@@ -57,7 +57,7 @@
   <link name="Direction_Link">
     <inertial>
       <origin xyz="-0.166474781300737 -0.000119263857456087 0.281677589005923" rpy="0 0 0" />
-      <mass value="5" />
+      <mass value="25" />
       <inertia ixx="000.48183824249781" ixy="295.781610845726E-05" ixz="000.0233761603315691" iyy="000.0716769510720634" iyz="157.761186134796E-05" izz="000.451925784703187" />
     </inertial>
     <visual>
@@ -81,7 +81,7 @@
     <parent link="Body_Link" />
     <child link="Direction_Link" />
     <axis xyz="0.46947 0 -0.88295" />
-    <limit lower="${-pi*0.5}" upper="${pi*0.5}" effort="10000000000" velocity="10000000000" />
+    <limit lower="${-45*pi/180}" upper="${45*pi/180}" effort="10000000000" velocity="10000000000" />
     <dynamics damping="1000.0" friction="0.0" />
   </joint>
   <link name="Fwheel_Link">
@@ -116,18 +116,18 @@
 
   <gazebo reference="Body_Link">
     <material>Gazebo/Orange</material>
-    <mu1>1.0</mu1>
-    <mu2>1.0</mu2>
+    <mu1>0.01</mu1>
+    <mu2>0.01</mu2>
     <gravity>true</gravity>
     <sensor name="imu_sensor" type="imu">
       <always_on>true</always_on>
-      <update_rate>100</update_rate>
+      <update_rate>10000</update_rate>
       <visualize>true</visualize>
       <topic>__default_topic__</topic>
       <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
         <topicName>imu</topicName>
         <bodyName>imu_link</bodyName>
-        <updateRateHZ>10.0</updateRateHZ>
+        <updateRateHZ>10000.0</updateRateHZ>
         <gaussianNoise>0.0</gaussianNoise>
         <xyzOffset>0 0 0</xyzOffset>
         <rpyOffset>0 0 0</rpyOffset>
@@ -143,13 +143,13 @@
     <mu2>0.01</mu2>
   </gazebo>
   <gazebo reference="Fwheel_Link">
-    <mu1>1.0</mu1>
-    <mu2>1.0</mu2>
+    <mu1>10.0</mu1>
+    <mu2>10.0</mu2>
     <material>Gazebo/Black</material>
   </gazebo>
   <gazebo reference="Bwheel_Link">
-    <mu1>1.0</mu1>
-    <mu2>1.0</mu2>
+    <mu1>10.0</mu1>
+    <mu2>10.0</mu2>
     <material>Gazebo/Black</material>
   </gazebo>
 
