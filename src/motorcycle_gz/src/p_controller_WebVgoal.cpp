@@ -20,7 +20,7 @@
 using namespace std;
 
 
-float v_goal = 60, v_current = 0; 
+float v_goal = 15, v_current = 0; 
 float drive_force = 0;
 float drive_direction = 0;
 ros::Publisher force_pub;
@@ -72,7 +72,7 @@ int main(int argc, char **argv)
 	direction_pub = nh.advertise<std_msgs::Float64>("/motorcycle/FrontFork_Joint_position_controller/command", 1000);
 	force_pub = nh.advertise<std_msgs::Float64>("/motorcycle/Bwheel_Joint_effort_controller/command", 1000);
 	ros::Rate loop_rate(1000);
-	PID pid = PID(0.001, 100000, -100000, 800, 0, 20);
+	PID pid = PID(0.001, 5, -5, 0.005, 0, 0);
 
 	int time_ROSINFO = 0;
 	float inc = 0;

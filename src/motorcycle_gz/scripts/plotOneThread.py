@@ -29,7 +29,7 @@ global pub
 global imgMsg
 global _flag
 global _flag2
-vGoal = 60
+vGoal = 15
 vCurrent = -1
 vGoal_list = []
 vCurrent_list = []
@@ -106,7 +106,7 @@ def listener():
             else:
                 plt.xlim(xmin =  0 , xmax = 20);
                 # rospy.loginfo(count)
-            plt.ylim(ymin =  0 , ymax = 150);
+            plt.ylim(ymin =  0 , ymax = 40);
             plt.title("Speed of Vehicle", fontsize=24)
             plt.xlabel("Times", fontsize=14)
             plt.ylabel("Velocity(m/s)", fontsize=14)

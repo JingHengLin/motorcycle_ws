@@ -4,16 +4,32 @@ source ${DIR}/../../devel/setup.bash
 # My_Gazebo_Model_Path="$( cd "${DIR}/../models" && pwd )"
 # export GAZEBO_MODEL_PATH=${My_Gazebo_Model_Path}
 
+
+
+# # subscribe imu quaternion
 # # Gazebo Speed Control by Web, PD Controller for Bwheel, Show Feedback Velocity on web, Show Feedback Velocity on Web with Topic, plot.py in one thread (ImgWithTopic_plotOneThread.html pyenv3.6.8)
 gnome-terminal \
 --window -e 'bash -c "cd ~/motorcycle_ws; killall rosmaster; killall gzserver; killall gzclient; roscore"' \
 --tab -e 'bash -c "sleep 1; source devel/setup.bash; rosrun motorcycle_gz plotOneThread.py"' \
 --tab -e 'bash -c "sleep 2; source devel/setup.bash; roslaunch motorcycle_gz webSocket_webVideoServer.launch"' \
 --tab -e 'bash -c "sleep 4; source devel/setup.bash; roslaunch motorcycle_gz motorcycle_world.launch"' \
---tab -e 'bash -c "sleep 8; source devel/setup.bash; rosrun motorcycle_gz p_controller_WebVgoal"' \
+--tab -e 'bash -c "sleep 8; source devel/setup.bash; rosrun motorcycle_gz motorcycle_state"' \
 
 
 # ------------------------------------------------Record------------------------------------------------------------------------------------------
+# # Gazebo Speed Control by Web, PD Controller for Bwheel, Show Feedback Velocity on web, Show Feedback Velocity on Web with Topic, plot.py in one thread (ImgWithTopic_plotOneThread.html pyenv3.6.8)
+# gnome-terminal \
+# --window -e 'bash -c "cd ~/motorcycle_ws; killall rosmaster; killall gzserver; killall gzclient; roscore"' \
+# --tab -e 'bash -c "sleep 1; source devel/setup.bash; rosrun motorcycle_gz plotOneThread.py"' \
+# --tab -e 'bash -c "sleep 2; source devel/setup.bash; roslaunch motorcycle_gz webSocket_webVideoServer.launch"' \
+# --tab -e 'bash -c "sleep 4; source devel/setup.bash; roslaunch motorcycle_gz motorcycle_world.launch"' \
+# --tab -e 'bash -c "sleep 8; source devel/setup.bash; rosrun motorcycle_gz p_controller_WebVgoal"' \
+
+# # Change Mass
+# gnome-terminal \
+# --window -e 'bash -c "cd ~/motorcycle_ws; killall rosmaster; killall gzserver; killall gzclient; roscore"' \
+# --tab -e 'bash -c "sleep 1; source devel/setup.bash; roslaunch motorcycle_gz motorcycle_world.launch"' \
+
 # # Gazebo Speed Control by Web, PD Controller for Bwheel, Show Feedback Velocity on web, Show Feedback Velocity on Web with Topic, plot.py in one thread (ImgWithTopic_plotOneThread.html)
 # gnome-terminal \
 # --window -e 'bash -c "cd ~/motorcycle_ws; killall rosmaster; killall gzserver; killall gzclient; roscore"' \

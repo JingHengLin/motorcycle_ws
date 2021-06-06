@@ -154,6 +154,7 @@ add_executable(pid_example src/pid.cpp src/pid_example.cpp)
 add_executable(velocity_goal src/velocity_goal.cpp)
 add_executable(p_controller src/pid.cpp src/p_controller.cpp) 
 add_executable(p_controller_WebVgoal src/pid.cpp src/p_controller_WebVgoal.cpp)
+add_executable(motorcycle_state src/pid.cpp src/motorcycle_state.cpp)
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
 ## target back to the shorter version for ease of user use
@@ -169,7 +170,8 @@ add_dependencies(velocity_sub ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPOR
 add_dependencies(velocity_goal_web ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 add_dependencies(pid_example ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 add_dependencies(velocity_goal ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-add_dependencies(p_controller ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(p_controller_WebVgoal ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(motorcycle_state ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 ## Specify libraries to link a library or executable target against
 # target_link_libraries(${PROJECT_NAME}_node
 #   ${catkin_LIBRARIES}
@@ -202,6 +204,9 @@ target_link_libraries(p_controller
   ${catkin_LIBRARIES}
 )
 target_link_libraries(p_controller_WebVgoal
+  ${catkin_LIBRARIES}
+)
+target_link_libraries(motorcycle_state
   ${catkin_LIBRARIES}
 )
 #############
