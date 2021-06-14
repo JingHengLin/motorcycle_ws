@@ -67,8 +67,9 @@ int main(int argc, char **argv)
 	PID pid_force = PID(0.001, 1, -1, 8, 3, 1);
 	float inc_force = 0;
 	force_pub = nh.advertise<std_msgs::Float64>("/motorcycle/Bwheel_Joint_effort_controller/command", 1000);
+
 	// ROS Publisher : direction, pid direction
-	PID pid_dir = PID(0.001, 1, -1, 0.001, 0, 0);
+	PID pid_dir = PID(0.001, 30, -30, 10, 0, 0);
 	float inc_direction = 0;
 	direction_pub = nh.advertise<std_msgs::Float64>("/motorcycle/FrontFork_Joint_position_controller/command", 1000);
 
@@ -88,19 +89,19 @@ int main(int argc, char **argv)
 		set_force(drive_force);
 		//////////////// PID Drive Force ////////////////
 
-		//////////////// Set Drive Direction ////////////////
+		//////////////// PID Drive Direction ////////////////
 		QuaternionEuler();
 		RadiusDegree();
 		inc_direction = pid_dir.calculate(0, rpy_angle_deg[0]) * (-1);
 		drive_direction += inc_direction;
-		if (drive_direction>5){
-			drive_direction = 5;
+		if (drive_direction>30){
+			drive_direction = 30;
 		}
-		else if(drive_direction<-5){
-			drive_direction = -5;
+		else if(drive_direction<-30){
+			drive_direction = -30;
 		}
 		set_position(drive_direction);
-		//////////////// Set Drive Direction ////////////////
+		//////////////// PID Drive Direction ////////////////
 
 		//////////////// Print Value In Terminal ////////////////
 		if (counter<1000 && (++time_ROSINFO) == 2){
