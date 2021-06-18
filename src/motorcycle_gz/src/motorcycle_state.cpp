@@ -69,7 +69,7 @@ int main(int argc, char **argv)
 	force_pub = nh.advertise<std_msgs::Float64>("/motorcycle/Bwheel_Joint_effort_controller/command", 1000);
 
 	// ROS Publisher : direction, pid direction
-	PID pid_dir = PID(0.001, 30, -30, 10, 0, 0);
+	PID pid_dir = PID(0.001, 30, -30, 1, 0.05, 0);
 	float inc_direction = 0;
 	direction_pub = nh.advertise<std_msgs::Float64>("/motorcycle/FrontFork_Joint_position_controller/command", 1000);
 
@@ -92,20 +92,21 @@ int main(int argc, char **argv)
 		//////////////// PID Drive Direction ////////////////
 		QuaternionEuler();
 		RadiusDegree();
-		inc_direction = pid_dir.calculate(0, rpy_angle_deg[0]) * (-1);
-		drive_direction += inc_direction;
-		if (drive_direction>30){
-			drive_direction = 30;
-		}
-		else if(drive_direction<-30){
-			drive_direction = -30;
+		if(rpy_angle_deg[0]>0||rpy_angle_deg[0]<-0){
+			inc_direction = pid_dir.calculate(0, rpy_angle_deg[0]) * (-1);
+			drive_direction += inc_direction;
+			if (drive_direction>30){
+				drive_direction = 30;
+			}
+			else if(drive_direction<-30){
+				drive_direction = -30;
+			}
 		}
 		set_position(drive_direction);
 		//////////////// PID Drive Direction ////////////////
 
 		//////////////// Print Value In Terminal ////////////////
-		if (counter<1000 && (++time_ROSINFO) == 2){
-			counter++;
+		if ((++time_ROSINFO) == 500){
 			time_ROSINFO = 0;
 			// ROS_INFO("direction, v_goal, force, v_current : %f %f %f %f", drive_direction, v_goal, drive_force, v_current);
 			// ROS_INFO("quaternion (x, y, z, w): %f,%f,%f,%f", orientation_x, orientation_y, orientation_z, orientation_w);
